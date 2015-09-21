@@ -1,3 +1,18 @@
-require 'rails-helper'
+require "rails_helper"
 
-feature 'user views the candi'
+feature "view candidates" do
+  scenario "guest can see candidates list" do
+    Candidate.create(name: "Donald Trump", party: "Republican", bio: "Luxurious")
+
+    visit root_path
+    expect(current_path).to eq("/")
+
+    click_button "Browse 2016 Candidates"
+    expect(current_path).to eq("/candidates")
+
+    within("#candidates") do
+      expect(page).to have_content("Democrat")
+      expect(page).to have_content("Trump")
+    end
+  end
+end
