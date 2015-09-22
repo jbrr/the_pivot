@@ -16,7 +16,7 @@ Issue.create(topic: "Environment", description: "Set to be a hotly contested iss
 
 Issue.create(topic: "Immigration", description: "Some candidates insist that their families materialized from America's soil, never to have experienced immigration, while others would like to open Lady Liberty's arms to the masses.")
 
-Issue.create(topic: "ISIS", description: "We can already hear the arguments unfolding and the debates haven't started. Republican: 'In conjunction with sharing our deep held values of A-MUR-I-CA, cheeseburgers included, we are making great progress against ISIS with every drone strike. They're the best!' Demorats: 'No no no, drone attacks are the work of the devil! We should sit down to a nice lunch with their leader and discuss these issues like adults.'")
+Issue.create(topic: "ISIS", description: "We can already hear the arguments unfolding and the debates haven't started. Republican: 'In conjunction with sharing our deep held values of A-MUR-I-CA, cheeseburgers included, we are making great progress against ISIS with every drone strike. They're the best!' Democrats: 'No no no, drone attacks are the work of the devil! We should sit down to a nice lunch with their leader and discuss these issues like adults.'")
 
 Issue.create(topic: "Gun Control", description: "'Let them have guns!,' some politicians might yell, channelling their inner Marie Antoinettes, while others will argue that prison rules should apply - anything that can be used as a weapon, should be illegal. Please ask yourself, would you like to own an AK47 or would you like to eat with your hands?")
 
