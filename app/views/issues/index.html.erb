@@ -1,0 +1,7 @@
+<div id="issues">
+  <h1>The Issues</h1>
+    <% @issues.each do |issue| %>
+      <%= issue.topic %>
+      <%= issue.description %>
+    <% end %>
+</div>

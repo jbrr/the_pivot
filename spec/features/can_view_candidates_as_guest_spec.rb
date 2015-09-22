@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "view candidates" do
+feature "Can view candidates" do
   scenario "guest can see candidates list" do
     Candidate.create(name: "Donald Trump", party: "Republican", bio: "Luxurious")
 
