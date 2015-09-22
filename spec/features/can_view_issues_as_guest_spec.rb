@@ -11,7 +11,7 @@ feature "Can view issues" do
     expect(current_path).to eq("/issues")
 
     within("#issues") do
-      expect(page).to have_content("Gun Control")
+      expect(page).to have_content("gun control")
       expect(page).to have_content("pro guns!")
     end
   end
