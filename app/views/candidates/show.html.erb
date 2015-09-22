@@ -3,6 +3,7 @@
 
 <div id="stances">
 <% @candidate.candidate_issues.each do |issue| %>
-<%= issue.stance %>
+  <%= issue.topic %>
+  <%= issue.stance %>
 <% end %>
 </div>

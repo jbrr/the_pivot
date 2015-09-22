@@ -1,5 +1,5 @@
 require 'rails_helper'
 
 RSpec.describe CandidateIssue, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should delegate_method(:topic).to :issue }
 end
