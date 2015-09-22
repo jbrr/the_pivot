@@ -1,0 +1,12 @@
+<div class="container" id="user_names">
+  <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+</div>
+
+<div class="container row">
+  <div class="btn btn-default">
+    <%= link_to candidates_path %>
+  </div>
+  <div class="btn btn-default">
+    <%= link_to issues_path %>
+  </div>
+</div>

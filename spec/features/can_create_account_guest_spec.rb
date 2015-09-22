@@ -16,8 +16,11 @@ feature "guest creates an account" do
     fill_in "user[password]", with: "luxurious"
     click_on "Join Earmarked"
 
-    user = User.find(1)
+    user = User.find_by(email: "trump@luxury.com")
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(profile_path(user))
+    within("#user_names") do
+      expect(page).to have_content("Donald Trump")
+    end
   end
 end
