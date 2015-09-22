@@ -1,5 +1,6 @@
 class CandidatesController < ApplicationController
   def index
-    @candidates = Candidate.all
+    @democrats = Candidate.where(party: "Democratic")
+    @republicans = Candidate.where(party: "Republican")
   end
 end
