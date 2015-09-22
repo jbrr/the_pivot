@@ -19,7 +19,7 @@
            <img class="img-responsive" src="http://ste.india.com/sites/default/files/styles/zm_700x400/public/2015/09/03/397575-donald-trump.jpg?itok=aa4HugNl" alt="">
         </a>
         <h3>
-           <a href="#"><%= candidate.name %></a>
+           <%= link_to candidate.name, candidate_path(candidate) %>
         </h3>
         <p><%= candidate.bio %></p>
       </div>
@@ -36,7 +36,7 @@
              <img class="img-responsive" src="http://placehold.it/700x400" alt="">
          </a>
          <h3>
-             <a href="#"><%= candidate.name %></a>
+          <%= link_to candidate.name, candidate_path(candidate) %>
          </h3>
          <p><%= candidate.bio %></p>
      </div>
