@@ -7,7 +7,7 @@ feature "view candidates" do
     visit root_path
     expect(current_path).to eq("/")
 
-    click_button "Browse 2016 Candidates"
+    click_link "Browse 2016 Candidates"
     expect(current_path).to eq("/candidates")
 
     within("#candidates") do
