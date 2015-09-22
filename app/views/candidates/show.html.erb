@@ -1,3 +1,8 @@
 <%= @candidate.name %>'s Show page!
 <%= @candidate.bio %>
-<%= @candidate_issue.stance %>
+
+<div id="stances">
+<% @candidate.candidate_issues.each do |issue| %>
+<%= issue.stance %>
+<% end %>
+</div>

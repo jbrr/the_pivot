@@ -6,6 +6,5 @@ class CandidatesController < ApplicationController
 
   def show
     @candidate = Candidate.find_by(params[:name])
-    @candidates_issues = @candidate.candidates_issues
   end
 end
