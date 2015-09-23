@@ -6,8 +6,8 @@
        <h1 class="page-header"><%= @candidate.name %></h1>
     </div>
     <div class="col-lg-6">
-      <% @candidate.candidate_issues.each do |issue| %>
-        <%= render partial: "candidate_issue_row", locals: {issue: issue} %>
+      <% @candidate.candidate_issues.each do |candidate_issue| %>
+        <%= render partial: "candidate_issue_row", locals: {candidate_issue: candidate_issue} %>
       <% end %>
     </div>
   </div>

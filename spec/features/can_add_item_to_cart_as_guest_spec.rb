@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Add donation to cart" do
-  scenario "as guest" do
+  scenario "as guest and view on cart page" do
     candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
     issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")

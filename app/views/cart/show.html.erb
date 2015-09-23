@@ -1,0 +1,9 @@
+<div class="container">
+
+  <ul>
+    <% @donations.each do |candidate_issue_id, amount| %>
+    <li><%= CandidateIssue.find(candidate_issue_id).candidate.name %> : <%= CandidateIssue.find(candidate_issue_id).issue.topic %> : <%= amount.to_s %> </li>
+    <% end %>
+  </ul>
+
+</div>
