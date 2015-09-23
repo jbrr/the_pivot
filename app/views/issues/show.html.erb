@@ -1,0 +1,8 @@
+<%= @issue.topic %>'s Show page!
+<%= @issue.description %>
+
+<div id="candidate-stances">
+<% @issue.candidates.each do |issue| %>
+<%= issue.description %>
+<% end %>
+</div>
