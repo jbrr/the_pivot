@@ -35,6 +35,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'pry', :require => 'pry'
+  gem 'shoulda-matchers'
 
 end
 

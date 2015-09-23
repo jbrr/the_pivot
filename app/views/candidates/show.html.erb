@@ -1,0 +1,8 @@
+<%= @candidate.name %>'s Show page!
+<%= @candidate.bio %>
+
+<div id="stances">
+<% @candidate.candidate_issues.each do |issue| %>
+  <%= render partial: "candidate_issue_row", locals: {issue: issue} %>
+<% end %>
+</div>
