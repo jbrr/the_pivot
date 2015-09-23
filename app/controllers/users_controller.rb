@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to profile_path(@user)
     else
-      flash[:error] = @user.errors.full_messages.join(", ")
+      flash[:errors] = @user.errors.full_messages.join(", ")
       render :new
     end
   end
