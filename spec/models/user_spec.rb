@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
 
   let(:user) {
-    User.new(first_name: "Donald", last_name: "Trump", email: "trump@luxury.com", username: "therealtrump", password: "password")
+    User.create(first_name: "Donald", last_name: "Trump", email: "trump@luxury.com", username: "therealtrump", password: "password")
   }
   it "is valid" do
     expect(user).to be_valid
