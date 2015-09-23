@@ -27,7 +27,7 @@ feature "Can view individual issue" do
     issue = Issue.create(topic: "Women's Rights", description: "Abortion?")
     CandidateIssue.create(candidate: candidate, issue: issue, stance: "No rights!")
 
-    visit candidates_path
+    visit issues_path
     expect(current_path).to eq("/issues")
 
     click_link "Women's Rights"

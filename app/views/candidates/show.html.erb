@@ -1,8 +1,20 @@
-<%= @candidate.name %>'s Show page!
-<%= @candidate.bio %>
-
-<div id="stances">
-<% @candidate.candidate_issues.each do |issue| %>
-  <%= render partial: "candidate_issue_row", locals: {issue: issue} %>
-<% end %>
+<!-- Page Content -->
+<div class="container" id="stances">
+   <!-- Page Header -->
+  <div class="row">
+    <div class="col-lg-6">
+       <h1 class="page-header"><%= @candidate.name %></h1>
+    </div>
+    <div class="col-lg-6">
+      <% @candidate.candidate_issues.each do |issue| %>
+        <%= render partial: "candidate_issue_row", locals: {issue: issue} %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <h3><%= @candidate.bio %> </h3>
+    </div>
+  </div>
 </div>
+   <!-- /.row -->
