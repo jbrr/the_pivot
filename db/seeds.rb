@@ -21,3 +21,11 @@ Issue.create(topic: "ISIS", description: "We can already hear the arguments unfo
 Issue.create(topic: "Gun Control", description: "'Let them have guns!,' some politicians might yell, channelling their inner Marie Antoinettes, while others will argue that prison rules should apply - anything that can be used as a weapon, should be illegal. Please ask yourself, would you like to own an AK47 or would you like to eat with your hands?")
 
 Issue.create(topic: "Economy", description: "The hard working, and deserving, 1 percenters are the way of the future according to some. Others envision a single world commune where everyone's opinion is equally important.")
+
+CandidateIssue.create(stance: "All trees should be gilded.", candidate_id: 1, issue_id: 2)
+
+CandidateIssue.create(stance: "Kill 'em all!", candidate_id: 1, issue_id: 4)
+
+CandidateIssue.create(stance: "The human race is a plague on our planet, extermination is the only reasonable course of action.", candidate_id: 5, issue_id: 2)
+
+CandidateIssue.create(stance: "Let's invite them all to a round table discussion.", candidate_id: 5, issue_id: 4)
