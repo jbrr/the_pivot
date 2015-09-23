@@ -105,20 +105,20 @@
         <!-- Call to Action Section -->
         <div class="well">
             <div class="row">
-                <div class="col-md-6">
-                   <a class="btn btn-lg btn-default btn-block" <%= link_to "Browse 2016 Candidates", candidates_path %>
+                <div class="col-md-6" id="browse-candidates-button">
+                    <%= link_to "Browse 2016 Candidates", candidates_path, class: "btn btn-lg btn-default btn-block" %>
                 </div>
 
-                <div class="col-md-6">
-                    <a class="btn btn-lg btn-default btn-block" <%= link_to "Browse 2016 Issues", issues_path %>
+                <div class="col-md-6" id="browse-issues-button">
+                    <%= link_to "Browse 2016 Issues", issues_path, class: "btn btn-lg btn-default btn-block" %>
                 </div>
             </div>
         </div>
 
         <div class="well">
             <div class="row">
-                <div class="col-md-6a">
-                    <a class="btn btn-lg btn-default btn-block" href="#">Login</a>
+                <div class="col-md-6a" id="login-button">
+                    <%= link_to "Login", login_path, class: "btn btn-lg btn-default btn-block" %>
                 </div>
             </div>
         </div>
