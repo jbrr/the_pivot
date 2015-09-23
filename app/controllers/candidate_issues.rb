@@ -1,0 +1,3 @@
+class CandidateIssuesController < ApplicationController
+
+end
