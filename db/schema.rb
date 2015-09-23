@@ -16,6 +16,14 @@ ActiveRecord::Schema.define(version: 20150922222047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "candidate_issues", force: :cascade do |t|
+    t.string   "stance"
+    t.integer  "candidate_id"
+    t.integer  "issue_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "candidates", force: :cascade do |t|
     t.string   "name"
     t.string   "party"
@@ -40,5 +48,4 @@ ActiveRecord::Schema.define(version: 20150922222047) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
-
 end
