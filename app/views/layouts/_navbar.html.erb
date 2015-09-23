@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navbar-flash">
   <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -31,8 +31,15 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "Join", new_user_path %>
+              <% if current_user %>
+                <%= link_to "Logout", logout_path, method: :delete %>
+              <% else %>
+                <%= link_to "Join", new_user_path %>
             </li>
+            <li>
+                <%= link_to "Login", login_path %>
+            </li>
+              <% end %>
           </ul>
       </div>
         <!-- /.navbar-collapse -->
