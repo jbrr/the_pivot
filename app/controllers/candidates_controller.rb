@@ -5,6 +5,6 @@ class CandidatesController < ApplicationController
   end
 
   def show
-    @candidate = Candidate.find_by(params[:name])
+    @candidate = Candidate.find(params[:id])
   end
 end
