@@ -6,9 +6,11 @@
        <h1 class="page-header"><%= @issue.topic %></h1>
     </div>
     <div class="col-lg-6">
-      <% @issue.candidate_issues.each do |issue| %>
-        <%= render partial: "candidate_issue_row", locals: {issue: issue} %>
-      <% end %>
+      <ul class="list-group">
+        <% @issue.candidate_issues.each do |issue| %>
+          <li class="list-group-item"><%= render partial: "candidate_issue_row", locals: {issue: issue} %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
   <div class="row">
