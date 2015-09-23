@@ -3,7 +3,6 @@
 
 <div id="stances">
 <% @candidate.candidate_issues.each do |issue| %>
-  <%= issue.topic %>
-  <%= issue.stance %>
+  <%= render partial: "candidate_issue_row", locals: {issue: issue} %>
 <% end %>
 </div>
