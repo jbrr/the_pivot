@@ -1,0 +1,22 @@
+<br>
+<div class="container row">
+  <div class="col-md-5">
+
+  </div>
+  <div class="col-md-5">
+    <table class="table table-striped">
+      <tr>
+        <th>Candidate</th>
+        <th>Issue</th>
+        <th>Amount Donated</th>
+      </tr>
+      <% @donations.each do |candidate_issue_id, amount| %>
+      <tr>
+        <td><%= candidate(candidate_issue_id) %></td>
+        <td><%= issue(candidate_issue_id) %></td>
+        <td><%= amount.to_s %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
