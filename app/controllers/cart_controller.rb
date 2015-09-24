@@ -1,7 +1,6 @@
 class CartController < ApplicationController
   helper_method :candidate, :issue
 
-
   def show
     @donations = session[:donations]
   end
