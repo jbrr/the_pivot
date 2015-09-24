@@ -9,7 +9,7 @@ feature "Add donation to cart" do
     visit candidate_path(candidate)
     within("#stances") do
       fill_in "Amount", with: 100
-      click_button "Add To Donation"
+      click_button "Donate"
     end
     within("#cart") do
       click_link "Cart"
