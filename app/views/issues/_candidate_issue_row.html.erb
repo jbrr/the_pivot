@@ -6,6 +6,6 @@
   <%= f.label :amount %>
   <%= f.hidden_field :candidate_issue_id, value: candidate_issue.id %>
   <%= f.text_field :amount %>
-  <%= f.hidden_field :candidate_id, value: candidate_issue.candidate_id %>
+  <%= f.hidden_field :issue_id, value: candidate_issue.issue_id %>
   <%= f.submit "Donate" %>
 <% end %>
