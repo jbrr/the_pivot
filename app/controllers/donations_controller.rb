@@ -2,7 +2,7 @@ class DonationsController < ApplicationController
 
   def create
     candidate_issue_id = params[:donation][:candidate_issue_id]
-    session[:donations] = {}
+    session[:donations] ||= {}
 
     if session[:donations][candidate_issue_id]
       session[:donations][candidate_issue_id] = (session[:donations][candidate_issue_id].to_i + params[:donation][:amount].to_i).to_s
