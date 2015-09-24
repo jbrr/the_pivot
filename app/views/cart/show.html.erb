@@ -10,13 +10,24 @@
         <th>Issue</th>
         <th>Amount Donated</th>
       </tr>
-      <% @donations.each do |candidate_issue_id, amount| %>
+      <% cart.donations.each do |donation| %>
       <tr>
-        <td><%= candidate(candidate_issue_id) %></td>
-        <td><%= issue(candidate_issue_id) %></td>
-        <td><%= amount.to_s %></td>
+        <td><%= donation.candidate.name %></td>
+        <td><%= donation.issue.topic %></td>
+        <td><%= donation.amount %></td>
       </tr>
       <% end %>
+
     </table>
+
+<!--
+      <%# @donations.each do |candidate_issue_id, amount| %>
+      <tr>
+        <td><%#= candidate(candidate_issue_id) %></td>
+        <td><%##= issue(candidate_issue_id) %></td>
+        <td><%#= amount.to_s %></td>
+      </tr>
+      <% #end %>
+    </table> -->
   </div>
 </div>
