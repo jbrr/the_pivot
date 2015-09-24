@@ -4,6 +4,7 @@
 
   </div>
   <div class="col-md-5">
+    <% if cart.donations %>
     <table class="table table-striped">
       <tr>
         <th>Candidate</th>
@@ -17,17 +18,15 @@
         <td><%= donation.amount %></td>
       </tr>
       <% end %>
-
     </table>
-
-<!--
-      <%# @donations.each do |candidate_issue_id, amount| %>
-      <tr>
-        <td><%#= candidate(candidate_issue_id) %></td>
-        <td><%##= issue(candidate_issue_id) %></td>
-        <td><%#= amount.to_s %></td>
-      </tr>
-      <% #end %>
-    </table> -->
+    <% else %>
+      <h3>Your cart is empty.</h3>
+    <% end %>
   </div>
+  <button class="btn">
+    View more issues.
+  </button>
+  <button class="btn">
+    View more candidates.
+  </button>
 </div>

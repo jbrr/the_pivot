@@ -6,8 +6,10 @@ class Cart
   end
 
   def donations
-    @donations.map do |candidate_issue_id, amount|
-      Donation.new(candidate_issue_id: candidate_issue_id, amount: amount)
+    if @donations
+      @donations.map do |candidate_issue_id, amount|
+        Donation.new(candidate_issue_id: candidate_issue_id, amount: amount)
+      end
     end
   end
 
@@ -20,7 +22,7 @@ class Cart
     else
       donations[candidate_issue_id] = params[:donation][:amount]
     end
-  
+
     donations
   end
 end

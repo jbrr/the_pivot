@@ -38,4 +38,16 @@ feature "Add donation to cart" do
     expect(page).to have_content("Gun Control")
     expect(page).to have_content("100")
   end
+
+  scenario "as guest view empty cart" do
+    visit root_path
+    within("#cart") do
+      click_link "Cart"
+    end
+
+    expect(current_path).to eq(cart_path)
+    expect(page).to have_content("Your cart is empty.")
+    expect(page).to have_button("View more issues.")
+    expect(page).to have_button("View more candidates.")
+  end
 end
