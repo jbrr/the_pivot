@@ -4,6 +4,7 @@
 
   </div>
   <div class="col-md-5">
+    <% if cart.donations %>
     <table class="table table-striped">
       <tr>
         <th>Candidate</th>
@@ -18,5 +19,14 @@
       </tr>
       <% end %>
     </table>
+    <% else %>
+      <h3>Your cart is empty.</h3>
+    <% end %>
   </div>
+  <button class="btn">
+    View more issues.
+  </button>
+  <button class="btn">
+    View more candidates.
+  </button>
 </div>
