@@ -1,14 +1,14 @@
 <!-- Page Content -->
-<div class="container" id="stances">
+<div class="container">
    <!-- Page Header -->
   <div class="row">
     <div class="col-lg-6">
        <h1 class="page-header"><%= @issue.topic %></h1>
     </div>
     <div class="col-lg-6">
-      <ul class="list-group">
-        <% @issue.candidate_issues.each do |issue| %>
-          <li class="list-group-item"><%= render partial: "candidate_issue_row", locals: {issue: issue} %></li>
+      <ul class="list-group" id="stances">
+        <% @issue.candidate_issues.each do |candidate_issue| %>
+          <li class="list-group-item"><%= render partial: "candidate_issue_row", locals: {candidate_issue: candidate_issue} %>
         <% end %>
       </ul>
     </div>
