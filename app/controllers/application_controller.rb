@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :cart
   def cart
+    binding.pry
     Cart.new(session[:donations])
   end
 end
