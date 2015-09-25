@@ -110,25 +110,24 @@
 				<!-- /.row -->
 				<hr>
 				<!-- Call to Action Section -->
-				<div class="well">
+				<div class="container" id="button-front-page">
 						<div class="row">
-								<div class="col-md-6" id="browse-candidates-button">
-										<%= link_to "Browse All 2016 Candidates", candidates_path, class: "btn btn-lg btn-default btn-block" %>
+								<div class="col-md-offset-2 col-md-4" id="browse-candidates-button">
+										<%= link_to "Browse All 2016 Candidates", candidates_path, class: "btn btn-lg btn-default btn-block btn btn-primary" %>
 								</div>
 
-								<div class="col-md-6" id="browse-issues-button">
-										<%= link_to "Browse All 2016 Issues", issues_path, class: "btn btn-lg btn-default btn-block" %>
+								<div class="col-md-4" id="browse-issues-button">
+										<%= link_to "Browse All 2016 Issues", issues_path, class: "btn btn-lg btn-default btn-block btn btn-primary" %>
 								</div>
 						</div>
 				</div>
 
-				<div class="well">
-						<div class="row">
-								<div class="col-md-6a" id="login-button">
-										<%= link_to "Login", login_path, class: "btn btn-lg btn-default btn-block" %>
-								</div>
+				<div class="row">
+						<div class="col-md-offset-4 col-md-4" id="login-button">
+								<%= link_to "Login", login_path, class: "btn-lg btn btn-lg btn-default btn-block btn btn-danger" %>
 						</div>
 				</div>
+
 
 				<hr>
 				<!-- /.row -->
