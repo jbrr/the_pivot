@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :candidates, only: [:index, :show]
   resources :users, only: [:new, :create]
   resources :issues, only: [:index, :show]
-  resources :donations, only: [:create]
+  resources :donations, only: [:create, :edit, :delete]
 
   get "/cart", to: "cart#show"
 
