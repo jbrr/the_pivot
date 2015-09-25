@@ -6,6 +6,7 @@ class DonationsController < ApplicationController
     else
       session[:donations] = cart.add(params)
     end
+    flash[:notice] = "Donation added to cart."
     return_to_origin_page
   end
 

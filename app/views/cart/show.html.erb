@@ -22,7 +22,7 @@
         <tr>
           <td><%= donation.candidate.name %></td>
           <td><%= donation.issue.topic %></td>
-          <td><%= donation.amount %></td>
+          <td>$<%= donation.amount %></td>
           <td><%= link_to "Edit",
                   edit_donation_path(donation.candidate_issue_id),
                   class: "btn btn-primary" %></td>
@@ -35,7 +35,7 @@
       <tr>
         <td></td>
         <td><strong>Total Donations</strong></td>
-        <td>**NUMBER**</td>
+        <td>$<%= cart.total %></td>
         <td colspan="2" align="center"><div class="btn btn-success">DONATE</div></td>
       </tr>
     </table>
