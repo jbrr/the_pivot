@@ -1,7 +1,11 @@
 class DonationsController < ApplicationController
 
   def create
-    session[:donations] = cart.add(params)
+    if session[:donations]
+      session[:donations] = session[:donations].merge(cart.add(params))
+    else
+      session[:donations] = cart.add(params)
+    end
     return_to_origin_page
   end
 
