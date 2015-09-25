@@ -5,6 +5,14 @@ class DonationsController < ApplicationController
     return_to_origin_page
   end
 
+  def edit
+    redirect_to cart_path
+  end
+
+  def delete
+    redirect_to cart_path
+  end
+
   private
 
     def return_to_origin_page

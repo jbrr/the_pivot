@@ -1,4 +1,9 @@
-<br>
+<div class="container">
+  <%= render "layouts/flashes" %>
+</div>
+
+<br><h3 align="center">Your Donations Cart</h3><br>
+
 <div class="container row">
   <div class="col-md-5">
 
@@ -10,23 +15,44 @@
         <th>Candidate</th>
         <th>Issue</th>
         <th>Amount Donated</th>
+        <th>Edit</th>
+        <th>Remove</th>
       </tr>
       <% cart.donations.each do |donation| %>
-      <tr>
-        <td><%= donation.candidate.name %></td>
-        <td><%= donation.issue.topic %></td>
-        <td><%= donation.amount %></td>
-      </tr>
+        <tr>
+          <td><%= donation.candidate.name %></td>
+          <td><%= donation.issue.topic %></td>
+          <td><%= donation.amount %></td>
+          <td><%= link_to "Edit",
+                  edit_donation_path(donation.candidate_issue_id),
+                  class: "btn btn-primary" %></td>
+          <td><%= link_to "Remove",
+                  donations_path(donation.candidate_issue_id),
+                  method: :delete,
+                  class: "btn btn-danger" %></td>
+        </tr>
       <% end %>
+      <tr>
+        <td></td>
+        <td><strong>Total Donations</strong></td>
+        <td>**NUMBER**</td>
+        <td colspan="2" align="center"><div class="btn btn-success">DONATE</div></td>
+      </tr>
     </table>
     <% else %>
       <h3>Your cart is empty.</h3>
     <% end %>
   </div>
-  <button class="btn btn-default">
-    <%= link_to "View more issues.", issues_path %>
-  </button>
-  <button class="btn btn-default">
-    <%= link_to "View more candidates.", candidates_path %>
-  </button>
+</div>
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6 text-center">
+    <button class="btn">
+      <%= link_to "View more issues.", issues_path %>
+    </button>
+    <button class="btn">
+      <%= link_to "View more candidates.", candidates_path %>
+    </button>
+  </div>
 </div>
