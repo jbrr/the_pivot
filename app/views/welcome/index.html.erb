@@ -82,21 +82,14 @@
 						<div class="col-lg-12">
 								<h2 class="page-header" id="candidates"> Top Candidates</h2>
 						</div>
+						<% @featured_candidates.each do |candidate| %>
 						<div class="col-md-4 col-sm-6">
 								<a href="portfolio-item.html">
-										<%= link_to image_tag("trump-front.jpg", class:"img-responsive img-portfolio img-hover"),  candidate_path(1)%>
+										<%= link_to image_tag("#{candidate.last_name}.jpg", class:"img-responsive img-portfolio img-hover"), candidate_path(candidate.id)%>
 								</a>
+								<h4 id="candidate-front-title"><%= candidate.name %></h4>
 						</div>
-						<div class="col-md-4 col-sm-6">
-								<a href="portfolio-item.html">
-									<%= image_tag("hillary-front.jpg", class:"img-responsive img-portfolio img-hover") %>
-								</a>
-						</div>
-						<div class="col-md-4 col-sm-6">
-								<a href="portfolio-item.html">
-									<%= image_tag("bernie-front.jpg", class:"img-responsive img-portfolio img-hover") %>
-								</a>
-						</div>
+						<% end %>
 				</div>
 				<!-- /.row -->
 
@@ -105,21 +98,14 @@
 						<div class="col-lg-12">
 								<h2 class="page-header" id="candidates"> Top Issues</h2>
 						</div>
+						<% @issues.each do |issue| %>
 						<div class="col-md-4 col-sm-6">
 								<a href="portfolio-item.html">
-										<%= image_tag("enviro-front.jpg", class:"img-responsive img-portfolio img-hover") %>
+										<%= link_to image_tag("#{issue.topic}.jpg", class:"img-responsive img-portfolio img-hover"), issue_path(issue.id) %>
 								</a>
+								<h4 id="issue-front-title"><%= issue.topic %></h4>
 						</div>
-						<div class="col-md-4 col-sm-6">
-								<a href="portfolio-item.html">
-										<%= image_tag("econ-front.jpg", class:"img-responsive img-portfolio img-hover") %>
-								</a>
-						</div>
-						<div class="col-md-4 col-sm-6">
-								<a href="portfolio-item.html">
-										<%= image_tag("gavel-front.jpg", class:"img-responsive img-portfolio img-hover") %>
-								</a>
-						</div>
+						<% end %>
 				</div>
 				<!-- /.row -->
 				<hr>
@@ -127,11 +113,11 @@
 				<div class="well">
 						<div class="row">
 								<div class="col-md-6" id="browse-candidates-button">
-										<%= link_to "Browse 2016 Candidates", candidates_path, class: "btn btn-lg btn-default btn-block" %>
+										<%= link_to "Browse All 2016 Candidates", candidates_path, class: "btn btn-lg btn-default btn-block" %>
 								</div>
 
 								<div class="col-md-6" id="browse-issues-button">
-										<%= link_to "Browse 2016 Issues", issues_path, class: "btn btn-lg btn-default btn-block" %>
+										<%= link_to "Browse All 2016 Issues", issues_path, class: "btn btn-lg btn-default btn-block" %>
 								</div>
 						</div>
 				</div>

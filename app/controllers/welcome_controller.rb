@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @candidates = Candidate.all
+    @featured_candidates = Candidate.where(featured: true)
+    @issues = Issue.where(featured: true)
   end
 end
