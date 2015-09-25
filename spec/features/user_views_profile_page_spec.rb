@@ -31,4 +31,17 @@ feature "Logged in user views profile page" do
     click_on("View 2016 Issues")
     expect(current_path).to eq(issues_path)
   end
+
+  scenario "has title for stances supported" do
+    user = User.find_by(username: "therealtrump")
+    visit profile_path(user)
+
+    within("#stances_supported") do
+      expect(page).to have_content("Stances Supported")
+    end
+
+    within("#pending_orders") do
+      expect(page).to have_content("Pending Orders")
+    end
+  end
 end
