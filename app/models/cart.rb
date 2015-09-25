@@ -25,4 +25,8 @@ class Cart
 
     donations
   end
+
+  def total
+    @donations.values.inject(0) { |sum, x| sum + x.to_i }
+  end
 end
