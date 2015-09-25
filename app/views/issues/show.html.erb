@@ -1,23 +1,20 @@
-<!-- Page Content -->
+<header id="myCarousel" class="carousel slide">
+<div class="fill" style="background-image:url(<%= asset_path "environment-banner.jpg" %>);"></div>
+
 <div class="container">
-   <!-- Page Header -->
   <div class="row">
-    <div class="col-lg-6">
-       <h1 class="page-header"><%= @issue.topic %></h1>
-    </div>
-    <div class="col-lg-6">
-      <ul class="list-group" id="stances">
-        <% @issue.candidate_issues.each do |candidate_issue| %>
-          <li class="list-group-item" id="<%= candidate_issue.id %>">
-            <%= render partial: "candidate_issue_row",
-                       locals: {candidate_issue: candidate_issue} %>
-        <% end %>
-      </ul>
-    </div>
+    <h1 class="page-header"><%= @issue.topic %></h1>
   </div>
   <div class="row">
-    <div class="col-lg-6">
-      <h3><%= @issue.description %> </h3>
-    </div>
+    <h3><%= @issue.description %> </h3>
+  </div>
+  <div class="row">
+    <ul class="list-group" id="stances">
+      <% @issue.candidate_issues.each do |candidate_issue| %>
+        <li class="list-group-item" id="<%= candidate_issue.id %>">
+          <%= render partial: "candidate_issue_row",
+                     locals: {candidate_issue: candidate_issue} %>
+      <% end %>
+    </ul>
   </div>
 </div>
