@@ -70,7 +70,7 @@ feature "Add donation to cart" do
     within("#cart") do
       click_link "Cart"
     end
-    save_and_open_page
+
     expect(page).to have_content("Ted Cruz")
     expect(page).to have_content("Donald Trump")
   end
