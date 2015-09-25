@@ -1,10 +1,14 @@
 require "rails_helper"
 
 feature "Can view top candidates and issues images" do
-  scenario "as a visitor" do
+  before do
     candidate = Candidate.create(name: "Donald Trump", party: "Republican", bio: "Luxurious", featured: true, last_name: "trump")
-    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
-    CandidateIssue.create(candidate: candidate, issue: issue, stance: "No thanks.")
+    issue = Issue.create(topic: "Isis", description: "Guns Guns Guns!", featured: true)
+    candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "No thanks.")
+  end
+
+  scenario "as a visitor" do
+    candidate = Candidate.find_by(name: "Donald Trump")
 
     visit root_path
     expect(current_path).to eq("/")
@@ -16,11 +20,8 @@ feature "Can view top candidates and issues images" do
     expect(current_path).to eq("/candidates/#{candidate.id}")
   end
 
-
   scenario "as a visitor" do
-    candidate = Candidate.create(name: "Donald Trump", party: "Republican", bio: "Luxurious", featured: true, last_name: "trump")
-    issue = Issue.create(topic: "ISIS", description: "Guns Guns Guns!", featured: true)
-    CandidateIssue.create(candidate: candidate, issue: issue, stance: "No thanks.")
+    issue = Issue.find_by(topic: "Isis")
 
     visit root_path
     expect(current_path).to eq("/")
@@ -34,10 +35,14 @@ feature "Can view top candidates and issues images" do
 end
 
 feature "Can view top candidates and issues links" do
-  scenario "as a visitor" do
+  before do
     candidate = Candidate.create(name: "Donald Trump", party: "Republican", bio: "Luxurious", featured: true, last_name: "trump")
-    issue = Issue.create(topic: "ISIS", description: "Guns Guns Guns!", featured: true)
-    CandidateIssue.create(candidate: candidate, issue: issue, stance: "No thanks.")
+    issue = Issue.create(topic: "Isis", description: "Guns Guns Guns!", featured: true)
+    candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "No thanks.")
+  end
+
+  scenario "as a visitor" do
+    candidate = Candidate.find_by(name: "Donald Trump")
 
     visit root_path
     expect(current_path).to eq("/")
@@ -50,9 +55,7 @@ feature "Can view top candidates and issues links" do
   end
 
   scenario "as a visitor" do
-    candidate = Candidate.create(name: "Donald Trump", party: "Republican", bio: "Luxurious", featured: true, last_name: "trump")
-    issue = Issue.create(topic: "ISIS", description: "Guns Guns Guns!", featured: true)
-    CandidateIssue.create(candidate: candidate, issue: issue, stance: "No thanks.")
+    issue = Issue.find_by(topic: "Isis")
 
     visit root_path
     expect(current_path).to eq("/")
