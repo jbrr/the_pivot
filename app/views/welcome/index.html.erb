@@ -69,40 +69,60 @@
 				<!-- Marketing Icons Section -->
 				<div class="row">
 						<div class="col-lg-12">
-								<h1 class="page-header">
-									Earmarked
+								<h1 class="page-header" id='title-1'>
+									Welcome to Earmarked
 								</h1>
 						</div>
 					</div>
 
 				<!-- /.row -->
 
-				<!-- Portfolio Section -->
+				<!-- Candidate Section -->
 				<div class="row">
 						<div class="col-lg-12">
-								<h2 class="page-header">Candidates</h2>
+								<h2 class="page-header" id="candidates"> Top Candidates</h2>
 						</div>
 						<div class="col-md-4 col-sm-6">
 								<a href="portfolio-item.html">
-										<img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+										<%= link_to image_tag("trump-front.jpg", class:"img-responsive img-portfolio img-hover"),  candidate_path(1)%>
 								</a>
 						</div>
 						<div class="col-md-4 col-sm-6">
 								<a href="portfolio-item.html">
-										<img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+									<%= image_tag("hillary-front.jpg", class:"img-responsive img-portfolio img-hover") %>
 								</a>
 						</div>
 						<div class="col-md-4 col-sm-6">
 								<a href="portfolio-item.html">
-										<img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+									<%= image_tag("bernie-front.jpg", class:"img-responsive img-portfolio img-hover") %>
 								</a>
 						</div>
 				</div>
 				<!-- /.row -->
+
+				<!-- Issue Section -->
+				<div class="row">
+						<div class="col-lg-12">
+								<h2 class="page-header" id="candidates"> Top Issues</h2>
+						</div>
+						<div class="col-md-4 col-sm-6">
+								<a href="portfolio-item.html">
+										<%= image_tag("enviro-front.jpg", class:"img-responsive img-portfolio img-hover") %>
+								</a>
+						</div>
+						<div class="col-md-4 col-sm-6">
+								<a href="portfolio-item.html">
+										<%= image_tag("econ-front.jpg", class:"img-responsive img-portfolio img-hover") %>
+								</a>
+						</div>
+						<div class="col-md-4 col-sm-6">
+								<a href="portfolio-item.html">
+										<%= image_tag("gavel-front.jpg", class:"img-responsive img-portfolio img-hover") %>
+								</a>
+						</div>
+				</div>
 				<!-- /.row -->
-
 				<hr>
-
 				<!-- Call to Action Section -->
 				<div class="well">
 						<div class="row">
@@ -125,11 +145,11 @@
 				</div>
 
 				<hr>
-
+				<!-- /.row -->
 				<!-- Footer -->
 				<footer>
 						<div class="row">
-								<div class="col-lg-12">
+								<div class="col-lg-12" id="copyright">
 										<p>Copyright &copy; Earmarked 2015</p>
 								</div>
 						</div>
