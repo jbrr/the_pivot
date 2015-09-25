@@ -1,6 +1,5 @@
-<!-- Page Content -->
 <div class="container">
-   <!-- Page Header -->
+
   <div class="row">
     <div class="col-lg-6">
        <h1 class="page-header"><%= @candidate.name %></h1>
@@ -8,7 +7,10 @@
     <div class="col-lg-6">
       <ul class="list-group" id="stances">
         <% @candidate.candidate_issues.each do |candidate_issue| %>
-          <li class="list-group-item"><%= render partial: "candidate_issue_row", locals: {candidate_issue: candidate_issue} %></li>
+          <li class="list-group-item" id="<%= candidate_issue.id %>">
+            <%= render partial: "candidate_issue_row",
+                       locals: {candidate_issue: candidate_issue} %>
+          </li>
         <% end %>
       </ul>
     </div>
@@ -19,4 +21,3 @@
     </div>
   </div>
 </div>
-   <!-- /.row -->

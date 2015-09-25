@@ -8,7 +8,9 @@
     <div class="col-lg-6">
       <ul class="list-group" id="stances">
         <% @issue.candidate_issues.each do |candidate_issue| %>
-          <li class="list-group-item"><%= render partial: "candidate_issue_row", locals: {candidate_issue: candidate_issue} %>
+          <li class="list-group-item" id="<%= candidate_issue.id %>">
+            <%= render partial: "candidate_issue_row",
+                       locals: {candidate_issue: candidate_issue} %>
         <% end %>
       </ul>
     </div>
