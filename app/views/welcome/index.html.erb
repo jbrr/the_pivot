@@ -85,7 +85,7 @@
 						<% @featured_candidates.each do |candidate| %>
 						<div class="col-md-4 col-sm-6">
 								<a href="portfolio-item.html">
-										<%= link_to image_tag("#{candidate.last_name}.jpg", class:"img-responsive img-portfolio img-hover"), candidate_path(candidate.id)%>
+										<%= link_to image_tag("#{candidate.last_name}.jpg", class:"img-responsive img-portfolio img-hover", id:"candidate-#{candidate.id}"), candidate_path(candidate.id)%>
 								</a>
 								<h4 id="candidate-front-title"><%= candidate.name %></h4>
 						</div>
@@ -101,7 +101,7 @@
 						<% @issues.each do |issue| %>
 						<div class="col-md-4 col-sm-6">
 								<a href="portfolio-item.html">
-										<%= link_to image_tag("#{issue.topic}.jpg", class:"img-responsive img-portfolio img-hover"), issue_path(issue.id) %>
+										<%= link_to image_tag("#{issue.topic}.jpg", class:"img-responsive img-portfolio img-hover", id:"issue-#{issue.id}"), issue_path(issue.id) %>
 								</a>
 								<h4 id="issue-front-title"><%= issue.topic %></h4>
 						</div>
