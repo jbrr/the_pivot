@@ -9,7 +9,10 @@ feature "Add donation to cart" do
 
     visit candidate_path(candidate)
     click_button "Donate"
-    
+
+    within("#flash_messages") do
+      expect(page).to have_content("Donation added to cart.")
+    end
   end
 
 end
