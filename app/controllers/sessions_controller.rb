@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to profile_path
     else
-      flash[:error] = "Invalid Login"
+      flash[:errors] = "Invalid Login"
       render :new
     end
   end

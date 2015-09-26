@@ -1,0 +1,5 @@
+<%= bootstrap_form_for :login, url: login_path do |f| %>
+<%= f.text_field :username, icon: "user"  %>
+<%= f.password_field :password, icon: "lock" %>
+<%= f.submit "Login", class: "btn btn-success" %>
+<% end %>

@@ -7,7 +7,8 @@ feature "Can log out as registered user" do
                             last_name: "Trump",
                             email: "trump@luxury.com",
                             username: "therealtrump",
-                            password: "password")
+                            password: "password",
+                            password_confirmation: "password")
     visit root_path
     within("#login-button") do
       click_link "Login"
