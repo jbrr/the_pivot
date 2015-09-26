@@ -59,6 +59,8 @@ header.carousel .fill#slider-3 {
   background-size: cover;
 }
 
+/* Custom Styling */
+
 #candidates {
   text-align: center
 }
@@ -66,7 +68,7 @@ header.carousel .fill#slider-3 {
 #title-1 {
   text-align: center;
   font-family: 'Quattrocento', serif;
-  font-size: 85px
+  font-size: 70px
 
 }
 
@@ -86,6 +88,8 @@ header.carousel .fill#slider-3 {
   padding-bottom: 40px;
   padding-top: 60px
 }
+
+/* Flash Notice Styling */
 
 #flash_notice {
   background-color: #33CC33
@@ -144,4 +148,9 @@ footer {
     header.carousel .carousel {
         height: 70%;
     }
+
+    #title-1 {
+      font-size: 55px
+    }
+
 }
