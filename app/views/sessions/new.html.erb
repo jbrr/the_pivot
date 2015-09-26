@@ -1,18 +1,13 @@
-<h3>Sign In</h3>
-
-<%= form_for :login, url: login_path do |f| %>
-<%= f.label :username %>
-<%= f.text_field :username %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= f.submit "Login" %>
-<% end %>
-
-<% if flash[:error] %>
-  <div class="col-md-3">
-    <ul>
-      <li><%= render partial: "layouts/flashes" %></li>
-    </ul>
+<div class="container">
+    <div class="col-md-offset-4 col-md-4">
+      <div class="row well">
+        <h2 align='center' id="login-join-page">Login</h2>
+        <%= render partial: 'form' %>
+        <%= render "layouts/flashes" %>
+    </div>
   </div>
-<% end %>
+</div>
+
+
+
 
