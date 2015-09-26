@@ -29,6 +29,8 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'bootswatch-rails'
 
+gem 'bootstrap_form'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
