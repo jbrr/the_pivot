@@ -121,13 +121,13 @@
 								</div>
 						</div>
 				</div>
-
+				<% unless current_user %>
 				<div class="row">
 						<div class="col-md-offset-4 col-md-4" id="login-button">
 								<%= link_to "Login", login_path, class: "btn-lg btn btn-lg btn-default btn-block btn btn-danger" %>
 						</div>
 				</div>
-
+				<% end %>
 
 				<hr>
 				<!-- /.row -->
