@@ -29,3 +29,68 @@ CandidateIssue.create(stance: "Kill 'em all!", candidate_id: 1, issue_id: 4)
 CandidateIssue.create(stance: "The human race is a plague on our planet, extermination is the only reasonable course of action.", candidate_id: 5, issue_id: 2)
 
 CandidateIssue.create(stance: "Let's invite them all to a round table discussion.", candidate_id: 5, issue_id: 4)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CandidateIssue.create(stance: "Folks, I can tell you I've known eight presidents, three of them intimately. Free love baby.", candidate_id: 6, issue_id: 1)
+
+CandidateIssue.create(stance: "I might not be as crazy as my man Bernie, but I support all the fuzzy creatures in this world.", candidate_id: 6, issue_id: 2)
+
+CandidateIssue.create(stance: "This is the dullest audience I have ever spoken to. Just sitting there, staring at me. Pretend you like me!", candidate_id: 6, issue_id: 3)
+
+CandidateIssue.create(stance: "This is a big f**king deal!", candidate_id: 6, issue_id: 4)
+
+CandidateIssue.create(stance: "I don't want to see any of those pretty lasses get hurt. Lock up those guns!", candidate_id: 6, issue_id: 5)
+
+CandidateIssue.create(stance: "Look, those other guys' last-minute economic plans do nothing to tackle the number-one job facing the middle class, and it happens to be, as Barack says, a three-letter word: jobs. J-O-B-S, jobs.", candidate_id: 6, issue_id: 6)
+
+CandidateIssue.create(stance: "Pick anyone or anything!", candidate_id: 5, issue_id: 1)
+
+CandidateIssue.create(stance: "I, frankly, do not believe that we should be bringing in significant numbers of unskilled to workers to compete with our kids. Make 'em all citizens!", candidate_id: 5, issue_id: 3)
+
+CandidateIssue.create(stance: "Eh, what do you think? I could go either way.", candidate_id: 5, issue_id: 5)
+
+CandidateIssue.create(stance: "I'm the Friar Tuck to my Robin Hood economic plan. I'm just here to make the rich hand over their extra money to you average people.", candidate_id: 5, issue_id: 6)
