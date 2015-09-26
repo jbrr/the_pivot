@@ -7,7 +7,7 @@ feature "Can view issues" do
     visit root_path
     expect(current_path).to eq("/")
 
-    click_link "Browse 2016 Issues"
+    click_link "Browse All 2016 Issues"
     expect(current_path).to eq("/issues")
 
     within("#issues") do
