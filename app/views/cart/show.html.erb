@@ -1,8 +1,11 @@
-<div class="cart">
-  <div class="container">
-    <%= render "layouts/flashes" %>
-  </div>
+<div class="row" align="center" id="flash_messages">
+  <br>
+    <div class="col-md-12">
+      <%= render partial: "layouts/flashes" %>
+    </div>
+</div><br>
 
+<div class="cart">
   <br><h3 align="center">Your Donations Cart</h3><br>
 
   <div class="container row">
@@ -24,7 +27,6 @@
             <td><%= donation.candidate.name %></td>
             <td><%= donation.issue.topic %></td>
             <td><%= form_for donation, url: "/cart/#{donation.candidate_issue_id}", method: :patch do |f| %>
-                <% f.label "Amount" %>
                 <%= f.number_field :amount, value: donation.amount %>
                 <%= f.submit "Update" %>
                 <% end %></td>
