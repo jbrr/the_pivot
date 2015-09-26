@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :donations, only: [:create, :edit, :delete]
 
   get "/cart", to: "cart#show"
+  patch "/cart/:id", to: "cart#update"
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
