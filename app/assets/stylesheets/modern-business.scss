@@ -35,11 +35,65 @@ header.carousel .carousel-inner {
     height: 100%;
 }
 
-header.carousel .fill {
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-size: cover;
+header.carousel .fill#slider-1 {
+  width: 100%;
+  height: 100%;
+  background: url(image-path("capitol.jpg"));
+  background-position: center;
+  background-size: cover;
+}
+
+header.carousel .fill#slider-2 {
+  width: 100%;
+  height: 100%;
+  background: url(image-path("house.jpg"));
+  background-position: center;
+  background-size: cover;
+}
+
+header.carousel .fill#slider-3 {
+  width: 100%;
+  height: 100%;
+  background: url(image-path("liberty.jpg"));
+  background-position: center;
+  background-size: cover;
+}
+
+#candidates {
+  text-align: center
+}
+
+#title-1 {
+  text-align: center;
+  font-family: 'Quattrocento', serif;
+  font-size: 85px
+
+}
+
+#copyright {
+  text-align: center
+}
+
+#candidate-front-title {
+  text-align: center
+}
+
+#issue-front-title {
+  text-align: center
+}
+
+#button-front-page {
+  padding-bottom: 40px;
+  padding-top: 60px
+}
+
+#flash_notice {
+  background-color: #33CC33
+}
+
+#flash_errors {
+  color: #B20000;
+  font-size: 18px
 }
 
 /* 404 Page Styles */

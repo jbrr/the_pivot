@@ -5,7 +5,7 @@
 <%= form_for Donation.new, url: donations_path do |f| %>
   <%= f.label :amount %>
   <%= f.hidden_field :candidate_issue_id, value: candidate_issue.id %>
-  <%= f.text_field :amount %>
+  <%= f.number_field :amount, in: 1.0..2700.0, step: 1.0 %>
   <%= f.hidden_field :issue_id, value: candidate_issue.issue_id %>
   <%= f.submit "Donate" %>
 <% end %>
