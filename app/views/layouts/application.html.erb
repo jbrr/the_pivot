@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Earmarked</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
- <link href='https://fonts.googleapis.com/css?family=Quattrocento:700' rel='stylesheet' type='text/css'>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Earmarked - A Site for Issue Specific Donating</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
+   <link href='https://fonts.googleapis.com/css?family=Quattrocento:700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
 
-<%= render 'layouts/navbar' %>
+  <%= render 'layouts/navbar' %>
 
-<%= yield %>
+  <%= yield %>
 
-</body>
+  </body>
 </html>
