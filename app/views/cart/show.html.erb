@@ -22,10 +22,10 @@
         <tr>
           <td><%= donation.candidate.name %></td>
           <td><%= donation.issue.topic %></td>
-          <td>$<%= donation.amount %></td>
-          <td><%= link_to "Edit",
-                  edit_donation_path(donation.candidate_issue_id),
-                  class: "btn btn-primary" %></td>
+          <td><%= form_for donation, url: "/cart/#{donation.candidate_issue_id}", method: :patch do |f| %>
+              <%= f.number_field :amount, value: donation.amount %>
+              <%= f.submit "Update" %>
+              <% end %></td>
           <td><%= link_to "Remove",
                   donations_path(donation.candidate_issue_id),
                   method: :delete,
