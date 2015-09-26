@@ -29,4 +29,8 @@ class Cart
   def total
     @donations.values.inject(0) { |sum, x| sum + x.to_i }
   end
+
+  def update(params)
+    {params[:id] => params[:donation][:amount]}
+  end
 end
