@@ -1,27 +1,9 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-    </div>
-    <div class="col-md-3">
-      <%= form_for(@user) do |f| %>
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-      <%= f.label :username %>
-      <%= f.text_field :username %>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-      <%= f.submit "Join Earmarked" %>
-      <% end  %>
-    </div>
-
-    <div class="col-md-3">
-      <ul>
-        <li><%= render partial: "layouts/flashes" %></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<%= bootstrap_form_for(@user) do |f| %>
+<%= f.text_field :first_name %>
+<%= f.text_field :last_name %>
+<%= f.text_field :email %>
+<%= f.text_field :username, icon: "user" %>
+<%= f.password_field :password, help: "Must be 8 Characters", icon: "lock" %>
+<%= f.password_field :password_confirmation, label: "Confirm Password" %>
+<%= f.submit "Join Earmarked", class: "btn btn-success" %>
+<% end  %>

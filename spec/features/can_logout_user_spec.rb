@@ -1,13 +1,14 @@
 require "rails_helper"
 
-feature "Cal log out as registered user" do
+feature "Can log out as registered user" do
 
-  scenario "registered user logs out" do
+  scenario "registered user logs out, cant see logout when logged out" do
     user = User.create(first_name: "Donald",
                             last_name: "Trump",
                             email: "trump@luxury.com",
                             username: "therealtrump",
-                            password: "password")
+                            password: "password",
+                            password_confirmation: "password")
     visit root_path
     within("#login-button") do
       click_link "Login"

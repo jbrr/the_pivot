@@ -75,51 +75,6 @@ CandidateIssue.create(stance: "The human race is a plague on our planet, extermi
 
 CandidateIssue.create(stance: "Let's invite them all to a round table discussion.", candidate_id: 5, issue_id: 4)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 CandidateIssue.create(stance: "Folks, I can tell you I've known eight presidents, three of them intimately. Free love baby.", candidate_id: 6, issue_id: 1)
 
 CandidateIssue.create(stance: "I might not be as crazy as my man Bernie, but I support all the fuzzy creatures in this world.", candidate_id: 6, issue_id: 2)

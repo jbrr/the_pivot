@@ -7,7 +7,8 @@ feature "Can log in as a registered user" do
                             last_name: "Trump",
                             email: "trump@luxury.com",
                             username: "therealtrump",
-                            password: "password")
+                            password: "password",
+                            password_confirmation: "password")
 
 
     visit root_path
@@ -28,6 +29,7 @@ feature "Can log in as a registered user" do
     within("#navbar-flash") do
       expect(page).to_not have_content("Login")
       expect(page).to_not have_content("Join")
+      expect(page).to have_content("Logout")
     end
   end
 
@@ -43,7 +45,26 @@ feature "Can log in as a registered user" do
   end
 
   scenario "registered user logs in via nav bar button" do
+    user = User.create(first_name: "Donald",
+                            last_name: "Trump",
+                            email: "trump@luxury.com",
+                            username: "therealtrump",
+                            password: "password",
+                            password_confirmation: "password")
+    visit root_path
 
+    within("#navbar") do
+      click_link "Login"
+    end
+    expect(current_path).to eq(login_path)
+
+    fill_in "Username", with: user.username
+    fill_in "Password", with: "password"
+    click_button "Login"
+
+    within("#user_names") do
+      expect(page).to have_content("Donald Trump")
+    end
   end
 
 end
