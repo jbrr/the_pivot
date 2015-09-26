@@ -95,19 +95,19 @@
 						<div class="col-md-offset-2 col-md-4" id="browse-candidates-button">
 								<%= link_to "Browse All 2016 Candidates", candidates_path, class: "btn btn-lg btn-default btn-block btn btn-primary" %>
 						</div>
-
 						<div class="col-md-4" id="browse-issues-button">
 								<%= link_to "Browse All 2016 Issues", issues_path, class: "btn btn-lg btn-default btn-block btn btn-primary" %>
 						</div>
 				</div>
 		</div>
 
+		<% unless current_user %>
 		<div class="row">
 				<div class="col-md-offset-4 col-md-4" id="login-button">
 						<%= link_to "Login", login_path, class: "btn-lg btn btn-lg btn-default btn-block btn btn-danger" %>
 				</div>
 		</div>
-
+		<% end %>
 
 		<hr>
 		<!-- /.row -->
@@ -120,9 +120,6 @@
 				</div>
 		</footer>
 
-</div>
-<!-- /.container -->
-
 <!-- Script to Activate the Carousel -->
 <script>
 $('.carousel').carousel({
@@ -130,3 +127,4 @@ $('.carousel').carousel({
 })
 </script>
 
+</html>
