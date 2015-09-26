@@ -1,6 +1,7 @@
-<h3><%= candidate_issue.name %> | <%= candidate_issue.stance %></h3>
+<h3 class="donation-candidate"><%= candidate_issue.name %> | <%= candidate_issue.stance %></h3>
 
-<div>
+<div class="donation-time">
+  <p>
   <%= form_for Donation.new, url: donations_path do |f| %>
     <%= f.label :amount %>
     <%= f.hidden_field :candidate_issue_id, value: candidate_issue.id %>
@@ -8,4 +9,5 @@
     <%= f.hidden_field :issue_id, value: candidate_issue.issue_id %>
     <%= f.submit "Donate" %>
   <% end %>
+  </p>
 </div>
