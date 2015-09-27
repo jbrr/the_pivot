@@ -41,6 +41,7 @@ group :development, :test do
   gem 'pry', :require => 'pry'
   gem 'shoulda-matchers'
   gem 'selenium-webdriver'
+  gem 'simplecov', :require => false
 end
 
 group :development do
