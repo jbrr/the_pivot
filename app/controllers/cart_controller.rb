@@ -13,4 +13,9 @@ class CartController < ApplicationController
     end
     redirect_to cart_path
   end
+
+  def destroy
+    session[:donations][params[:id]] = nil
+    redirect_to cart_path
+  end
 end

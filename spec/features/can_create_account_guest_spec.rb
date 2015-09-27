@@ -19,7 +19,7 @@ feature "guest creates an account" do
 
     user = User.find_by(email: "trump@luxury.com")
 
-    expect(current_path).to eq(profile_path(user))
+    expect(current_path).to eq(profile_path)
     within("#user_names") do
       expect(page).to have_content("Donald Trump")
     end
