@@ -59,13 +59,13 @@ feature "Add donation to cart" do
     candidate_issue2 = CandidateIssue.create(candidate: candidate2, issue: issue, stance: "Luxurious guns!")
 
     visit issue_path(issue)
-    click_on "#donation-candidate"
-    within("#donation-time") do
+    find(:css, ".donation-candidate", text: candidate_issue.name).click
+    within(".donation-time") do
       fill_in "Amount", with: 30
       click_button "Donate"
     end
-    click_on "#{candidate_issue2.name}"
-    within("#donation-time") do
+    find(:css, ".donation-candidate", text: candidate_issue2.name).click
+    within(".donation-time") do
       fill_in "Amount", with: 40
       click_button "Donate"
     end
@@ -77,7 +77,7 @@ feature "Add donation to cart" do
     expect(page).to have_content("Donald Trump")
   end
 
-  scenario "as guest can view total donations in cart" do
+  scenario "as guest can view total donations in cart", js: true do
     candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
     candidate2 = Candidate.create(name: "Donald Trump", party: "Republican", bio: "Luxury")
     issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
@@ -85,11 +85,13 @@ feature "Add donation to cart" do
     candidate_issue2 = CandidateIssue.create(candidate: candidate2, issue: issue, stance: "Luxurious guns!")
 
     visit issue_path(issue)
-    within("##{candidate_issue.id}") do
+    find(:css, ".donation-candidate", text: candidate_issue.name).click
+    within(".donation-time") do
       fill_in "Amount", with: 30
       click_button "Donate"
     end
-    within("##{candidate_issue2.id}") do
+    find(:css, ".donation-candidate", text: candidate_issue2.name).click
+    within(".donation-time") do
       fill_in "Amount", with: 40
       click_button "Donate"
     end
@@ -100,13 +102,14 @@ feature "Add donation to cart" do
     expect(page).to have_content("70")
   end
 
-  scenario "as guest can edit donations in cart" do
+  scenario "as guest can edit donations in cart", js: true do
     candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
     issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
 
     visit issue_path(issue)
-    within("##{candidate_issue.id}") do
+    find(:css, ".donation-candidate", text: candidate_issue.name).click
+    within(".donation-time") do
       fill_in "Amount", with: 30
       click_button "Donate"
     end
