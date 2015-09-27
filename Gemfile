@@ -40,7 +40,7 @@ group :development, :test do
   gem 'launchy'
   gem 'pry', :require => 'pry'
   gem 'shoulda-matchers'
-
+  gem 'selenium-webdriver'
 end
 
 group :development do

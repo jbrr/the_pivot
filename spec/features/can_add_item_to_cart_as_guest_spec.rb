@@ -51,7 +51,7 @@ feature "Add donation to cart" do
     expect(page).to have_content("20")
   end
 
-  scenario "as guest can view multiple donations in cart" do
+  scenario "as guest can view multiple donations in cart", js: true do
     candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
     candidate2 = Candidate.create(name: "Donald Trump", party: "Republican", bio: "Luxury")
     issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
@@ -59,11 +59,13 @@ feature "Add donation to cart" do
     candidate_issue2 = CandidateIssue.create(candidate: candidate2, issue: issue, stance: "Luxurious guns!")
 
     visit issue_path(issue)
-    within("##{candidate_issue.id}") do
+    click_on "#donation-candidate"
+    within("#donation-time") do
       fill_in "Amount", with: 30
       click_button "Donate"
     end
-    within("##{candidate_issue2.id}") do
+    click_on "#{candidate_issue2.name}"
+    within("#donation-time") do
       fill_in "Amount", with: 40
       click_button "Donate"
     end
