@@ -12,10 +12,6 @@ class DonationsController < ApplicationController
     return_to_origin_page
   end
 
-  def destroy
-    redirect_to cart_path
-  end
-
   private
 
     def return_to_origin_page
