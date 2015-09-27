@@ -15,4 +15,25 @@ feature "Can view issues" do
       expect(page).to have_content("pro guns!")
     end
   end
+
+
+  scenario "guest can see issues unique pictures" do
+    Issue.create(topic: "Gun Control",
+                 description: "less guns",
+                 picture: "guns")
+    Issue.create(topic: "Economy",
+                 description: "more wealth",
+                 picture: "economy")
+    Issue.create(topic: "Marriage Equality",
+                 description: "freedom for all",
+                 picture: "marriage")
+
+    visit issues_path
+
+    within("#issues") do
+      expect(page).to have_css("#guns-image")
+      expect(page).to have_css("#economy-image")
+      expect(page).to have_css("#marriage-image")
+    end
+  end
 end
