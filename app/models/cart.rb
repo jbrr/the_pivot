@@ -33,4 +33,8 @@ class Cart
   def update(params)
     {params[:id] => params[:donation][:amount]}
   end
+
+  def delete(params)
+    @donations.delete(params[:id])
+  end
 end
