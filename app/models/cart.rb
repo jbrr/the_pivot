@@ -27,7 +27,7 @@ class Cart
   end
 
   def total
-    @donations.values.inject(0) { |sum, x| sum + x.to_i }
+    @donations.values.inject(0) { |sum, x| sum + x.to_i } if @donations
   end
 
   def update(params)

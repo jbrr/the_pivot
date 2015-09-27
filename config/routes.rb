@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   resources :candidates, only: [:index, :show]
   resources :users, only: [:new, :create]
   resources :issues, only: [:index, :show]
-  resources :donations, only: [:create, :edit, :delete]
+  resources :donations, only: [:create, :edit]
+
 
   get "/cart", to: "cart#show"
   patch "/cart/:id", to: "cart#update"
+  delete "/cart/:id", to: "cart#destroy"
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
