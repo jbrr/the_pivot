@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(@user) do |f| %>
+<%= bootstrap_form_for :join, url: join_path do |f| %>
 <%= f.text_field :first_name %>
 <%= f.text_field :last_name %>
 <%= f.text_field :email %>
