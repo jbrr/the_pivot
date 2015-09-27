@@ -6,8 +6,10 @@ class CartController < ApplicationController
 
   def update
     donation = cart.update(params)
-    if donation.values.pop.to_i < 0
-      flash[:notice] = "Donation must be greater than 0. Please try again!"
+    if donation.values.pop.to_i < 1
+      flash[:errors] = "Donation must be greater than $1. Please try again!"
+    elsif donation.values.pop.to_i > 2700
+      flash[:errors] = "Per Federal Regulations: Personal Contributions must be below $2,700"
     else
       session[:donations] = session[:donations].merge(cart.update(params))
     end
