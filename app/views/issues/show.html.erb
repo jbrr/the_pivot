@@ -2,6 +2,13 @@
   <div class="fill" id="slider-1"></div>
 </header>
 
+<div class="row" align="center" id="flash_messages">
+  <br>
+    <div class="col-md-12">
+      <%= render partial: "layouts/flashes" %>
+    </div>
+</div><br>
+
 <div class="container">
   <div class="row" "col-lg-8">
     <h1 class="page-header" id="title-1"><%= @issue.topic %></h1>
