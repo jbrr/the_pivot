@@ -16,7 +16,6 @@ feature "Can view issues" do
     end
   end
 
-
   scenario "guest can see issues unique pictures" do
     Issue.create(topic: "Gun Control",
                  description: "less guns",
@@ -35,5 +34,20 @@ feature "Can view issues" do
       expect(page).to have_css("#economy-image")
       expect(page).to have_css("#marriage-image")
     end
+  end
+
+  scenario "can visit a specific featured issue from its image" do
+    Issue.create(topic: "Economy",
+                 description: "more wealth",
+                 picture: "economy")
+
+    issue = Issue.find_by(topic: "Economy")
+
+    visit issues_path
+    within("##{issue.picture}-image") do
+      find(:xpath, "//a/img[@alt='Economy']/..").click
+    end
+
+    expect(current_path).to eq("/issues/#{issue.id}")
   end
 end
