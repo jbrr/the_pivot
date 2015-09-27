@@ -59,6 +59,7 @@ feature "Add donation to cart" do
     candidate_issue2 = CandidateIssue.create(candidate: candidate2, issue: issue, stance: "Luxurious guns!")
 
     visit issue_path(issue)
+
     within("##{candidate_issue.id}") do
       fill_in "Amount", with: 30
       click_button "Donate"

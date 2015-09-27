@@ -1,20 +1,31 @@
 <header id="myCarousel" class="carousel slide">
-<div class="fill" style="background-image:url(<%= asset_path "environment-banner.jpg" %>);"></div>
+  <div class="fill" id="slider-1"></div>
+</header>
+
+<div class="row" align="center" id="flash_messages">
+  <br>
+    <div class="col-md-12">
+      <%= render partial: "layouts/flashes" %>
+    </div>
+</div><br>
 
 <div class="container">
-  <div class="row">
-    <h1 class="page-header"><%= @issue.topic %></h1>
+  <div class="row" "col-lg-8">
+    <h1 class="page-header" id="title-1"><%= @issue.topic %></h1>
   </div>
   <div class="row">
-    <h3><%= @issue.description %> </h3>
+    <div class="col-lg-8 col-lg-offset-2">
+      <p id="header-intro"><%= @issue.description %> </p>
+    </div>
   </div>
   <div class="row">
-    <ul class="list-group" id="stances">
-      <% @issue.candidate_issues.each do |candidate_issue| %>
-        <li class="list-group-item" id="<%= candidate_issue.id %>">
+    <div class="col-lg-8 col-lg-offset-2" id="stances">
+        <% @issue.candidate_issues.each do |candidate_issue| %>
+        <div class="list-group-item" id="<%= candidate_issue.id %>">
           <%= render partial: "candidate_issue_row",
                      locals: {candidate_issue: candidate_issue} %>
-      <% end %>
-    </ul>
+        </div>
+        <% end %>
+    </div>
   </div>
 </div>
