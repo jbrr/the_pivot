@@ -2,7 +2,9 @@ class DonationsController < ApplicationController
 
   def create
     if session[:donations]
-      session[:donations] = session[:donations].merge(cart.add(params))
+      session[:donations] = session[:donations].merge(cart.add(params)) do |key, old_val, new_val|
+        (old_val.to_i + new_val.to_i).to_s
+      end
     else
       session[:donations] = cart.add(params)
     end
@@ -10,7 +12,7 @@ class DonationsController < ApplicationController
     return_to_origin_page
   end
 
-  def delete
+  def destroy
     redirect_to cart_path
   end
 
