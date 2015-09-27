@@ -19,7 +19,7 @@
            <%= link_to image_tag("#{issue.picture}.jpg", class:"img-responsive img-portfolio img-hover", id:"#{issue.picture}-image"),
            issue_path(issue) %>
         </a>
-        <h3>
+        <h3 id="issue-title-index">
            <%= link_to issue.topic, issue_path(issue) %>
         </h3>
         <p><%= issue.description %></p>

@@ -50,4 +50,19 @@ feature "Can view issues" do
 
     expect(current_path).to eq("/issues/#{issue.id}")
   end
+
+  scenario "can visit a specific featured issue from its name" do
+    Issue.create(topic: "Economy",
+                 description: "more wealth",
+                 picture: "economy")
+
+    issue = Issue.find_by(topic: "Economy")
+
+    visit issues_path
+    within("#issue-title-index") do
+      click_link "#{issue.topic}"
+    end
+
+    expect(current_path).to eq("/issues/#{issue.id}")
+  end
 end
