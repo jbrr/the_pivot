@@ -10,17 +10,17 @@ Candidate.create(name: "Bernie Sanders", party: "Democratic", bio: "Mr. Sanders 
 
 Candidate.create(name: "Joe Biden", party: "Democratic", bio: "While not officially running, Joe Biden's ambitions to show America 'where the party's at' are clear. Born to humble bartenders, Biden quickly endeared himself to the local patrons of 'Shotgun Joe's,' his namesake. His social acumen prompted a drunken patron one day to suggest that he run for public office. Biden, with Cheshire Cat smile, shook off his 11am buzz, and stumbled into the office of the Vice President. He looks to repeat this success in the 2016 election.", last_name: "biden")
 
-Issue.create(topic: "Marriage Equality", description: "The central argument in the upcoming debates will be quite simple. Kim Davis vs. humans marrying sheep. Discuss.")
+Issue.create(topic: "Marriage Equality", description: "The central argument in the upcoming debates will be quite simple. Kim Davis vs. humans marrying sheep. Discuss.", picture: 'marriage')
 
-Issue.create(topic: "Environment", description: "Set to be a hotly contested issue, candidates will debate whether climate change is a hoax or if the world is set to end in 20 years time.", featured: true)
+Issue.create(topic: "Environment", description: "Set to be a hotly contested issue, candidates will debate whether climate change is a hoax or if the world is set to end in 20 years time.", featured: true, picture: 'environment')
 
-Issue.create(topic: "Immigration", description: "Some candidates insist that their families materialized from America's soil, never to have experienced immigration, while others would like to open Lady Liberty's arms to the masses.", featured: true)
+Issue.create(topic: "Immigration", description: "Some candidates insist that their families materialized from America's soil, never to have experienced immigration, while others would like to open Lady Liberty's arms to the masses.", featured: true, picture: 'immigration')
 
-Issue.create(topic: "ISIS", description: "We can already hear the arguments unfolding and the debates haven't started. Republican: 'In conjunction with sharing our deep held values of A-MUR-I-CA, cheeseburgers included, we are making great progress against ISIS with every drone strike. They're the best!' Democrats: 'No no no, drone attacks are the work of the devil! We should sit down to a nice lunch with their leader and discuss these issues like adults.'")
+Issue.create(topic: "ISIS", description: "We can already hear the arguments unfolding and the debates haven't started. Republican: 'In conjunction with sharing our deep held values of A-MUR-I-CA, cheeseburgers included, we are making great progress against ISIS with every drone strike. They're the best!' Democrats: 'No no no, drone attacks are the work of the devil! We should sit down to a nice lunch with their leader and discuss these issues like adults.'", picture: 'isis')
 
-Issue.create(topic: "Gun Control", description: "'Let them have guns!,' some politicians might yell, channelling their inner Marie Antoinettes, while others will argue that prison rules should apply - anything that can be used as a weapon, should be illegal. Please ask yourself, would you like to own an AK47 or would you like to eat with your hands?")
+Issue.create(topic: "Gun Control", description: "'Let them have guns!,' some politicians might yell, channelling their inner Marie Antoinettes, while others will argue that prison rules should apply - anything that can be used as a weapon, should be illegal. Please ask yourself, would you like to own an AK47 or would you like to eat with your hands?", picture: 'guns')
 
-Issue.create(topic: "Economy", description: "The hard working, and deserving, 1 percenters are the way of the future according to some. Others envision a single world commune where everyone's opinion is equally important.", featured: true)
+Issue.create(topic: "Economy", description: "The hard working, and deserving, 1 percenters are the way of the future according to some. Others envision a single world commune where everyone's opinion is equally important.", featured: true, picture: 'economy')
 
 CandidateIssue.create(stance: "Only the most luxuriously dressed grooms/brides will be allowed to wed each other.", candidate_id: 1, issue_id: 1)
 
