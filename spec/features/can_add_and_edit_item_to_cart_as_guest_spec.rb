@@ -146,7 +146,7 @@ feature "Add donation to cart" do
     expect(page).to have_content("60")
 
 
-    first(:link, 'Remove').click
+    first(:link, "Remove").click
 
     within("#cart-total") do
       expect(page).to have_content("40")
@@ -239,7 +239,7 @@ feature "Add donation to cart" do
     visit cart_path
 
     within("#donation-table") do
-      first(:link, 'Remove').click
+      first(:link, "Remove").click
     end
 
     within("#flash_notice") do
