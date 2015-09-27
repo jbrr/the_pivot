@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Can view and use top candidates and issues images" do
+feature "Can view and click to see top candidates and issues" do
   before do
     candidate = Candidate.create(name: "Donald Trump", party: "Republican", bio: "Luxurious", featured: true, last_name: "trump")
     issue = Issue.create(topic: "Isis", description: "Guns Guns Guns!", featured: true)
@@ -17,11 +17,11 @@ feature "Can view and use top candidates and issues images" do
       expect(page).to have_content("Donald Trump")
     end
     within("#issues") do
-      expect(page).to have_content("ISIS")
+      expect(page).to have_content("Isis")
     end
   end
 
-  scenario "can visit a specific featured candidate from their image"
+  scenario "can visit a specific featured candidate from their image" do
     candidate = Candidate.find_by(name: "Donald Trump")
 
     visit root_path
@@ -63,5 +63,31 @@ feature "Can view and use top candidates and issues images" do
     end
 
     expect(current_path).to eq("/issues/#{issue.id}")
+  end
+
+  scenario "can use buttons at bottom to access the issues and candidates pages" do
+    visit root_path
+    within("#button-front-page") do
+      click_link "Browse All 2016 Candidates"
+    end
+
+    expect(current_path).to eq("/candidates")
+
+    visit root_path
+    within("#button-front-page") do
+      click_link "Browse All 2016 Issues"
+    end
+
+    expect(current_path).to eq("/issues")
+  end
+
+  scenario "can use button to login at the botton of the page" do
+    visit root_path
+
+    within("#login-button") do
+      click_link "Login"
+    end
+
+    expect(current_path).to eq("/login")
   end
 end
