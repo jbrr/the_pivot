@@ -200,20 +200,25 @@ feature "Add donation to cart" do
       fill_in "donation[amount]", with: -10
       click_button "Edit"
     end
-    # within("#flash_notice") do
-    #   expect(page).to have_content("Donation must be greater than 0.")
-    # end
+    within("#cart-total") do
+      expect(page).to have_content("30")
+    end
   end
 
-  # scenario "as guest cannot enter a negative amount" do
-  #   candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
-  #   issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
-  #   candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
+  scenario "as guest cannot enter a negative amount" do
+    candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
+    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
+    candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
 
-  #   visit issue_path(issue)
-  #   within("##{candidate_issue.id}") do
-  #     fill_in "Amount", with: -20
-  #     expect {click_button "Donate"}.to raise_error(ArgumentError)
-  #   end
-  # end
+    visit issue_path(issue)
+    within("##{candidate_issue.id}") do
+      fill_in "Amount", with: -20
+      click_button "Donate"
+    end
+
+    visit cart_path
+    expect(page).to have_content("Sorry Your Cart is Empty")
+    expect(page).to have_link("View More Issues")
+    expect(page).to have_link("View More Candidates")
+  end
 end
