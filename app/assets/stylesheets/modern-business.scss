@@ -1,10 +1,9 @@
-/*!
- * Start Bootstrap - Modern Business HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
 
-/* Global Styles */
+// * Start Bootstrap - Modern Business HTML Template (http://startbootstrap.com)
+// * Code licensed under the Apache License v2.0.
+// * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+
+// Global Styles
 
 html,
 body {
@@ -12,7 +11,7 @@ body {
 }
 
 body {
-    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 50px; // Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 .img-portfolio {
@@ -23,7 +22,7 @@ body {
     opacity: 0.8;
 }
 
-/* Home Page Carousel */
+// Home Page Carousel
 
 header.carousel {
     height: 50%;
@@ -59,7 +58,7 @@ header.carousel .fill#slider-3 {
   background-size: cover;
 }
 
-/* Custom Styling */
+// Universal Styling
 
 #candidates {
   text-align: center;
@@ -98,12 +97,20 @@ header.carousel .fill#slider-3 {
   padding-top: 60px;
 }
 
-#header-into {
+#header-intro {
   text-align: center;
   font-size: 18px;
 }
 
-/* Flash Notice Styling */
+.donation-candidate h3:hover {
+  color: #ff0000
+}
+
+.donation-candidate h4 {
+  color: #000000
+}
+
+// Flash Notice Styling
 
 #flash_notice {
   background-color: #33CC33;
@@ -114,13 +121,13 @@ header.carousel .fill#slider-3 {
   font-size: 18px;
 }
 
-/* 404 Page Styles */
+// 404 Page Styles
 
 .error-404 {
     font-size: 100px;
 }
 
-/* Pricing Page Styles */
+// Pricing Page Styles
 
 .price {
     display: block;
@@ -139,13 +146,13 @@ header.carousel .fill#slider-3 {
     font-style: italic;
 }
 
-/* Footer Styles */
+// Footer Styles
 
 footer {
     margin: 50px 0;
 }
 
-/* Responsive Styles */
+// Responsive Styles
 
 @media(max-width:991px) {
     .customer-img,
