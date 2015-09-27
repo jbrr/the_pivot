@@ -1,3 +1,7 @@
+<header id="myCarousel" class="carousel slide">
+  <div class="fill" id="slider-1"></div>
+</header>
+
 <div class="row" align="center" id="flash_messages">
   <br>
     <div class="col-md-12">
@@ -7,23 +11,22 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-6">
-       <h1 class="page-header"><%= @candidate.name %></h1>
-    </div>
-    <div class="col-lg-6">
-      <ul class="list-group" id="stances">
-        <% @candidate.candidate_issues.each do |candidate_issue| %>
-          <li class="list-group-item" id="candidate_issue-<%= candidate_issue.id %>">
-            <%= render partial: "candidate_issue_row",
-                       locals: {candidate_issue: candidate_issue} %>
-          </li>
-        <% end %>
-      </ul>
+    <h1 class="page-header" id="title-1"><%= @candidate.name %></h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <p id="header-intro"><%= @candidate.bio %></p>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-6">
-      <h3><%= @candidate.bio %> </h3>
+    <div class="col-lg-8 col-lg-offset-2" id="stances">
+      <% @candidate.candidate_issues.each do |candidate_issue| %>
+        <div class="list-group-item" id="candidate_issue-<%= candidate_issue.id %>">
+          <%= render partial: "candidate_issue_row",
+                    locals: {candidate_issue: candidate_issue} %>
+        </div>
+      <% end %>
     </div>
   </div>
+  <br><br>
 </div>
