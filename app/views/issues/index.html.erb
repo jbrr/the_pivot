@@ -15,8 +15,9 @@
     <h2 class="well" align="center">Issues</h2>
     <% @issues.each do |issue| %>
       <div class="col-md-4 portfolio-item">
-        <a href="#">
-           <img class="img-responsive" src="http://ste.india.com/sites/default/files/styles/zm_700x400/public/2015/09/03/397575-donald-trump.jpg?itok=aa4HugNl" alt="">
+        <a>
+           <%= link_to image_tag("#{issue.topic}.jpg", class:"img-responsive img-portfolio img-hover", id:"#{issue.topic}-image"),
+           issue_path(issue) %>
         </a>
         <h3>
            <%= link_to issue.topic, issue_path(issue) %>
