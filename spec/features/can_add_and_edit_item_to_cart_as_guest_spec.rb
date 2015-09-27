@@ -8,9 +8,9 @@ feature "Add donation to cart" do
     end
 
     expect(current_path).to eq(cart_path)
-    expect(page).to have_content("Your cart is empty.")
-    expect(page).to have_button("View more issues.")
-    expect(page).to have_button("View more candidates.")
+    expect(page).to have_content("Sorry Your Cart is Empty")
+    expect(page).to have_link("View More Issues")
+    expect(page).to have_link("View More Candidates")
   end
 
   scenario "as guest and view on cart page from candidate page" do
@@ -112,7 +112,7 @@ feature "Add donation to cart" do
     visit cart_path
     within("#donation-table") do
       fill_in "donation[amount]", with: 10
-      click_button "Update"
+      click_button "Edit"
     end
 
     expect(page).to have_content("10")
@@ -181,7 +181,7 @@ feature "Add donation to cart" do
       first(:link, 'Remove').click
     end
 
-    expect(page).to have_content("Your cart is empty.")
+    expect(page).to have_content("Sorry Your Cart is Empty")
   end
 
   scenario "as guest cannot edit negative donations in cart" do
@@ -190,30 +190,39 @@ feature "Add donation to cart" do
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
 
     visit issue_path(issue)
+
     within("##{candidate_issue.id}") do
       fill_in "Amount", with: 30
       click_button "Donate"
     end
 
     visit cart_path
+
     within("#donation-table") do
       fill_in "donation[amount]", with: -10
-      click_button "Update"
+      click_button "Edit"
     end
-    within("#flash_notice") do
-      expect(page).to have_content("Donation must be greater than 0.")
+
+    within("#cart-total") do
+      expect(page).to have_content("30")
     end
+
   end
 
-  # scenario "as guest cannot enter a negative amount" do
-  #   candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
-  #   issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
-  #   candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
+  scenario "as guest cannot enter a negative amount" do
+    candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
+    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
+    candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
 
-  #   visit issue_path(issue)
-  #   within("##{candidate_issue.id}") do
-  #     fill_in "Amount", with: -20
-  #     expect {click_button "Donate"}.to raise_error(ArgumentError)
-  #   end
-  # end
+    visit issue_path(issue)
+    within("##{candidate_issue.id}") do
+      fill_in "Amount", with: -20
+      click_button "Donate"
+    end
+
+    visit cart_path
+    expect(page).to have_content("Sorry Your Cart is Empty")
+    expect(page).to have_link("View More Issues")
+    expect(page).to have_link("View More Candidates")
+  end
 end
