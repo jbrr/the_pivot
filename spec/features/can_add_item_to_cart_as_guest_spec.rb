@@ -118,7 +118,7 @@ feature "Add donation to cart" do
     expect(page).to have_content("10")
   end
 
-  scenario "as guest can delete donations in cart" do
+  scenario "as guest can delete donations from two different candidates in cart" do
     candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
     issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
@@ -153,7 +153,7 @@ feature "Add donation to cart" do
     end
   end
 
-  scenario "as guest can delete donations in cart and with no dontations be redirected to empty cart" do
+  scenario "as guest can delete all donations in the cart and be redirected to 'Your Cart is Empty.'" do
     candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
     issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
