@@ -15,35 +15,8 @@
     <div class="col-md-5">
       <% if cart.total.to_i > 0 %>
       <table class="table table-striped" id="donation-table">
-        <tr>
-          <th>Candidate</th>
-          <th>Issue</th>
-          <th>Amount Donated</th>
-          <th>Edit</th>
-          <th>Remove</th>
-        </tr>
-        <% cart.donations.each do |donation| %>
-          <tr>
-            <% if donation.amount %>
-            <td><%= donation.candidate.name %></td>
-            <td><%= donation.issue.topic %></td>
-            <td><%= form_for donation, url: "/cart/#{donation.candidate_issue_id}", method: :patch do |f| %>
-                <%= f.number_field :amount, value: donation.amount %>
-                <%= f.submit "Update" %>
-                <% end %></td>
-            <td><%= link_to "Remove", "/cart/#{donation.candidate_issue_id}", method: :delete,
-                    class: "btn btn-danger", id:"delete-#{donation.candidate_issue_id}" %></td>
-            <% end %>
-        <% end %>
-          </tr>
-        <tr>
-          <td></td>
-          <td><strong>Total Donations</strong></td>
-          <td id="cart-total">$<%= cart.total %></td>
-          <td colspan="2" align="center"><div class="btn btn-success">DONATE</div></td>
-        </tr>
+        <%= render partial: "cart_items" %>
       </table>
-
       <% else %>
         <h3>Your cart is empty.</h3>
       <% end %>

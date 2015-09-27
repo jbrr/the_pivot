@@ -15,7 +15,15 @@ class CartController < ApplicationController
   end
 
   def destroy
+    require 'pry'; binding.pry
     session[:donations][params[:id]] = nil
+    flash[:notice] = "#{find_issue} has been removed from your cart. Click HERE to undo."
     redirect_to cart_path
+  end
+
+  private
+
+  def find_issue
+    Issue.find_by(params[:issue_id]).topic
   end
 end
