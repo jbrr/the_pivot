@@ -6,8 +6,8 @@ class CartController < ApplicationController
 
   def update
     donation = cart.update(params)
-    if donation.values.pop.to_i < 0
-      flash[:notice] = "Donation must be greater than 0. Please try again!"
+    if donation.values.pop.to_i < 1
+    elsif donation.values.pop.to_i > 2700
     else
       session[:donations] = session[:donations].merge(cart.update(params))
     end
@@ -15,15 +15,18 @@ class CartController < ApplicationController
   end
 
   def destroy
-    require 'pry'; binding.pry
-    session[:donations][params[:id]] = nil
-    flash[:notice] = "#{find_issue} has been removed from your cart. Click HERE to undo."
+    cart.delete(params)
+    flash[:notice] = "Your donation to #{find_candidate}'s #{find_issue} campaign has been removed from your cart."
     redirect_to cart_path
   end
 
   private
 
   def find_issue
-    Issue.find_by(params[:issue_id]).topic
+    CandidateIssue.find(params[:id]).topic
+  end
+
+  def find_candidate
+    CandidateIssue.find(params[:id]).name
   end
 end

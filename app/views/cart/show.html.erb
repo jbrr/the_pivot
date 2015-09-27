@@ -1,38 +1,28 @@
+<br>
 <div class="row" align="center" id="flash_messages">
   <br>
     <div class="col-md-12">
-      <%= render partial: "layouts/flashes" %>
+      <%= render partial: "layouts/custom_flash" %>
     </div>
-</div><br>
-
+</div>
+<br>
 <div class="cart">
-  <br><h3 align="center">Your Donations Cart</h3><br>
-
-  <div class="container row">
-    <div class="col-md-5">
-
-    </div>
-    <div class="col-md-5">
-      <% if cart.total.to_i > 0 %>
-      <table class="table table-striped" id="donation-table">
-        <%= render partial: "cart_items" %>
-      </table>
-      <% else %>
-        <h3>Your cart is empty.</h3>
-      <% end %>
+  <h3 id="cart-header-title">Your Donations Cart</h3><br>
+   <div class="container">
+    <div class="row well">
+     <div class="col-md-offset-2 col-md-8">
+      <%= render partial: "cart_items" %>
     </div>
   </div>
+</div>
 
+<div class="container" id="button-front-page">
   <div class="row">
-    <div class="col-md-3">
-    </div>
-    <div class="col-md-6 text-center">
-      <button class="btn">
-        <%= link_to "View more issues.", issues_path %>
-      </button>
-      <button class="btn">
-        <%= link_to "View more candidates.", candidates_path %>
-      </button>
-    </div>
+      <div class="col-md-offset-2 col-md-4" id="browse-candidates-button">
+          <%= link_to "View More Candidates", candidates_path, class: "btn btn-lg btn-default btn-block btn btn-primary" %>
+      </div>
+      <div class="col-md-4" id="browse-issues-button">
+          <%= link_to "View More Issues", issues_path, class: "btn btn-lg btn-default btn-block btn btn-primary" %>
+      </div>
   </div>
 </div>
