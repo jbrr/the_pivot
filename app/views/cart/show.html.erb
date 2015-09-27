@@ -31,7 +31,7 @@
                 <%= f.submit "Update" %>
                 <% end %></td>
             <td><%= link_to "Remove",
-                    donations_path(donation.candidate_issue_id),
+                    "/cart/#{donation.candidate_issue_id}",
                     method: :delete,
                     class: "btn btn-danger" %></td>
           </tr>

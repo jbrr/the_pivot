@@ -31,9 +31,6 @@ class Cart
   end
 
   def update(params)
-    # if params[:donation][:amount].to_i < 0
-    #   flash[:notice] = "This is not a valid amount. Please enter a number greater than 0."
-    # else
-      {params[:id] => params[:donation][:amount]}
+    {params[:id] => params[:donation][:amount]}
   end
 end
