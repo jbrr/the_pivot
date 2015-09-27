@@ -40,5 +40,4 @@ feature "Can view candidates" do
       expect(page).to have_css("#biden-image")
     end
   end
-
 end
