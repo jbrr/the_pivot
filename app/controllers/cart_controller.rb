@@ -5,13 +5,18 @@ class CartController < ApplicationController
   end
 
   def update
-    session[:donations] = session[:donations].merge(cart.update(params))
+    if validate_params
+      session[:donations] = session[:donations].merge(cart.update(params))
+    else
+      session[:donations]
+      flash[:errors] = "Invalid Donation."
+    end
     redirect_to cart_path
   end
 
   def destroy
     cart.delete(params)
-    flash[:notice] = "Your <strong>donation</strong> to #{find_candidate}'s #{find_issue} campaign has been removed from your cart."
+    flash[:notice] = "Your <strong>donation</strong> to #{find_candidate}'s #{find_issue} campaign has been removed from your cart. <a href='/candidates'>CLICK HERE TO RESUBMIT YOUR DONATION</a>"
     redirect_to cart_path
   end
 

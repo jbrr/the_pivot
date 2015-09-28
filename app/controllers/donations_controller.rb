@@ -5,7 +5,8 @@ class DonationsController < ApplicationController
       session[:donations] = validate_session
       flash[:notice] = "Donation added to cart."
     else
-      flash[:errors] = "Donation cannot be empty."
+      session[:donations]
+      flash[:errors] = "Invalid Donation."
     end
     return_to_origin_page
   end
@@ -30,10 +31,6 @@ class DonationsController < ApplicationController
 
   def create_cart
     cart.create(params)
-  end
-
-  def validate_params
-    params[:donation][:amount].to_i > 0
   end
 
   def validate_session
