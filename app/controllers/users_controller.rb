@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to profile_path
     else
-      flash[:errors] = @user.errors.full_messages.join(", ")
+      flash.now[:errors] = @user.errors.full_messages.join(", ")
       render :new
     end
   end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:join).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation)
     end
 
 end
