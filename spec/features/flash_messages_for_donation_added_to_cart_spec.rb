@@ -1,5 +1,4 @@
 require "rails_helper"
-
 feature "Add donation to cart" do
 
   scenario "as guest flash message displays to confirm" do
