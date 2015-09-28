@@ -1,4 +1,3 @@
 <% flash.each do |name, message| %>
   <%= content_tag(:div, sanitize(message), :id => "flash_#{name}") %>
-  <%= link_to "CLICK HERE TO RESUBMIT YOUR DONATION", candidates_path %>
 <% end %>
