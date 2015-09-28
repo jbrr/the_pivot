@@ -1,19 +1,19 @@
 require "rails_helper"
 
 feature "Add donation to cart" do
-  scenario "as guest view empty cart" do
-    visit root_path
-    within("#cart") do
-      click_link "Cart"
-    end
+  # scenario "as guest view empty cart" do
+  #   visit root_path
+  #   within("#cart") do
+  #     click_link "Cart"
+  #   end
 
-    expect(current_path).to eq(cart_path)
-    expect(page).to have_content("Sorry Your Cart is Empty")
-    expect(page).to have_link("View More Issues")
-    expect(page).to have_link("View More Candidates")
-  end
+  #   expect(current_path).to eq(cart_path)
+  #   expect(page).to have_content("Sorry Your Cart is Empty")
+  #   expect(page).to have_link("View More Issues")
+  #   expect(page).to have_link("View More Candidates")
+  # end
 
-  scenario "as guest and view on cart page from candidate page" do
+  scenario "as guest can add and view donation from candidate page" do
     candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
     issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
@@ -23,6 +23,11 @@ feature "Add donation to cart" do
       fill_in "Amount", with: 10
       click_button "Donate"
     end
+
+    within("#flash_notice") do
+      expect(page).to have_content("Donation added to cart.")
+    end
+
     within("#cart") do
       click_link "Cart"
     end
@@ -32,7 +37,7 @@ feature "Add donation to cart" do
     expect(page).to have_content("10")
   end
 
-  scenario "as guest and view on cart page from issue page" do
+  scenario "as guest can add and view donation from issue page" do
     candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
     issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
@@ -42,6 +47,11 @@ feature "Add donation to cart" do
       fill_in "Amount", with: 20
       click_button "Donate"
     end
+
+    within("#flash_notice") do
+      expect(page).to have_content("Donation added to cart.")
+    end
+
     within("#cart") do
       click_link "Cart"
     end

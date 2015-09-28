@@ -13,16 +13,11 @@ class Cart
     end
   end
 
-  def add(params)
+  def create(params)
     candidate_issue_id = params[:donation][:candidate_issue_id]
     donations ||= {}
-
-    if donations[candidate_issue_id]
-      donations[candidate_issue_id] = (donations[candidate_issue_id].to_i + params[:donation][:amount].to_i).to_s
-    else
-      donations[candidate_issue_id] = params[:donation][:amount]
-    end
-
+    donations[candidate_issue_id] = (donations[candidate_issue_id].to_i
+                                  + params[:donation][:amount].to_i).to_s
     donations
   end
 
