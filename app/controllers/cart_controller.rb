@@ -5,18 +5,13 @@ class CartController < ApplicationController
   end
 
   def update
-    donation = cart.update(params)
-    if donation.values.pop.to_i < 1
-    elsif donation.values.pop.to_i > 2700
-    else
-      session[:donations] = session[:donations].merge(cart.update(params))
-    end
+    session[:donations] = session[:donations].merge(cart.update(params))
     redirect_to cart_path
   end
 
   def destroy
     cart.delete(params)
-    flash[:notice] = "Your donation to #{find_candidate}'s #{find_issue} campaign has been removed from your cart."
+    flash[:notice] = "Your <strong>donation</strong> to #{find_candidate}'s #{find_issue} campaign has been removed from your cart."
     redirect_to cart_path
   end
 
