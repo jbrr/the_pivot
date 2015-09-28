@@ -11,6 +11,15 @@ class DonationsController < ApplicationController
     return_to_origin_page
   end
 
+  def undo
+    params[:donation] = {
+                         "candidate_issue_id" => session[:undo].keys.first,
+                                     "amount" => session[:undo].values.first
+                        }
+    session[:donations] = validate_session
+    redirect_to cart_path
+  end
+
   private
 
   def return_to_origin_page
