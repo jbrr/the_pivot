@@ -6,7 +6,7 @@ class DonationsController < ApplicationController
       flash[:notice] = "Donation added to cart."
     else
       session[:donations]
-      flash[:errors] = "Donation cannot be empty."
+      flash[:errors] = "Invalid Donation."
     end
     return_to_origin_page
   end

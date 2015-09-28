@@ -31,7 +31,7 @@ feature "Add donation to cart" do
     end
 
     within("#flash_messages") do
-      expect(page).to have_content("Donation cannot be empty.")
+      expect(page).to have_content("Invalid Donation.")
     end
   end
 end
