@@ -18,6 +18,9 @@
       <p id="header-intro"><%= @candidate.bio %></p>
     </div>
   </div>
+  <div class="col-md-4 col-md-offset-4 portfolio-item">
+     <%= image_tag("#{@candidate.last_name}.jpg", class: "img-responsive img-portfolio", id:"#{@candidate.last_name}-image") %>
+  </div>
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2" id="stances">
       <% @candidate.candidate_issues.each do |candidate_issue| %>
