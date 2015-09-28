@@ -34,6 +34,6 @@ class CartController < ApplicationController
   end
 
   def stored_donation
-    {params[:id] => session[:donations][params[:id]]}
+    { params[:id] => session[:donations][params[:id]] }
   end
 end
