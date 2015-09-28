@@ -37,7 +37,7 @@ feature "Can view and click to see top candidates and issues" do
 
     visit root_path
     within("#issue-#{issue.id}") do
-      find(:xpath, "//a/img[@alt='Isis']/..").click
+      find(:xpath, "//a/img[@alt='.jpg']/..").click
     end
 
     expect(current_path).to eq("/issues/#{issue.id}")

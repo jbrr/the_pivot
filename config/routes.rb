@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :issues, only: [:index, :show]
   resources :donations, only: [:create, :edit]
 
-
   get "/cart", to: "cart#show"
   patch "/cart/:id", to: "cart#update"
   delete "/cart/:id", to: "cart#destroy"

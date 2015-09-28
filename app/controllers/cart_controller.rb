@@ -15,7 +15,18 @@ class CartController < ApplicationController
   end
 
   def destroy
-    session[:donations][params[:id]] = nil
+    cart.delete(params)
+    flash[:notice] = "Your donation to #{find_candidate}'s #{find_issue} campaign has been removed from your cart."
     redirect_to cart_path
+  end
+
+  private
+
+  def find_issue
+    CandidateIssue.find(params[:id]).topic
+  end
+
+  def find_candidate
+    CandidateIssue.find(params[:id]).name
   end
 end

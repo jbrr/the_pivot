@@ -1,46 +1,20 @@
 <br>
+<div class="row" align="center" id="flash_messages">
+  <br>
+    <div class="col-md-12">
+      <%= render partial: "layouts/custom_flash" %>
+    </div>
+</div>
+<br>
 <div class="cart">
   <h3 id="cart-header-title">Your Donations Cart</h3><br>
    <div class="container">
     <div class="row well">
      <div class="col-md-offset-2 col-md-8">
-      <% if cart.total.to_i > 0 %><br>
-        <table class="table table-striped table-bordered table-hover" id="donation-table">
-          <tr>
-            <th>Candidate</th>
-            <th>Issue</th>
-            <th>Amount Donated</th>
-            <th>Remove</th>
-          </tr>
-        <% cart.donations.each do |donation| %>
-          <tr>
-            <% if donation.amount %>
-            <td id="cart-td"><%= donation.candidate.name %></td>
-            <td id="cart-td"> <%= donation.issue.topic %></td>
-            <td id="form-edit-cartf"><%= bootstrap_form_for donation, layout: :inline, url: "/cart/#{donation.candidate_issue_id}", method: :patch do |f| %>
-                <%= f.number_field :amount, in: 1..2700, step: 1, hide_label: true, value: donation.amount, id:"amount-field-cart" %>
-                <%= f.submit "Edit" %>
-                <% end %></td>
-            <td id="cart-remove-button"><%= link_to "Remove", "/cart/#{donation.candidate_issue_id}", method: :delete,
-                    class: "btn btn-danger", id:"delete-#{donation.candidate_issue_id}" %></td>
-            <% end %>
-        <% end %>
-          </tr>
-        <tr>
-          <td></td>
-          <td id="cart-total-donations"><strong>Total Donations</strong></td>
-          <td id="cart-total"><%= number_to_currency(cart.total) %></td>
-          <td id="cart-donate-button"><div class="btn btn-success">DONATE</div></td>
-        </tr>
-      </table>
-
-      <% else %>
-        <h4 id="cart-empty">Sorry Your Cart is Empty</h4>
-      <% end %>
+      <%= render partial: "cart_items" %>
     </div>
   </div>
 </div>
-
 
 <div class="container" id="button-front-page">
   <div class="row">
