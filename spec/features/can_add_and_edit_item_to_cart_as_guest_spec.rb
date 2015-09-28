@@ -146,7 +146,6 @@ feature "Add donation to cart" do
     expect(current_path).to eq(cart_path)
     expect(page).to have_content("60")
 
-
     first(:link, "Remove").click
 
     within("#cart-total") do
