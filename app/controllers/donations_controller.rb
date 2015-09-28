@@ -1,14 +1,12 @@
 class DonationsController < ApplicationController
 
   def create
-    if session[:donations]
-      session[:donations] = session[:donations].merge(cart.add(params)) do |key, old_val, new_val|
-        (old_val.to_i + new_val.to_i).to_s
-      end
+    if validate_params
+      session[:donations] = validate_session
+      flash[:notice] = "Donation added to cart."
     else
-      session[:donations] = cart.add(params)
+      flash[:errors] = "Donation cannot be empty."
     end
-    flash[:notice] = "Donation added to cart."
     return_to_origin_page
   end
 
@@ -28,5 +26,23 @@ class DonationsController < ApplicationController
 
     def issue_id
       params[:donation][:issue_id]
+    end
+
+    def create_cart
+      cart.create(params)
+    end
+
+    def validate_params
+      params[:donation][:amount].to_i > 0
+    end
+
+    def validate_session
+      if session[:donations]
+        session[:donations].merge(create_cart) do |key, old_val, new_val|
+          (old_val.to_i + new_val.to_i).to_s
+        end
+      else
+        create_cart
+      end
     end
 end

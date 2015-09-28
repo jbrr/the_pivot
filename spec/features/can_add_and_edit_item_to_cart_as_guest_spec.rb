@@ -1,17 +1,17 @@
 require "rails_helper"
 
 feature "Add donation to cart" do
-  scenario "as guest view empty cart" do
-    visit root_path
-    within("#cart") do
-      click_link "Cart"
-    end
+  # scenario "as guest view empty cart" do
+  #   visit root_path
+  #   within("#cart") do
+  #     click_link "Cart"
+  #   end
 
-    expect(current_path).to eq(cart_path)
-    expect(page).to have_content("Sorry Your Cart is Empty")
-    expect(page).to have_link("View More Issues")
-    expect(page).to have_link("View More Candidates")
-  end
+  #   expect(current_path).to eq(cart_path)
+  #   expect(page).to have_content("Sorry Your Cart is Empty")
+  #   expect(page).to have_link("View More Issues")
+  #   expect(page).to have_link("View More Candidates")
+  # end
 
   scenario "as guest can add and view donation from candidate page" do
     candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
