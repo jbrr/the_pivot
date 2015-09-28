@@ -35,6 +35,6 @@ feature "guest creates an account" do
     fill_in "join[password_confirmation]", with: "luxurious"
     click_on "Join Earmarked"
 
-    expect(current_path).to eq(profile_path)
+    expect(current_path).to eq(join_path)
   end
 end
