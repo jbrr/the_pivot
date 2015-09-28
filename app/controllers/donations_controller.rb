@@ -38,11 +38,15 @@ class DonationsController < ApplicationController
 
   def validate_session
     if session[:donations]
-      session[:donations].merge(create_cart) do |key, old_val, new_val|
-        (old_val.to_i + new_val.to_i).to_s
-      end
+      add_to_cart
     else
       create_cart
+    end
+  end
+
+  def add_to_cart
+    session[:donations].merge(create_cart) do |key, old_val, new_val|
+      (old_val.to_i + new_val.to_i).to_s
     end
   end
 end
