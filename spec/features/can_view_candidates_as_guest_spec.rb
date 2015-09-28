@@ -43,13 +43,13 @@ feature "Can view candidates" do
 
   scenario "guest can vist show pages via picture and name lengths" do
     trump = Candidate.create(name: "Donald Trump",
-                    party: "Republican",
-                      bio: "Luxurious",
-                last_name: "trump")
+                            party: "Republican",
+                              bio: "Luxurious",
+                        last_name: "trump")
     biden = Candidate.create(name: "Joe Biden",
-                    party: "Democratic",
-                      bio: "Whiskey",
-                last_name: "biden")
+                            party: "Democratic",
+                              bio: "Whiskey",
+                        last_name: "biden")
 
     visit candidates_path
     within("#candidates") do
@@ -65,5 +65,4 @@ feature "Can view candidates" do
 
     expect(current_path).to eq(candidate_path(trump))
   end
-
 end
