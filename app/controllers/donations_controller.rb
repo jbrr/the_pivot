@@ -45,7 +45,7 @@ class DonationsController < ApplicationController
   end
 
   def add_to_cart
-    session[:donations].merge(create_cart) do |key, old_val, new_val|
+   session[:donations].merge(create_cart) do |key, old_val, new_val|
       (old_val.to_i + new_val.to_i).to_s
     end
   end
