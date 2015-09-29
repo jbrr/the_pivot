@@ -26,11 +26,20 @@ feature "can create order as user" do
       click_button "Donate"
     end
 
+    visit issue_path(issue)
+
+    find(:css, ".donation-candidate", text: candidate_issue.name).click
+
+    within(".donation-time") do
+      fill_in "Amount", with: 10
+      click_button "Donate"
+    end
+
     within("#cart") do
       click_link "Cart"
     end
 
-    expect(page).to have_content("10")
+    expect(page).to have_content("20")
 
     within("#cart-donate-button") do
       click_button "DONATE"
@@ -38,8 +47,10 @@ feature "can create order as user" do
     order = Order.find(1)
 
     expect(current_path).to eq(order_path(order.id))
-
-    expect(page).to have_content("10")
+    expect(page).to have_content("20")
+    expect(page).to have_content("Donald")
+    expect(page).to have_content("Ted Cruz")
+    expect(page).to have_content("Gun Control")
+    expect(page).to have_content("Order Number: #{order.id}")
   end
 end
-

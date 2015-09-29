@@ -1,5 +1,23 @@
-<h4>Order Id: <%= @order.id %> for </h4>
+<h2>Order on <%= @order.created_at.strftime("%A, %B %d, %Y") %> for <%= @order.user.first_name %></h2>
 
+<h4>Order Number: <%= @order.id %></h4><br>
+<table class="table table-striped table-bordered table-hover" id="donation-table">
+  <tr>
+    <th>Candidate</th>
+    <th>Issues</th>
+    <th>Amount Donated</th>
+  </tr>
+  <% @donations.each do |donation| %>
+  <tr>
+    <td id="cart-td"><%= donation.candidate.name %></td>
+    <td><%= donation.issue.topic %></td>
+    <td><%= number_to_currency(donation.amount) %></td>
+  <% end %>
 
-<%= @order.total %> <br>
-<%= @order.created_at %>
+</tr>
+<tr>
+  <td></td>
+  <td id="cart-total-donations"><strong>Total Donations</strong></td>
+  <td id="cart-total"><%= number_to_currency(@order.total) %></td>
+</tr>
+</table>
