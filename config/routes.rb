@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :donations, only: [:create, :edit]
   resources :orders, only: [:create, :show]
 
+  get "/donations/undo", to: "donations#undo"
+
   get "/cart", to: "cart#show"
   patch "/cart/:id", to: "cart#update"
   delete "/cart/:id", to: "cart#destroy"
