@@ -108,7 +108,7 @@ feature "Add donation to cart" do
     expect(page).to have_content("70")
   end
 
-  scenario "as guest can edit donations in cart", js: true do
+  scenario "as guest can update donations in cart", js: true do
     candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis", last_name: "cruz")
     issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!", picture: "guns")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
@@ -157,6 +157,8 @@ feature "Add donation to cart" do
 
     first(:link, "Remove").click
 
+    page.accept_confirm
+
     within("#cart-total") do
       expect(page).to have_content("40")
     end
@@ -191,10 +193,12 @@ feature "Add donation to cart" do
       first(:link, 'Remove').click
     end
 
+    page.accept_confirm
+
     expect(page).to have_content("Sorry Your Cart is Empty")
   end
 
-  scenario "as guest cannot edit negative donations in cart", js: true do
+  scenario "as guest cannot update negative donations in cart", js: true do
     candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis", last_name: "cruz")
     issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!", picture: "guns")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
@@ -209,7 +213,7 @@ feature "Add donation to cart" do
     visit cart_path
     within("#donation-table") do
       fill_in "donation[amount]", with: -10
-      click_button "Edit"
+      click_button "Update"
     end
 
     within("#cart-total") do
@@ -253,6 +257,8 @@ feature "Add donation to cart" do
     within("#donation-table") do
       first(:link, "Remove").click
     end
+
+    page.accept_confirm
 
     within("#flash_notice") do
       expect(page).to have_content("Your donation to Ted Cruz's Gun Control campaign has been removed from your cart.")
