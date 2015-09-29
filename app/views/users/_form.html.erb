@@ -5,5 +5,12 @@
   <%= f.text_field :username, icon: "user" %>
   <%= f.password_field :password, help: "Must be 8 Characters", icon: "lock" %>
   <%= f.password_field :password_confirmation, label: "Confirm Password" %>
-  <%= f.submit "Join Earmarked", class: "btn btn-success" %>
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.submit "Join Earmarked", class: "btn btn-success" %>
+    </div>
+    <div class="col-xs-4">
+      <%= link_to sanitize("Already registered? <br> Log in here."), login_path %>
+    </div>
+  </div>
 <% end  %>
