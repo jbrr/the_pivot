@@ -244,7 +244,6 @@ feature "Add donation to cart" do
     issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!", picture: "guns")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
 
-
     visit issue_path(issue)
     find(:css, ".donation-candidate", text: candidate_issue.name).click
     within(".donation-time") do
