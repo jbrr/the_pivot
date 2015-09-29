@@ -1,11 +1,8 @@
 require "rails_helper"
 
 feature "Add donation to cart" do
-  scenario "as guest view empty cart" do
-    visit root_path
-    within("#cart") do
-      click_link "Cart"
-    end
+  scenario "as guest view empty cart", js: true do
+    visit cart_path
 
     expect(current_path).to eq(cart_path)
     expect(page).to have_content("Sorry Your Cart is Empty")
@@ -13,13 +10,14 @@ feature "Add donation to cart" do
     expect(page).to have_link("View More Candidates")
   end
 
-  scenario "as guest can add and view donation from candidate page" do
-    candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
-    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
+  scenario "as guest can add and view donation from candidate page", js: true do
+    candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis", last_name: "cruz")
+    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!", picture: "guns")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
 
     visit candidate_path(candidate)
-    within("#stances") do
+    find(:css, ".donation-candidate", text: candidate_issue.topic).click
+    within(".donation-time") do
       fill_in "Amount", with: 10
       click_button "Donate"
     end
@@ -27,23 +25,22 @@ feature "Add donation to cart" do
     within("#flash_notice") do
       expect(page).to have_content("Donation added to cart.")
     end
-
     within("#cart") do
       click_link "Cart"
     end
-    expect(current_path).to eq(cart_path)
     expect(page).to have_content("Ted Cruz")
     expect(page).to have_content("Gun Control")
     expect(page).to have_content("10")
   end
 
-  scenario "as guest can add and view donation from issue page" do
-    candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
-    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
+  scenario "as guest can add and view donation from issue page", js: true do
+    candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis", last_name: "cruz")
+    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!", picture: "guns")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
 
     visit issue_path(issue)
-    within("#stances") do
+    find(:css, ".donation-candidate", text: candidate_issue.name).click
+    within(".donation-time") do
       fill_in "Amount", with: 20
       click_button "Donate"
     end
@@ -52,10 +49,7 @@ feature "Add donation to cart" do
       expect(page).to have_content("Donation added to cart.")
     end
 
-    within("#cart") do
-      click_link "Cart"
-    end
-    expect(current_path).to eq(cart_path)
+    visit cart_path
     expect(page).to have_content("Ted Cruz")
     expect(page).to have_content("Gun Control")
     expect(page).to have_content("20")
@@ -136,13 +130,13 @@ feature "Add donation to cart" do
   end
 
   scenario "as guest can delete donations from two different candidates in cart", js: true do
-    candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis", last_name: "cruz")
-    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!", picture: "guns")
+    candidate = Candidate.create(name: "Schmed Cruz", party: "Republican", bio: "Kim Davis", last_name: "cruz")
+    issue = Issue.create(topic: "Fun Control", description: "Guns Guns Guns!", picture: "guns")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
 
     candidate2 = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis", last_name: "cruz")
     issue2 = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!", picture: "guns")
-    candidate_issue2 = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
+    candidate_issue2 = CandidateIssue.create(candidate: candidate2, issue: issue2, stance: "Give them the guns!")
 
     visit candidate_path(candidate)
     find(:css, ".donation-candidate", text: candidate_issue.topic).click
@@ -151,16 +145,14 @@ feature "Add donation to cart" do
       click_button "Donate"
     end
 
-    find(:css, ".donation-candidate", text: candidate_issue.topic).click
+    visit candidate_path(candidate2)
+    find(:css, ".donation-candidate", text: candidate_issue2.topic).click
     within(".donation-time") do
       fill_in "Amount", with: 40
       click_button "Donate"
     end
 
-    within("#cart") do
-      click_link "Cart"
-    end
-    expect(current_path).to eq(cart_path)
+    visit cart_path
     expect(page).to have_content("60")
 
     first(:link, "Remove").click
