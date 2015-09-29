@@ -40,4 +40,29 @@ feature "Can view candidates" do
       expect(page).to have_css("#biden-image")
     end
   end
+
+  scenario "guest can vist show pages via picture and name lengths" do
+    trump = Candidate.create(name: "Donald Trump",
+                            party: "Republican",
+                              bio: "Luxurious",
+                        last_name: "trump")
+    biden = Candidate.create(name: "Joe Biden",
+                            party: "Democratic",
+                              bio: "Whiskey",
+                        last_name: "biden")
+
+    visit candidates_path
+    within("#candidates") do
+      click_link("#{trump.name}")
+    end
+
+    expect(current_path).to eq(candidate_path(trump))
+
+    visit candidates_path
+    within("##{trump.last_name}-image") do
+      find(:xpath, "//a/img[@alt='Trump']/..").click
+    end
+
+    expect(current_path).to eq(candidate_path(trump))
+  end
 end

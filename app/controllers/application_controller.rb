@@ -14,4 +14,6 @@ class ApplicationController < ActionController::Base
   def cart
     Cart.new(session[:donations])
   end
+
+  include ApplicationHelper
 end

@@ -257,6 +257,30 @@ feature "Add donation to cart" do
     within("#flash_notice") do
       expect(page).to have_content("Your donation to Ted Cruz's Gun Control campaign has been removed from your cart.")
     end
-    expect(page).to have_link("CLICK HERE TO RESUBMIT YOUR DONATION")
+    expect(page).to have_link("HERE")
+  end
+
+  scenario "as guest can resubmit removed donation" do
+    candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
+    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
+    candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
+
+    visit issue_path(issue)
+    within("##{candidate_issue.id}") do
+      fill_in "Amount", with: 20
+      click_button "Donate"
+    end
+
+    visit cart_path
+
+    within("#donation-table") do
+      first(:link, "Remove").click
+    end
+
+    click_link "HERE"
+    within("#donation-table") do
+      first(:link, "Remove").click
+      expect(page).to have_content("20")
+    end
   end
 end
