@@ -123,7 +123,7 @@ feature "Add donation to cart" do
     visit cart_path
     within("#donation-table") do
       fill_in "donation[amount]", with: 10
-      click_button "Edit"
+      click_button "Update"
     end
 
     expect(page).to have_content("10")

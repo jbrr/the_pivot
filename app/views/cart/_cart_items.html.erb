@@ -10,10 +10,12 @@
   <tr>
     <% if donation.amount %>
     <td id="cart-td"><%= donation.candidate.name %></td>
-    <td id="cart-td"> <%= donation.issue.topic %></td>
-    <td id="form-edit-cartf"><%= bootstrap_form_for donation, layout: :inline, url: "/cart/#{donation.candidate_issue_id}", method: :patch do |f| %>
+
+    <td><a href="#" data-toggle="popover" data-placement="top" title="<%= donation.candidate.name %>'s Stance" id="cart-btn" data-content="<%= donation.candidate_issue.stance %>"> <%= donation.issue.topic %></a></td>
+
+    <td id="form-edit-cart"><%= bootstrap_form_for donation, layout: :inline, url: "/cart/#{donation.candidate_issue_id}", method: :patch do |f| %>
         <%= f.number_field :amount, in: 1..2700, step: 1, hide_label: true, value: donation.amount, id:"amount-field-cart" %>
-        <%= f.submit "Edit" %>
+        <%= f.submit "Update" %>
         <% end %></td>
     <td id="cart-remove-button"><%= link_to "Remove", "/cart/#{donation.candidate_issue_id}", :data => {:confirm => 'Donation will be removed. Are you sure?'}, method: :delete,
             class: "btn btn-danger", id:"delete-#{donation.candidate_issue_id}" %></td>
@@ -31,3 +33,13 @@
 <% else %>
   <h4 id="cart-empty">Sorry Your Cart is Empty</h4>
 <% end %>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover({
+      trigger: 'hover'
+    });
+});
+</script>
+
+
