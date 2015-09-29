@@ -288,4 +288,34 @@ feature "Add donation to cart" do
       expect(page).to have_content("20")
     end
   end
+
+  scenario "cart total is shown in navbar when donation is made" do
+    candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
+    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
+    candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
+
+    visit issue_path(issue)
+    save_and_open_page
+    within('#navbar') do
+      expect(page).to_not have_content("Cart: $0")
+    end
+
+    within("##{candidate_issue.id}") do
+      fill_in "Amount", with: 20
+      click_button "Donate"
+    end
+
+    within('#navbar') do
+      expect(page).to have_content("Cart: $20")
+    end
+
+    visit cart_path
+    within("#donation-table") do
+      first(:link, "Remove").click
+    end
+
+    within('#navbar') do
+      expect(page).to have_content("Cart: $0")
+    end
+  end
 end
