@@ -27,7 +27,7 @@
             </li>
              <li id="cart">
               <%= link_to cart_path do %>
-              <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Cart
+              <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Cart<%= ": $" + cart.total.to_s if cart.total %>
               <% end %>
             </li>
             <li>
