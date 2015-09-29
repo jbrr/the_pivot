@@ -70,9 +70,9 @@ feature "Can log in as a registered user" do
   scenario "link to create account exists on login form" do
     visit login_path
     within("#login-form") do
-      expect(page).to have_link("Not registered? Click here to sign up.")
+      expect(page).to have_link("Not registered? Sign up here.")
     end
-    click_link "Not registered? Click here to sign up."
+    click_link "Not registered? Sign up here."
     expect(current_path).to eq(join_path)
   end
 
