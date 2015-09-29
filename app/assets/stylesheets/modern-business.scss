@@ -193,8 +193,8 @@ footer {
   vertical-align: middle;
 }
 
-#cart-td {
-  vertical-align: middle;
+#cart-btn {
+  text-decoration: none !important
 }
 
 #cart-total-donations {
@@ -211,6 +211,11 @@ footer {
 
 #cart-empty {
   text-align: center;
+}
+
+#row-donate-form {
+  margin-left: 32px;
+  margin-right: 550px;
 }
 
 /* Login and Join Pages Styling */

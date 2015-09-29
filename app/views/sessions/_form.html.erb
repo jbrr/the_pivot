@@ -1,5 +1,12 @@
 <%= bootstrap_form_for :login, url: login_path do |f| %>
 <%= f.text_field :username, icon: "user"  %>
 <%= f.password_field :password, icon: "lock" %>
-<%= f.submit "Login", class: "btn btn-success" %>
+<div class="">
+  <div class="col-xs-3">
+    <%= f.submit "Login", class: "btn btn-success" %>
+  </div>
+  <div class="col-xs-5 center-text">
+    <%= link_to "Not registered? Sign up here.", join_path %>
+  </div>
+</div>
 <% end %>
