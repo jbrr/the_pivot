@@ -182,11 +182,7 @@ feature "Add donation to cart" do
       click_button "Donate"
     end
 
-    within("#cart") do
-      click_link "Cart:"
-    end
-
-    expect(current_path).to eq(cart_path)
+    visit cart_path
     expect(page).to have_content("60")
 
     within("#donation-table") do
