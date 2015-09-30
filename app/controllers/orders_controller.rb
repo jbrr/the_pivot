@@ -11,6 +11,9 @@ class OrdersController < ApplicationController
         donation.save
       end
       session[:donations].clear
+      if current_user.phone_number == true
+        SendNotification.new.text_message(current_user.phone_number)
+      end
       redirect_to order_path(order)
     else
       flash[:errors] = "Please sign in to donate!"
