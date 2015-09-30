@@ -2,9 +2,7 @@ require "rails_helper"
 feature "Add donation to cart" do
 
   scenario "as guest flash message displays to confirm" do
-    candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
-    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
-    candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
+    test_setup
 
     visit candidate_path(candidate)
 
@@ -19,9 +17,7 @@ feature "Add donation to cart" do
   end
 
   scenario "as guest flash message displays to reject empty donation" do
-    candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis")
-    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!")
-    candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
+    test_setup
 
     visit candidate_path(candidate)
 

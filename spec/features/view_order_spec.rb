@@ -1,7 +1,6 @@
 require "rails_helper"
 
 feature "can view profile page via link on order show page" do
-
   before do
     visit login_path
     fill_in "Username", with: user.username
@@ -40,5 +39,4 @@ feature "can view profile page via link on order show page" do
     click_link "#{order.id}"
     expect(current_path).to eq(order_path(order))
   end
-
 end
