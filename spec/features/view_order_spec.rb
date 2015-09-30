@@ -2,14 +2,14 @@ require "rails_helper"
 
 feature "can view profile page via link on order show page" do
 
-  scenario "user clicks profile link" do
-    user = User.create(first_name: "Donald",
-                       last_name: "Trump",
-                       email: "trump@luxury.com",
-                       username: "therealtrump",
-                       password: "password",
-                       password_confirmation: "password")
+  let(:user) {User.create(first_name: "Donald",
+                     last_name: "Trump",
+                     email: "trump@luxury.com",
+                     username: "therealtrump",
+                     password: "password",
+                     password_confirmation: "password")}
 
+  scenario "user clicks profile link" do
     candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis", last_name: "cruz")
     issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!", picture: "guns")
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
