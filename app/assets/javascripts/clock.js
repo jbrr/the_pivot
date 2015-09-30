@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('ready page:load', function () {
 
   function getTimeRemaining(endtime){
     var t = Date.parse(endtime) - Date.parse(new Date());
@@ -15,33 +15,33 @@ $(document).ready(function(){
     };
   }
 
-function initializeClock(id, endtime){
+  function initializeClock(id, endtime){
+
   var clock = document.getElementById(id);
   var daysSpan = clock.querySelector('.days');
   var hoursSpan = clock.querySelector('.hours');
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
 
-  function updateClock(){
-    var t = getTimeRemaining(endtime);
+    function updateClock(){
 
-    daysSpan.innerHTML = t.days;
-    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+      var t = getTimeRemaining(endtime);
 
-    if(t.total<=0){
-      clearInterval(timeinterval);
+      daysSpan.innerHTML = t.days;
+      hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+      if(t.total<=0){
+        clearInterval(timeinterval);
+      }
     }
+    updateClock();
+    var timeinterval = setInterval(updateClock,1000);
   }
 
-  updateClock();
-  var timeinterval = setInterval(updateClock,1000);
-}
-
-var deadline = 'November 8 2016 00:00:50 UTC+0200';
-initializeClock('clockdiv', deadline);
-
+  var deadline = 'November 8 2016 00:00:50 UTC+0200';
+  initializeClock('clockdiv', deadline);
 });
 
 
