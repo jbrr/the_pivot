@@ -104,7 +104,7 @@ user2 = User.create(first_name: "Mimi", last_name: "Schatz", email: "heyo@gmail.
 user3 = User.create(first_name: "Rose", last_name: "Kohn", email: "rose@gmail.com", phone_number: "3016933081", username: "rose", password: "password", password_confirmation: "password")
 puts "Users created"
 
-order1 = Order.create(total: 420, user_id: user1.id, status: "pending")
+order1 = Order.create(total: 420, user_id: user1.id, status: "completed")
 
 Donation.create(amount: 210, candidate_issue_id: candidate_issue1.id, user_id: user1.id, order_id: order1.id)
 
@@ -116,7 +116,7 @@ Donation.create(amount: 900, candidate_issue_id: candidate_issue3.id, user_id: u
 
 Donation.create(amount: 1100, candidate_issue_id: candidate_issue2.id, user_id: user1.id, order_id: order2.id)
 
-order3 = Order.create(total: 500, user_id: user1.id, status: "pending")
+order3 = Order.create(total: 500, user_id: user1.id, status: "completed")
 
 Donation.create(amount: 240, candidate_issue_id: candidate_issue1.id, user_id: user1.id, order_id: order3.id)
 
@@ -136,7 +136,7 @@ Donation.create(amount: 2000, candidate_issue_id: candidate_issue1.id, user_id: 
 
 Donation.create(amount: 1000, candidate_issue_id: candidate_issue2.id, user_id: user1.id, order_id: order5.id)
 
-order6 = Order.create(total: 420, user_id: user2.id, status: "pending")
+order6 = Order.create(total: 420, user_id: user2.id, status: "completed")
 
 Donation.create(amount: 210, candidate_issue_id: candidate_issue1.id, user_id: user2.id, order_id: order6.id)
 
@@ -148,7 +148,7 @@ Donation.create(amount: 900, candidate_issue_id: candidate_issue3.id, user_id: u
 
 Donation.create(amount: 1100, candidate_issue_id: candidate_issue2.id, user_id: user2.id, order_id: order7.id)
 
-order8 = Order.create(total: 500, user_id: user2.id, status: "pending")
+order8 = Order.create(total: 500, user_id: user2.id, status: "completed")
 
 Donation.create(amount: 240, candidate_issue_id: candidate_issue1.id, user_id: user2.id, order_id: order8.id)
 
@@ -174,13 +174,13 @@ Donation.create(amount: 210, candidate_issue_id: candidate_issue1.id, user_id: u
 
 Donation.create(amount: 210, candidate_issue_id: candidate_issue2.id, user_id: user3.id, order_id: order11.id)
 
-order12 = Order.create(total: 2000, user_id: user3.id, status: "pending")
+order12 = Order.create(total: 2000, user_id: user3.id, status: "completed")
 
 Donation.create(amount: 900, candidate_issue_id: candidate_issue3.id, user_id: user3.id, order_id: order12.id)
 
 Donation.create(amount: 1100, candidate_issue_id: candidate_issue2.id, user_id: user3.id, order_id: order12.id)
 
-order13 = Order.create(total: 500, user_id: user3.id, status: "pending")
+order13 = Order.create(total: 500, user_id: user3.id, status: "completed")
 
 Donation.create(amount: 240, candidate_issue_id: candidate_issue1.id, user_id: user3.id, order_id: order13.id)
 
@@ -194,7 +194,7 @@ Donation.create(amount: 10, candidate_issue_id: candidate_issue2.id, user_id: us
 
 Donation.create(amount: 10, candidate_issue_id: candidate_issue3.id, user_id: user3.id, order_id: order14.id)
 
-order15 = Order.create(total: 3000, user_id: user3.id, status: "cancelled")
+order15 = Order.create(total: 3000, user_id: user3.id, status: "pending")
 
 Donation.create(amount: 2000, candidate_issue_id: candidate_issue1.id, user_id: user3.id, order_id: order15.id)
 

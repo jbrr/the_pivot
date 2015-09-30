@@ -35,7 +35,7 @@ end
 
 class Crusher
   def self.create_order(session, current_user, cart)
-    order = Order.create(user_id: current_user.id, total: cart.total)
+    order = Order.create(user_id: current_user.id, total: cart.total, status: "completed")
     cart.donations.each do |donation|
       donation.order_id = order.id
       donation.user_id  = current_user.id
