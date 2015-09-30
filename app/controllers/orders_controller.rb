@@ -11,8 +11,8 @@ class OrdersController < ApplicationController
         donation.save
       end
       session[:donations].clear
-      if current_user.phone_number == true
-        SendNotification.new.text_message(current_user.phone_number)
+      if current_user.phone_number
+        SendNotification.new.text_message(current_user.phone_number, order, current_user)
       end
       redirect_to order_path(order)
     else
@@ -24,6 +24,5 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params["id"])
     @donations = Donation.where(order_id: @order.id)
-    
   end
 end
