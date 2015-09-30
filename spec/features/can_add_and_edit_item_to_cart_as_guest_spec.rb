@@ -183,7 +183,7 @@ feature "Add donation to cart" do
     end
 
     within("#cart") do
-      click_link "Cart"
+      click_link "Cart:"
     end
 
     expect(current_path).to eq(cart_path)

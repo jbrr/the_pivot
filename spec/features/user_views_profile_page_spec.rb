@@ -57,6 +57,6 @@ feature "Logged in user views profile page" do
       click_link "therealtrump"
     end
 
-    expect(current_path).to eq(profile_path(user))
+    expect(current_path).to eq(profile_path)
   end
 end
