@@ -1,24 +1,13 @@
 require "rails_helper"
 
 feature "can create order as user" do
-
   scenario "register user can create an order", js: true do
+    test_setup
 
-    user = User.create(first_name: "Donald",
-                       last_name: "Trump",
-                       email: "trump@luxury.com",
-                       username: "therealtrump",
-                       password: "password",
-                       password_confirmation: "password")
-
-    candidate = Candidate.create(name: "Ted Cruz", party: "Republican", bio: "Kim Davis", last_name: "cruz")
-    issue = Issue.create(topic: "Gun Control", description: "Guns Guns Guns!", picture: "guns")
-    candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
-
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController).
+      to receive(:current_user).and_return(user)
 
     visit candidate_path(candidate)
-
     find(:css, ".donation-candidate", text: candidate_issue.topic).click
 
     within(".donation-time") do
@@ -27,7 +16,6 @@ feature "can create order as user" do
     end
 
     visit issue_path(issue)
-
     find(:css, ".donation-candidate", text: candidate_issue.name).click
 
     within(".donation-time") do
