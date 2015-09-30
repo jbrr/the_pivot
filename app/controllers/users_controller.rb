@@ -17,7 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
-    @orders = Order.where(user_id: @user.id)
+    @orders_completed = Order.where("user_id = ? AND status = ? ", @user.id, "completed")
+    @orders_pending = Order.where("user_id = ? AND status = ? ", @user.id, "pending")
+    @orders_cancelled = Order.where("user_id = ? AND status = ? ", @user.id, "cancelled")
   end
 
   private
