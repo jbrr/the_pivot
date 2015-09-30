@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :cart
-
   def cart
     Cart.new(session[:donations])
   end
