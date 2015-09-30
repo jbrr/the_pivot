@@ -45,4 +45,14 @@ feature "Logged in user views profile page" do
       expect(page).to have_content("Pending Orders")
     end
   end
+
+  scenario "can visit profile via navbar link" do
+    user = User.find_by(username: "therealtrump")
+
+    within("#navbar") do
+      click_link "therealtrump"
+    end
+
+    expect(current_path).to eq(profile_path(user))
+  end
 end
