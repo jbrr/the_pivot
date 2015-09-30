@@ -52,9 +52,8 @@ feature "Logged in user views profile page" do
 
   scenario "can visit profile via navbar link" do
     user = User.find_by(username: "therealtrump")
-
     within("#navbar") do
-      click_link "therealtrump"
+      click_link "Welcome, Therealtrump."
     end
 
     expect(current_path).to eq(profile_path)
