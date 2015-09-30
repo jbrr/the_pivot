@@ -21,6 +21,9 @@ class ChargesController < ApplicationController
 
     order = Crusher.create_order(session, current_user, cart)
     session[:donations].clear
+    if current_user.phone_number
+      SendNotification.new.text_message(current_user.phone_number, order, current_user)
+    end
     redirect_to order_path(order)
 
     rescue Stripe::CardError => e

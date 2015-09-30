@@ -31,6 +31,10 @@ gem 'bootswatch-rails'
 
 gem 'bootstrap_form'
 
+gem 'twilio-ruby'
+
+gem 'stripe'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -42,7 +46,6 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'selenium-webdriver'
   gem 'simplecov', :require => false
-  gem 'stripe'
   gem 'figaro'
 end
 
