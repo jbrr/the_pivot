@@ -26,8 +26,15 @@
     <td></td>
     <td id="cart-total-donations"><strong>Total Donations</strong></td>
     <td id="cart-total"><%= number_to_currency(cart.total) %></td>
-    <td id="cart-donate-button"><%= button_to "DONATE", orders_path, class: "btn btn-success" %>
-
+    <td id="cart-donate-button">
+      <%= form_tag charges_path do %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Your Order"
+                data-amount=<%= @amount %>
+                data-locale="auto"></script>
+      <% end %>
+    </td>
   </tr>
 </table>
 <% else %>
