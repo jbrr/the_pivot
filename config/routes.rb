@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :candidates, only: [:index, :show]
   resources :issues, only: [:index, :show]
   resources :donations, only: [:create, :edit]
+  resources :charges
 
   get "/donations/undo", to: "donations#undo"
 
