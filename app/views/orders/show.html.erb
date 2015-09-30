@@ -14,8 +14,8 @@
       </tr>
       <% @donations.each do |donation| %>
       <tr>
-        <td id="cart-td"><%= donation.candidate.name %></td>
-        <td><%= donation.issue.topic %></td>
+        <td id="cart-td"><%= link_to donation.candidate.name, candidate_path(donation.candidate.id) %></td>
+        <td><%= link_to donation.issue.topic, issue_path(donation.issue.id) %></td>
         <td><%= number_to_currency(donation.amount) %></td>
       <% end %>
       </tr>
