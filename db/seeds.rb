@@ -9,7 +9,7 @@ Candidate.create(name: "Hillary Clinton", party: "Democratic", bio: "Ms. Clinton
 Candidate.create(name: "Bernie Sanders", party: "Democratic", bio: "Mr. Sanders is descended from a long line of Keebler elfs, but chose break off from family tradition to make sure that even America's poorest residents have a pantry full of Keebler Fudge Stripes. Legend has it that the more disheveled his appearance, the greater his power.", featured: true, last_name: "sanders")
 
 Candidate.create(name: "Joe Biden", party: "Democratic", bio: "While not officially running, Joe Biden's ambitions to show America 'where the party's at' are clear. Born to humble bartenders, Biden quickly endeared himself to the local patrons of 'Shotgun Joe's,' his namesake. His social acumen prompted a drunken patron one day to suggest that he run for public office. Biden, with Cheshire Cat smile, shook off his 11am buzz, and stumbled into the office of the Vice President. He looks to repeat this success in the 2016 election.", last_name: "biden")
-
+puts "Candidates created"
 Issue.create(topic: "Marriage Equality", description: "The central argument in the upcoming debates will be quite simple. Kim Davis vs. humans marrying sheep. Discuss.", picture: 'marriage')
 
 Issue.create(topic: "Environment", description: "Set to be a hotly contested issue, candidates will debate whether climate change is a hoax or if the world is set to end in 20 years time.", featured: true, picture: 'environment')
@@ -21,6 +21,7 @@ Issue.create(topic: "ISIS", description: "We can already hear the arguments unfo
 Issue.create(topic: "Gun Control", description: "'Let them have guns!,' some politicians might yell, channeling their inner Marie Antoinettes, while others will argue that prison rules should apply - anything that can be used as a weapon, should be illegal. Please ask yourself, would you like to own an AK47 or would you like to eat with your hands?", picture: 'guns')
 
 Issue.create(topic: "Economy", description: "The hard working, and deserving, 1 per-centers are the way of the future according to some. Others envision a single world commune where everyone's opinion is equally important.", featured: true, picture: 'economy')
+puts "Issues Created"
 
 CandidateIssue.create(stance: "Only the most luxuriously dressed grooms/brides will be allowed to wed each other.", candidate_id: 1, issue_id: 1)
 
@@ -88,9 +89,114 @@ CandidateIssue.create(stance: "I don't want to see any of those pretty lasses ge
 CandidateIssue.create(stance: "Look, those other guys' last-minute economic plans do nothing to tackle the number-one job facing the middle class, and it happens to be, as Barack says, a three-letter word: jobs. J-O-B-S, jobs.", candidate_id: 6, issue_id: 6)
 
 CandidateIssue.create(stance: "Pick anyone or anything!", candidate_id: 5, issue_id: 1)
+puts "Candidate Issues Created"
 
-CandidateIssue.create(stance: "I, frankly, do not believe that we should be bringing in significant numbers of unskilled to workers to compete with our kids. Make 'em all citizens!", candidate_id: 5, issue_id: 3)
+candidate_issue1 = CandidateIssue.create(stance: "I, frankly, do not believe that we should be bringing in significant numbers of unskilled to workers to compete with our kids. Make 'em all citizens!", candidate_id: 5, issue_id: 3)
 
-CandidateIssue.create(stance: "Eh, what do you think? I could go either way.", candidate_id: 5, issue_id: 5)
+candidate_issue2 = CandidateIssue.create(stance: "Eh, what do you think? I could go either way.", candidate_id: 5, issue_id: 5)
 
-CandidateIssue.create(stance: "I'm the Friar Tuck to my Robin Hood economic plan. I'm just here to make the rich hand over their extra money to you average people.", candidate_id: 5, issue_id: 6)
+candidate_issue3 = CandidateIssue.create(stance: "I'm the Friar Tuck to my Robin Hood economic plan. I'm just here to make the rich hand over their extra money to you average people.", candidate_id: 5, issue_id: 6)
+
+user1 = User.create(first_name: "Travis", last_name: "Haby", email: "big_head@gmail.com", username: "habybaby", password: "password", password_confirmation: "password")
+
+user2 = User.create(first_name: "Mimi", last_name: "Schatz", email: "heyo@gmail.com", username: "meems", password: "password", password_confirmation: "password")
+
+user3 = User.create(first_name: "Rose", last_name: "Kohn", email: "rose@gmail.com", username: "rose", password: "password", password_confirmation: "password")
+puts "Users created"
+
+order1 = Order.create(total: 420, user_id: user1.id, status: "pending")
+
+Donation.create(amount: 210, candidate_issue_id: candidate_issue1.id, user_id: user1.id, order_id: order1.id)
+
+Donation.create(amount: 210, candidate_issue_id: candidate_issue2.id, user_id: user1.id, order_id: order1.id)
+
+order2 = Order.create(total: 2000, user_id: user1.id, status: "pending")
+
+Donation.create(amount: 900, candidate_issue_id: candidate_issue3.id, user_id: user1.id, order_id: order2.id)
+
+Donation.create(amount: 1100, candidate_issue_id: candidate_issue2.id, user_id: user1.id, order_id: order2.id)
+
+order3 = Order.create(total: 500, user_id: user1.id, status: "pending")
+
+Donation.create(amount: 240, candidate_issue_id: candidate_issue1.id, user_id: user1.id, order_id: order3.id)
+
+Donation.create(amount: 260, candidate_issue_id: candidate_issue2.id, user_id: user1.id, order_id: order3.id)
+
+order4 = Order.create(total: 40, user_id: user1.id, status: "cancelled")
+
+Donation.create(amount: 20, candidate_issue_id: candidate_issue1.id, user_id: user1.id, order_id: order4.id)
+
+Donation.create(amount: 10, candidate_issue_id: candidate_issue2.id, user_id: user1.id, order_id: order4.id)
+
+Donation.create(amount: 10, candidate_issue_id: candidate_issue3.id, user_id: user1.id, order_id: order4.id)
+
+order5 = Order.create(total: 3000, user_id: user1.id, status: "cancelled")
+
+Donation.create(amount: 2000, candidate_issue_id: candidate_issue1.id, user_id: user1.id, order_id: order5.id)
+
+Donation.create(amount: 1000, candidate_issue_id: candidate_issue2.id, user_id: user1.id, order_id: order5.id)
+
+order6 = Order.create(total: 420, user_id: user2.id, status: "pending")
+
+Donation.create(amount: 210, candidate_issue_id: candidate_issue1.id, user_id: user2.id, order_id: order6.id)
+
+Donation.create(amount: 210, candidate_issue_id: candidate_issue2.id, user_id: user2.id, order_id: order6.id)
+
+order7 = Order.create(total: 2000, user_id: user2.id, status: "pending")
+
+Donation.create(amount: 900, candidate_issue_id: candidate_issue3.id, user_id: user2.id, order_id: order7.id)
+
+Donation.create(amount: 1100, candidate_issue_id: candidate_issue2.id, user_id: user2.id, order_id: order7.id)
+
+order8 = Order.create(total: 500, user_id: user2.id, status: "pending")
+
+Donation.create(amount: 240, candidate_issue_id: candidate_issue1.id, user_id: user2.id, order_id: order8.id)
+
+Donation.create(amount: 260, candidate_issue_id: candidate_issue2.id, user_id: user2.id, order_id: order8.id)
+
+order9 = Order.create(total: 40, user_id: user2.id, status: "cancelled")
+
+Donation.create(amount: 20, candidate_issue_id: candidate_issue1.id, user_id: user2.id, order_id: order9.id)
+
+Donation.create(amount: 10, candidate_issue_id: candidate_issue2.id, user_id: user2.id, order_id: order9.id)
+
+Donation.create(amount: 10, candidate_issue_id: candidate_issue3.id, user_id: user2.id, order_id: order9.id)
+
+order10 = Order.create(total: 3000, user_id: user2.id, status: "cancelled")
+
+Donation.create(amount: 2000, candidate_issue_id: candidate_issue1.id, user_id: user2.id, order_id: order10.id)
+
+Donation.create(amount: 1000, candidate_issue_id: candidate_issue2.id, user_id: user2.id, order_id: order10.id)
+
+order11 = Order.create(total: 420, user_id: user3.id, status: "pending")
+
+Donation.create(amount: 210, candidate_issue_id: candidate_issue1.id, user_id: user3.id, order_id: order11.id)
+
+Donation.create(amount: 210, candidate_issue_id: candidate_issue2.id, user_id: user3.id, order_id: order11.id)
+
+order12 = Order.create(total: 2000, user_id: user3.id, status: "pending")
+
+Donation.create(amount: 900, candidate_issue_id: candidate_issue3.id, user_id: user3.id, order_id: order12.id)
+
+Donation.create(amount: 1100, candidate_issue_id: candidate_issue2.id, user_id: user3.id, order_id: order12.id)
+
+order13 = Order.create(total: 500, user_id: user3.id, status: "pending")
+
+Donation.create(amount: 240, candidate_issue_id: candidate_issue1.id, user_id: user3.id, order_id: order13.id)
+
+Donation.create(amount: 260, candidate_issue_id: candidate_issue2.id, user_id: user3.id, order_id: order13.id)
+
+order14 = Order.create(total: 40, user_id: user3.id, status: "cancelled")
+
+Donation.create(amount: 20, candidate_issue_id: candidate_issue1.id, user_id: user3.id, order_id: order14.id)
+
+Donation.create(amount: 10, candidate_issue_id: candidate_issue2.id, user_id: user3.id, order_id: order14.id)
+
+Donation.create(amount: 10, candidate_issue_id: candidate_issue3.id, user_id: user3.id, order_id: order14.id)
+
+order15 = Order.create(total: 3000, user_id: user3.id, status: "cancelled")
+
+Donation.create(amount: 2000, candidate_issue_id: candidate_issue1.id, user_id: user3.id, order_id: order15.id)
+
+Donation.create(amount: 1000, candidate_issue_id: candidate_issue2.id, user_id: user3.id, order_id: order15.id)
+puts "Orders and Donations created"

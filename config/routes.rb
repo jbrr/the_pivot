@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
-  resources :orders
+
   resources :candidates, only: [:index, :show]
   resources :issues, only: [:index, :show]
   resources :donations, only: [:create, :edit]
   resources :charges
+  resources :orders, only: [:create, :show]
+
 
   get "/donations/undo", to: "donations#undo"
 

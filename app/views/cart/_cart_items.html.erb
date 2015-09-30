@@ -26,7 +26,8 @@
     <td></td>
     <td id="cart-total-donations"><strong>Total Donations</strong></td>
     <td id="cart-total"><%= number_to_currency(cart.total) %></td>
-    <td id="cart-donate-button"><div class="btn btn-success">DONATE</div></td>
+    <td id="cart-donate-button"><%= button_to "DONATE", orders_path, class: "btn btn-success" %>
+
   </tr>
 </table>
 <% else %>
