@@ -8,8 +8,6 @@ module ApplicationHelper
     { success: "alert-success", errors: "alert-danger", alert: "alert-warning", notice: "alert-info" }[flash_type.to_sym] || flash_type.to_s
   end
 
-
-
   def flash_messages(opts = {})
     flash.each do |msg_type, message|
       concat(content_tag(:div, sanitize(message), class: "alert #{bootstrap_class_for(msg_type)} fade in") do

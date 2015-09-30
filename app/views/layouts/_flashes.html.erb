@@ -1,5 +1,3 @@
 <% flash.each do |name, message| %>
-  <%= content_tag(:div, sanitize(message), class: "alert #{bootstrap_class_for(message)} fade in") %>
+  <%= content_tag(:div, sanitize(message), class: "alert alert-success",  :id => "flash_#{name}") %>
 <% end %>
-
-
