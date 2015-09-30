@@ -101,7 +101,7 @@ user1 = User.create(first_name: "Travis", last_name: "Haby", email: "big_head@gm
 
 user2 = User.create(first_name: "Mimi", last_name: "Schatz", email: "heyo@gmail.com", username: "meems", password: "password", password_confirmation: "password")
 
-user3 = User.create(first_name: "Rose", last_name: "Kohn", email: "rose@gmail.com", username: "rose", password: "password", password_confirmation: "password")
+user3 = User.create(first_name: "Rose", last_name: "Kohn", email: "rose@gmail.com", phone_number: "3016933081", username: "rose", password: "password", password_confirmation: "password")
 puts "Users created"
 
 order1 = Order.create(total: 420, user_id: user1.id, status: "pending")
