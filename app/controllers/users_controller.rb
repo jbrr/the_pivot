@@ -17,15 +17,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
-    @orders_completed = Order.where("user_id = ? AND status = ? ", @user.id, "completed")
-    @orders_pending = Order.where("user_id = ? AND status = ? ", @user.id, "pending")
-    @orders_cancelled = Order.where("user_id = ? AND status = ? ", @user.id, "cancelled")
+    @orders_completed = User.completed(@user.id)
+    @orders_pending   = User.pending(@user.id)
+    @orders_cancelled = User.cancelled(@user.id)
   end
 
   private
-
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation)
     end
-
 end
