@@ -3,7 +3,7 @@ class DonationsController < ApplicationController
   def create
     if validate_params
       session[:donations] = validate_session
-      flash[:notice] = "Donation added to cart."
+      flash[:success] = "Donation added to cart."
     else
       session[:donations]
       flash[:errors] = "Invalid Donation."
