@@ -85,6 +85,12 @@ header.carousel .fill#slider-3 {
   text-align: center;
 }
 
+#subtitle-2 {
+  font-family: 'Quattrocento', serif;
+  font-size: 25px;
+  text-align: center;
+}
+
 #copyright {
   text-align: center;
 }
@@ -104,7 +110,7 @@ header.carousel .fill#slider-3 {
 
 #header-intro {
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .donation-candidate h3:hover {
@@ -240,4 +246,34 @@ footer {
   font-family: 'Quattrocento', serif;
   font-size: 40px;
   text-align: center;
+}
+
+/* Countdown Clock */
+
+#clockdiv{
+  font-family: sans-serif;
+  color: #fff;
+  display: inline-block;
+  font-weight: 50;
+  text-align: center;
+  font-size: 30px;
+}
+
+#clockdiv > div{
+  padding: 10px;
+  border-radius: 2px;
+  background: #044A8E;
+  display: inline-block;
+}
+
+#clockdiv div > span{
+  padding: 15px;
+  border-radius: 3px;
+  background: #317EAC;
+  display: inline-block;
+}
+
+.smalltext{
+  padding-top: 5px;
+  font-size: 16px;
 }
