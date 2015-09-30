@@ -46,6 +46,10 @@ RSpec.describe User, type: :model do
     expect(order).to be_invalid
   end
 
+  it "is associated with a user" do
+    expect(order).to respond_to(:user)
+  end
+
   it "must reference a donation" do
     order.donations.build(amount: 240, candidate_issue_id: candidate_issue.id, user_id: user.id, order_id: order.id)
     expect(order.donations.map(&:amount)).to eq([240])
