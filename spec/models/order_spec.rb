@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
     expect(order).to be_invalid
   end
 
-  it "is invalid without a user_id" do
+  it "is must reference a user" do
     order.user_id = nil
     expect(order).to be_invalid
   end
@@ -33,6 +33,4 @@ RSpec.describe User, type: :model do
     order.total = "himom"
     expect(order).to be_invalid
   end
-
-
 end

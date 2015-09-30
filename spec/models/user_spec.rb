@@ -48,4 +48,9 @@ RSpec.describe User, type: :model do
     user.email = "asdlkfjalgalwrg"
     expect(user).to be_invalid
   end
+
+  it "must have a reference a user" do
+    user.orders.build(total: 200, user_id: user.id, status: "completed")
+    expect(user.orders.map(&:total)).to eq([200])
+  end
 end
