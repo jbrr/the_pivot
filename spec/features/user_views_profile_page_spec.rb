@@ -22,14 +22,14 @@ feature "Logged in user views profile page" do
     user = User.find_by(username: "therealtrump")
     visit profile_path(user)
 
-    expect(page).to have_link("View 2016 Candidates")
-    expect(page).to have_link("View 2016 Issues")
+    expect(page).to have_link("Browse All 2016 Candidates")
+    expect(page).to have_link("Browse All 2016 Issues")
 
-    click_on("View 2016 Candidates")
+    click_on("Browse All 2016 Candidates")
     expect(current_path).to eq(candidates_path)
 
     visit profile_path
-    click_on("View 2016 Issues")
+    click_on("Browse All 2016 Issues")
     expect(current_path).to eq(issues_path)
   end
 
@@ -37,12 +37,16 @@ feature "Logged in user views profile page" do
     user = User.find_by(username: "therealtrump")
     visit profile_path(user)
 
-    within("#stances_supported") do
-      expect(page).to have_content("Stances Supported")
+    within("#completed-orders") do
+      expect(page).to have_content("Completed Orders")
     end
 
-    within("#pending_orders") do
+    within("#pending-orders") do
       expect(page).to have_content("Pending Orders")
+    end
+
+    within("#canceled-orders") do
+      expect(page).to have_content("Canceled Orders")
     end
   end
 
