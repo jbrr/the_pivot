@@ -1,8 +1,12 @@
 production:
-  stripe_api_key: sk_test_Rm26JZTaimisvqCz6VgcrTxH
-  stripe_publishable_key: pk_test_h555RgcdhS9pcrWigzaAj2X8
+  PUBLISHABLE_KEY: pk_test_h555RgcdhS9pcrWigzaAj2X8
+  SECRET_KEY: sk_test_Rm26JZTaimisvqCz6VgcrTxH
 
 test:
+  PUBLISHABLE_KEY: pk_test_h555RgcdhS9pcrWigzaAj2X8
+  SECRET_KEY: sk_test_Rm26JZTaimisvqCz6VgcrTxH
+
+development:
   PUBLISHABLE_KEY: pk_test_h555RgcdhS9pcrWigzaAj2X8
   SECRET_KEY: sk_test_Rm26JZTaimisvqCz6VgcrTxH
 
