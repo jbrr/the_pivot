@@ -35,7 +35,7 @@ RSpec.describe Donation, type: :model do
       expect(donation.user_id).to eq(user.id)
     end
 
-    it "is associated with a donation" do
+    it "is associated with an order" do
       expect(donation).to respond_to(:order)
     end
   end
