@@ -3,12 +3,8 @@ require "rails_helper"
 feature "Can log out as registered user" do
 
   scenario "registered user logs out, cant see logout when logged out" do
-    user = User.create(first_name: "Donald",
-                            last_name: "Trump",
-                            email: "trump@luxury.com",
-                            username: "therealtrump",
-                            password: "password",
-                            password_confirmation: "password")
+    test_setup
+    
     visit root_path
     within("#login-button") do
       click_link "Login"

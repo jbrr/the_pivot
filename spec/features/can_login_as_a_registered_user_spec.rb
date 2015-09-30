@@ -3,13 +3,7 @@ require "rails_helper"
 feature "Can log in as a registered user" do
 
   scenario "registered user logs in" do
-    user = User.create(first_name: "Donald",
-                            last_name: "Trump",
-                            email: "trump@luxury.com",
-                            username: "therealtrump",
-                            password: "password",
-                            password_confirmation: "password")
-
+    test_setup
 
     visit root_path
 
@@ -45,17 +39,12 @@ feature "Can log in as a registered user" do
   end
 
   scenario "registered user logs in via nav bar button" do
-    user = User.create(first_name: "Donald",
-                            last_name: "Trump",
-                            email: "trump@luxury.com",
-                            username: "therealtrump",
-                            password: "password",
-                            password_confirmation: "password")
+    test_setup
     visit root_path
-
     within("#navbar") do
       click_link "Login"
     end
+
     expect(current_path).to eq(login_path)
 
     fill_in "Username", with: user.username
@@ -69,10 +58,12 @@ feature "Can log in as a registered user" do
 
   scenario "link to create account exists on login form" do
     visit login_path
+
     within("#login-form") do
       expect(page).to have_link("Not registered? Sign up here.")
     end
     click_link "Not registered? Sign up here."
+
     expect(current_path).to eq(join_path)
   end
 
@@ -82,6 +73,7 @@ feature "Can log in as a registered user" do
       expect(page).to have_link("Already registered? Log in here.")
     end
     click_link "Already registered? Log in here."
+    
     expect(current_path).to eq(login_path)
   end
 
