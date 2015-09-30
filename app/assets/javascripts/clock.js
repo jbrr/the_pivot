@@ -1,4 +1,4 @@
-$(document).on('ready page:load', function () {
+$(document).on('ready', function () {
 
   function getTimeRemaining(endtime){
     var t = Date.parse(endtime) - Date.parse(new Date());
