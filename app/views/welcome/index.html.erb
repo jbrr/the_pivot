@@ -34,16 +34,42 @@
 <div class="container">
 
 		<!-- Marketing Icons Section -->
-		<div class="row">
-				<div class="col-md-12">
-					<div class="page-header">
-						<h1 id='title-1'>
-							Welcome to Earmarked
-						</h1>
-						<h3 id='subtitle-1'>A Platform for Issue Specific Donating</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1 id='title-1'>
+					Welcome to Earmarked
+				</h1>
+
+				<h3 id='subtitle-1'>A Platform for Issue Specific Donating</h3>
+
+				<div id="clockdiv">
+
+					<div>
+						<span class="days"></span>
+						<div class="smalltext">Days</div>
+					</div>
+
+					<div>
+						<span class="hours"></span>
+						<div class="smalltext">Hours</div>
+					</div>
+
+					<div>
+						<span class="minutes"></span>
+						<div class="smalltext">Minutes</div>
+					</div>
+
+					<div>
+						<span class="seconds"></span>
+						<div class="smalltext">Seconds</div>
 					</div>
 				</div>
+
+			</div>
 		</div>
+	</div>
+
 
 		<!-- Welcome Section -->
 		<div class="row">
@@ -107,3 +133,10 @@
 		<!-- /.row -->
 		<!-- Footer -->
 </div>
+
+<script type="text/javascript">
+$('.carousel').carousel({
+  		interval: 5000 //changes the speed
+  })
+</script>
+
