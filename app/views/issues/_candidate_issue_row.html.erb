@@ -9,6 +9,7 @@
       <%= f.hidden_field :candidate_issue_id, value: candidate_issue.id %>
       <%= f.number_field :amount,  prepend: "$", in: 1.0..2700.0, step: 1.0 %>
       <%= f.hidden_field :issue_id, value: candidate_issue.issue_id %>
+      <%= f.hidden_field :origin_page, value: issue_path(candidate_issue.issue_id) %>
       <%= f.submit "Donate" %>
     <% end %>
   </div>

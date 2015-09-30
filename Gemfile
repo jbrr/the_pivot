@@ -46,6 +46,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'selenium-webdriver'
   gem 'simplecov', :require => false
+  gem 'stripe'
+  gem 'figaro'
 end
 
 group :development do

@@ -2,10 +2,10 @@
   <div class="fill" id="slider-1"></div>
 </header>
 
-<div class="row" align="center" id="flash_messages">
+<div class="row" align="center">
   <br>
-    <div class="col-md-12">
-      <%= render partial: "layouts/flashes" %>
+    <div class="col-md-12" id="flash_notice">
+    <%= flash_messages %>
     </div>
 </div><br>
 
@@ -19,14 +19,16 @@
     </div>
   </div>
   <div class="col-md-4 col-md-offset-4 portfolio-item">
-     <%= image_tag("#{@candidate.last_name}.jpg", class: "img-responsive img-portfolio", id:"#{@candidate.last_name}-image") %>
+     <%= image_tag("#{@candidate.last_name}.jpg",
+         class: "img-responsive img-portfolio",
+            id: "#{@candidate.last_name}-image") %>
   </div>
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2" id="stances">
       <% @candidate.candidate_issues.each do |candidate_issue| %>
         <div class="list-group-item" id="candidate_issue-<%= candidate_issue.id %>">
           <%= render partial: "candidate_issue_row",
-                    locals: {candidate_issue: candidate_issue} %>
+                      locals: {candidate_issue: candidate_issue} %>
         </div>
       <% end %>
     </div>

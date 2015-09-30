@@ -13,7 +13,7 @@ feature "Add donation to cart" do
       click_button "Donate"
     end
 
-    within("#flash_messages") do
+    within("#flash_notice") do
       expect(page).to have_content("Donation added to cart.")
     end
   end
@@ -30,7 +30,7 @@ feature "Add donation to cart" do
       click_button "Donate"
     end
 
-    within("#flash_messages") do
+    within("#flash_notice") do
       expect(page).to have_content("Invalid Donation.")
     end
   end

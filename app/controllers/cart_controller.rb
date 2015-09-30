@@ -17,7 +17,7 @@ class CartController < ApplicationController
   def destroy
     session[:undo] = stored_donation
     cart.delete(params)
-    flash[:notice] = "Your donation to #{find_candidate}'s #{find_issue}
+    flash[:success] = "Your donation to #{find_candidate}'s #{find_issue}
                       campaign has been removed from your cart.
                       Click <a href='/donations/undo'><strong>HERE</strong></a> to resubmit your donation."
     redirect_to cart_path

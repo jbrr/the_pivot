@@ -260,7 +260,7 @@ feature "Add donation to cart" do
     page.accept_confirm
 
     within("#flash_notice") do
-      expect(page).to have_content("Your donation to Ted Cruz's Gun Control campaign has been removed from your cart.")
+      expect(page).to have_content("Your donation to Ted Cruz's Gun Control campaign has been removed from your cart. Click HERE to resubmit your donation")
     end
     expect(page).to have_link("HERE")
   end
