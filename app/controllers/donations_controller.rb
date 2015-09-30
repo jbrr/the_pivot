@@ -2,7 +2,7 @@ class DonationsController < ApplicationController
 
   def create
     if validate_params
-      session[:donations] = validate_session
+      session[:donations] = cart.create(params)
       flash[:notice] = "Donation added to cart."
     else
       session[:donations]
@@ -16,7 +16,7 @@ class DonationsController < ApplicationController
                           "candidate_issue_id" => session[:undo].keys.first,
                                       "amount" => session[:undo].values.first
                          }
-    session[:donations] = validate_session
+    session[:donations] = cart.create(params)
     redirect_to cart_path
   end
 
@@ -36,23 +36,5 @@ class DonationsController < ApplicationController
 
   def issue_id
     params[:donation][:issue_id]
-  end
-
-  def create_cart
-    cart.create(params)
-  end
-
-  def validate_session
-    if session[:donations]
-      add_to_cart
-    else
-      create_cart
-    end
-  end
-
-  def add_to_cart
-   session[:donations].merge(create_cart) do |key, old_val, new_val|
-      (old_val.to_i + new_val.to_i).to_s
-    end
   end
 end
