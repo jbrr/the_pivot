@@ -20,10 +20,23 @@ def candidate
                                         last_name: "cruz")
 end
 
+def candidate2
+  @candidate2 ||= Candidate.create(name: "Donald Trump",
+                                  party: "Republican",
+                                    bio: "Luxury",
+                              last_name: "trump")
+end
+
 def issue
   @issue ||= Issue.create(topic: "Gun Control",
                     description: "Guns Guns Guns!",
                         picture: "immigration")
+end
+
+def issue2
+  @issue2 ||= Issue.create(topic: "Environment",
+                     description: "Save the whales!",
+                         picture: "environment")
 end
 
 def candidate_issue
@@ -32,15 +45,24 @@ def candidate_issue
                                                    stance: "Guns!")
 end
 
+def candidate_issue2
+  @candidate_issue2 ||= CandidateIssue.create(candidate: candidate2,
+                                                  issue: issue,
+                                                 stance: "Luxurious guns!")
+end
+
 def order
-  @order ||= Order.create(total: 100, user_id: user.id)
+  @order ||= Order.create(total: 100,
+                        user_id: user.id)
 end
 
 def test_setup
   user
   candidate
   issue
+  issue2
   candidate_issue
+  candidate_issue2
 end
 
 ActiveRecord::Migration.maintain_test_schema!
