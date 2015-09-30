@@ -30,8 +30,20 @@ feature "can create order as user" do
     expect(page).to have_content("20")
 
     within("#cart-donate-button") do
-      click_button "DONATE"
+      click_button "Pay with Card"
     end
+
+    sleep(2)
+    stripe_iframe = all('iframe[name=stripe_checkout_app]').last
+    Capybara.within_frame stripe_iframe do
+      page.execute_script(%Q{ $('input#email').val('jamesdd9302@yahoo.com'); })
+        page.execute_script(%Q{ $('input#card_number').val('4242424242424242'); })
+        page.execute_script(%Q{ $('input#cc-exp').val('08/44'); })
+        page.execute_script(%Q{ $('input#cc-csc').val('999'); })
+        page.execute_script(%Q{ $('#submitButton').click(); })
+      sleep(10)
+    end
+
     order = Order.find(1)
 
     expect(current_path).to eq(order_path(order.id))
