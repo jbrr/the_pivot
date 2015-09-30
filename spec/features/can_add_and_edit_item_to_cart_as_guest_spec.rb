@@ -295,7 +295,6 @@ feature "Add donation to cart" do
     candidate_issue = CandidateIssue.create(candidate: candidate, issue: issue, stance: "Give them the guns!")
 
     visit issue_path(issue)
-    save_and_open_page
     within('#navbar') do
       expect(page).to_not have_content("Cart: $0")
     end
