@@ -259,7 +259,7 @@ feature "Add donation to cart" do
 
     visit issue_path(issue)
     within('#navbar') do
-      expect(page).to_not have_content("Cart: $0")
+      expect(page).to have_content("Cart: $0")
     end
 
     within("##{candidate_issue.id}") do
