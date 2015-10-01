@@ -1,5 +1,4 @@
 class Cart
-  # attr_reader :raw_data
 
   def initialize(donations)
     @donations = donations || {}
@@ -13,7 +12,7 @@ class Cart
 
   def add_to_cart(params)
     donation = { params[:donation][:candidate_issue_id] =>
-                params[:donation][:amount] }
+                 params[:donation][:amount] }
     @donations.merge(donation) do |_key, old_val, new_val|
       (old_val.to_i + new_val.to_i).to_s
     end
