@@ -21,7 +21,7 @@
           <td id="cart-td"><%= link_to order.id, order_path(order) %></td>
           <td id="cart-td"><%= number_to_currency(order.total) %></td>
           <td id="cart-td">
-            <%= order.when_created %>
+            <%= order.when_created_short %>
           </td>
         </tr>
       <% end %>
@@ -42,7 +42,7 @@
           <td id="cart-td"><%= link_to order.id, order_path(order) %></td>
           <td id="cart-td"><%= number_to_currency(order.total) %></td>
           <td id="cart-td">
-            <%= order.when_created %>
+            <%= order.when_created_short %>
           </td>
         </tr>
       <% end %>
@@ -63,7 +63,7 @@
           <td id="cart-td"><%= link_to order.id, order_path(order) %></td>
           <td id="cart-td"><%= number_to_currency(order.total) %></td>
           <td id="cart-td">
-            <%= order.when_created %>
+            <%= order.when_created_short %>
           </td>
         </tr>
       <% end %>
