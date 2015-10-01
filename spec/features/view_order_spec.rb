@@ -32,7 +32,7 @@ feature "can view profile page via link on order show page" do
     visit profile_path(user)
 
     within("#pending-orders") do
-      expect(page).to have_content(order.created_at.strftime("%B %d, %Y"))
+      expect(page).to have_content(order.created_at.localtime.strftime("%B %d, %Y"))
       expect(page).to have_content("100")
     end
 
