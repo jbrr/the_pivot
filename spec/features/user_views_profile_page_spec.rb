@@ -3,12 +3,12 @@ require "rails_helper"
 feature "Logged in user views profile page" do
 
   before do
-    user = User.create(first_name: "Donald",
-                            last_name: "Trump",
-                            email: "trump@luxury.com",
-                            username: "therealtrump",
-                            password: "password",
-                            password_confirmation: "password")
+    user = User.create(first_name:           "donald",
+                      last_name:             "trump",
+                      email:                 "trump@luxury.com",
+                      username:              "therealtrump",
+                      password:              "password",
+                      password_confirmation: "password")
     visit root_path
     within("#navbar") do
       click_link "Login"
@@ -24,6 +24,8 @@ feature "Logged in user views profile page" do
 
     expect(page).to have_link("Browse All 2016 Candidates")
     expect(page).to have_link("Browse All 2016 Issues")
+    expect(page).to have_content("Donald")
+    expect(page).to have_content("Trump")
 
     click_on("Browse All 2016 Candidates")
     expect(current_path).to eq(candidates_path)

@@ -9,6 +9,13 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8, message: "must have a minimum of 8 characters"}
   validates :password_confirmation, presence: true
 
+  before_validation :capitalize
+
+  def capitalize
+    self.first_name = first_name.to_s.capitalize
+    self.last_name = last_name.to_s.capitalize
+    self.username = username.to_s.capitalize
+  end
 
   def self.completed(id)
     Order.where("user_id = ? AND status = ? ", id, "completed")
