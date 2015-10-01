@@ -15,8 +15,13 @@
       </tr>
       <% @donations.each do |donation| %>
       <tr>
-        <td id="cart-td"><%= link_to donation.candidate.name, candidate_path(donation.candidate.id) %></td>
-        <td><%= link_to donation.issue.topic, issue_path(donation.issue.id) %></td>
+        <td id="cart-td">
+          <%= link_to donation.candidate.name,
+              candidate_path(donation.candidate.id) %>
+        </td>
+        <td><%= link_to donation.issue.topic,
+                issue_path(donation.issue.id) %>
+        </td>
         <td><%= number_to_currency(donation.amount) %></td>
       <% end %>
       </tr>
@@ -32,7 +37,9 @@
 <div class="container" id="button-front-page">
   <div class="row">
     <div class="col-md-offset-4 col-md-4" id="profile-button">
-      <%= link_to "View Profile", profile_path, class: "btn btn-lg btn-default btn-block btn btn-primary" %>
+      <%= link_to "View Profile",
+          profile_path,
+          class: "btn btn-lg btn-default btn-block btn btn-primary" %>
     </div>
   </div>
 </div>

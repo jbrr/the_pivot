@@ -1,3 +1,5 @@
 <% flash.each do |name, message| %>
-  <%= content_tag(:div, sanitize(message), class: "alert alert-success fade-in", :id => "flash_#{name}") %>
+  <%= content_tag(:div, sanitize(message),
+  class: "alert alert-success fade-in",
+  :id => "flash_#{name}") %>
 <% end %>

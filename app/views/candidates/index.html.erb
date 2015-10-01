@@ -1,6 +1,4 @@
-<!-- Page Content -->
 <div class="container" id="candidates">
-   <!-- Page Header -->
   <div class="row">
     <div class="col-lg-12">
        <h1 class="page-header">Candidates
@@ -8,16 +6,16 @@
        </h1>
     </div>
   </div>
-   <!-- /.row -->
 
-   <!-- Projects Row -->
   <div class="row">
     <h2 class="well" align="center">Republicans</h2>
     <% @republicans.each do |candidate| %>
       <div class="col-md-4 portfolio-item">
         <a>
-           <%= link_to image_tag("#{candidate.last_name}.jpg", class:"img-responsive img-portfolio img-hover", id:"#{candidate.last_name}-image"),
-           candidate_path(candidate) %>
+          <%= link_to image_tag("#{candidate.last_name}.jpg",
+          class:"img-responsive img-portfolio img-hover",
+          id:"#{candidate.last_name}-image"),
+          candidate_path(candidate) %>
         </a>
         <h3>
            <%= link_to candidate.name, candidate_path(candidate) %>
@@ -26,9 +24,7 @@
       </div>
     <% end %>
   </div>
-   <!-- /.row -->
 
-   <!-- Projects Row -->
   <div class="row">
     <h2 class="well" align="center">Democrats</h2>
     <% @democrats.each do |candidate| %>
