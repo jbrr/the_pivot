@@ -4,4 +4,10 @@ class Order < ActiveRecord::Base
 
   validates :total, :user_id, :status, presence: true
   validates :total, numericality: { only_integer: true }
+
+  before_validation :capitalize
+
+  def capitalize
+    self.status = status.to_s.capitalize
+  end
 end

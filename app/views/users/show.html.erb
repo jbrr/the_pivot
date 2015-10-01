@@ -1,13 +1,16 @@
 <br>
 
 <div class="col-md-12" align="center" id="user_names">
-  <h2 id="profile-header-title"><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h2>
+  <h2 id="profile-header-title">
+    <%= @user.first_name %> <%= @user.last_name %>
+  </h2>
 </div>
 
 <div class="container">
   <div class="col-md-4" align="center" id="completed-orders">
     <h3>Completed Orders</h3>
-      <table class="table table-striped table-bordered table-hover" id="donation-table">
+      <table class="table table-striped table-bordered table-hover"
+             id="donation-table">
         <tr>
           <th>Order Number</th>
           <th>Amount</th>
@@ -17,7 +20,9 @@
         <tr>
           <td id="cart-td"><%= link_to order.id, order_path(order) %></td>
           <td id="cart-td"><%= number_to_currency(order.total) %></td>
-          <td id="cart-td"><%= order.created_at.localtime.strftime("%B %d, %Y") %></td>
+          <td id="cart-td">
+            <%= order.created_at.localtime.strftime("%B %d, %Y") %>
+          </td>
         </tr>
       <% end %>
     </table>
@@ -25,7 +30,8 @@
 
   <div class="col-md-4" align="center" id="pending-orders">
     <h3>Pending Orders</h3>
-      <table class="table table-striped table-bordered table-hover" id="donation-table">
+      <table class="table table-striped table-bordered table-hover"
+             id="donation-table">
         <tr>
           <th>Order Number</th>
           <th>Amount</th>
@@ -35,7 +41,9 @@
         <tr>
           <td id="cart-td"><%= link_to order.id, order_path(order) %></td>
           <td id="cart-td"><%= number_to_currency(order.total) %></td>
-          <td id="cart-td"><%= order.created_at.localtime.strftime("%B %d, %Y") %></td>
+          <td id="cart-td">
+            <%= order.created_at.localtime.strftime("%B %d, %Y") %>
+          </td>
         </tr>
       <% end %>
     </table>
@@ -43,7 +51,8 @@
 
   <div class="col-md-4" align="center" id="canceled-orders">
     <h3>Canceled Orders</h3>
-      <table class="table table-striped table-bordered table-hover" id="donation-table">
+      <table class="table table-striped table-bordered table-hover"
+             id="donation-table">
         <tr>
           <th>Order Number</th>
           <th>Amount</th>
@@ -53,7 +62,9 @@
         <tr>
           <td id="cart-td"><%= link_to order.id, order_path(order) %></td>
           <td id="cart-td"><%= number_to_currency(order.total) %></td>
-          <td id="cart-td"><%= order.created_at.localtime.strftime("%B %d, %Y") %></td>
+          <td id="cart-td">
+            <%= order.created_at.localtime.strftime("%B %d, %Y") %>
+          </td>
         </tr>
       <% end %>
     </table>
@@ -64,12 +75,16 @@
 </div>
 
 <div class="container" id="button-front-page">
-        <div class="row">
-            <div class="col-md-offset-2 col-md-4" id="browse-candidates-button">
-                <%= link_to "Browse All 2016 Candidates", candidates_path, class: "btn btn-lg btn-default btn-block btn btn-primary" %>
-            </div>
-            <div class="col-md-4" id="browse-issues-button">
-                <%= link_to "Browse All 2016 Issues", issues_path, class: "btn btn-lg btn-default btn-block btn btn-primary" %>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-4" id="browse-candidates-button">
+      <%= link_to "Browse All 2016 Candidates",
+          candidates_path,
+          class: "btn btn-lg btn-default btn-block btn btn-primary" %>
     </div>
+    <div class="col-md-4" id="browse-issues-button">
+      <%= link_to "Browse All 2016 Issues",
+          issues_path,
+          class: "btn btn-lg btn-default btn-block btn btn-primary" %>
+    </div>
+  </div>
+</div>
