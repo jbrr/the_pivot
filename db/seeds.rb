@@ -27,15 +27,15 @@ CandidateIssue.create(stance: "Only the most luxuriously dressed grooms/brides w
 
 CandidateIssue.create(stance: "All trees should be gilded.", candidate_id: 1, issue_id: 2)
 
-CandidateIssue.create(stance: "We're gonna make a giant sea wall to keep out all the illegal Chinese, and we're gonna make Mexico pay for it!", candidate_id: 1, issue_id: 3)
+CandidateIssue.create(stance: "Anyone can become a US citizen if they submit to getting my name tattooed ", candidate_id: 1, issue_id: 3)
 
-CandidateIssue.create(stance: "Kill 'em all!", candidate_id: 1, issue_id: 4)
+CandidateIssue.create(stance: "Do they even KNOW how much I money I have?", candidate_id: 1, issue_id: 4)
 
 CandidateIssue.create(stance: "Gold guns for everyone, with diamond bullets.", candidate_id: 1, issue_id: 5)
 
 CandidateIssue.create(stance: "I'll run America like one my many, many, many, many successfully bankrupt businesses.", candidate_id: 1, issue_id: 6)
 
-CandidateIssue.create(stance: "Only homosexual and bi-curious shrubberies will be permitted the right to marry the plant they love.", candidate_id: 2, issue_id: 1)
+CandidateIssue.create(stance: "All shrubberies will be permitted the right to marry the plant they love.", candidate_id: 2, issue_id: 1)
 
 CandidateIssue.create(stance: "Global warming puts all of us in danger, but most importantly the indigenous bush people. Haliburton will be given a no-bid multi-billion dollar contract to protect the bush people's dwindling habitat and general livelihood.", candidate_id: 2, issue_id: 2)
 
@@ -91,11 +91,11 @@ CandidateIssue.create(stance: "Look, those other guys' last-minute economic plan
 CandidateIssue.create(stance: "Pick anyone or anything!", candidate_id: 5, issue_id: 1)
 puts "Candidate Issues Created"
 
-candidate_issue1 = CandidateIssue.create(stance: "I, frankly, do not believe that we should be bringing in significant numbers of unskilled to workers to compete with our kids. Make 'em all citizens!", candidate_id: 5, issue_id: 3)
+candidate_issue1 = CandidateIssue.create(stance: "I, frankly, do not believe that we should be bringing in significant numbers of unskilled workers to compete with our kids. We must protect our under-educated progeny!", candidate_id: 5, issue_id: 3)
 
 candidate_issue2 = CandidateIssue.create(stance: "Eh, what do you think? I could go either way.", candidate_id: 5, issue_id: 5)
 
-candidate_issue3 = CandidateIssue.create(stance: "I'm the Friar Tuck to my Robin Hood economic plan. I'm just here to make the rich hand over their extra money to you average people.", candidate_id: 5, issue_id: 6)
+candidate_issue3 = CandidateIssue.create(stance: "All Americans have the right to receive a 30-rack of Miller every week on the government's dime.", candidate_id: 5, issue_id: 6)
 
 user1 = User.create(first_name: "Travis", last_name: "Haby", email: "big_head@gmail.com", username: "habybaby", password: "password", password_confirmation: "password")
 
