@@ -27,7 +27,7 @@ CandidateIssue.create(stance: "Only the most luxuriously dressed grooms/brides w
 
 CandidateIssue.create(stance: "All trees should be gilded.", candidate_id: 1, issue_id: 2)
 
-CandidateIssue.create(stance: "Anyone can become a US citizen if they submit to getting my name tattooed ", candidate_id: 1, issue_id: 3)
+CandidateIssue.create(stance: "Anyone can become a US citizen if they submit to getting my name tattooed somewhere on their body.", candidate_id: 1, issue_id: 3)
 
 CandidateIssue.create(stance: "Do they even KNOW how much I money I have?", candidate_id: 1, issue_id: 4)
 
