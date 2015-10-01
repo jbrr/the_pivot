@@ -13,12 +13,27 @@
 
     <td><a href="#" data-toggle="popover" data-placement="top" title="<%= donation.candidate.name %>'s Stance" id="cart-btn" data-content="<%= donation.candidate_issue.stance %>"> <%= donation.issue.topic %></a></td>
 
-    <td id="form-edit-cart"><%= bootstrap_form_for donation, layout: :inline, url: "/cart/#{donation.candidate_issue_id}", method: :patch do |f| %>
-        <%= f.number_field :amount, in: 1..2700, step: 1, hide_label: true, value: donation.amount, id:"amount-field-cart" %>
+    <td id="form-edit-cart">
+      <%= bootstrap_form_for donation,
+      layout: :inline,
+      url: "/cart/#{donation.candidate_issue_id}",
+      method: :patch do |f| %>
+        <%= f.number_field :amount,
+        in: 1..2700,
+        step: 1,
+        hide_label: true,
+        value: donation.amount,
+        id:"amount-field-cart" %>
         <%= f.submit "Update" %>
         <% end %></td>
-    <td id="cart-remove-button"><%= link_to "Remove", "/cart/#{donation.candidate_issue_id}", :data => {:confirm => 'Donation will be removed. Are you sure?'}, method: :delete,
-            class: "btn btn-danger", id:"delete-#{donation.candidate_issue_id}" %></td>
+    <td id="cart-remove-button">
+      <%= link_to "Remove",
+          "/cart/#{donation.candidate_issue_id}",
+          data: {:confirm => 'Donation will be removed. Are you sure?'},
+          method: :delete,
+          class: "btn btn-danger",
+          id:"delete-#{donation.candidate_issue_id}" %>
+    </td>
     <% end %>
   <% end %>
   </tr>
@@ -29,14 +44,17 @@
     <% if current_user %>
       <td id="cart-donate-button">
         <%= form_tag charges_path do %>
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          <script src="https://checkout.stripe.com/checkout.js"
+                  class="stripe-button"
                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                   data-description="Your Order"
                   data-amount=<%= @amount %>
                   data-locale="auto"></script>
         <% end %>
     <% else %>
-      <td id="cart-donate-button"><%= link_to "Join to Donate", join_path, class: "btn btn-primary" %></td>
+      <td id="cart-donate-button">
+        <%= link_to "Join to Donate", join_path, class: "btn btn-primary" %>
+      </td>
     <% end %>
     </td>
   </tr>
@@ -52,5 +70,3 @@ $(document).ready(function(){
     });
 });
 </script>
-
-

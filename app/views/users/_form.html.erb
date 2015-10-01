@@ -2,7 +2,9 @@
   <%= f.text_field :first_name %>
   <%= f.text_field :last_name %>
   <%= f.text_field :email %>
-  <%= f.text_field :phone_number, help: "Must be 10 Consecutive Numbers (ex: 5554443333)", icon: "earphone" %>
+  <%= f.text_field :phone_number,
+                   help: "Must be 10 Consecutive Numbers (ex: 5554443333)",
+                   icon: "earphone" %>
   <%= f.text_field :username, icon: "user" %>
   <%= f.password_field :password, help: "Must be 8 Characters", icon: "lock" %>
   <%= f.password_field :password_confirmation, label: "Confirm Password" %>
@@ -11,7 +13,8 @@
       <%= f.submit "Join Earmarked", class: "btn btn-success" %>
     </div>
     <div class="col-xs-4">
-      <%= link_to sanitize("Already registered? <br> Log in here."), login_path %>
+      <%= link_to sanitize("Already registered? <br> Log in here."),
+          login_path %>
     </div>
   </div>
 <% end  %>

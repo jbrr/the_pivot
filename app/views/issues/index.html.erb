@@ -1,6 +1,4 @@
-<!-- Page Content -->
 <div class="container" id="issues">
-   <!-- Page Header -->
   <div class="row">
     <div class="col-lg-12">
        <h1 class="page-header">Issues
@@ -8,15 +6,15 @@
        </h1>
     </div>
   </div>
-   <!-- /.row -->
 
-   <!-- Projects Row -->
   <div class="row">
     <% @issues.each do |issue| %>
       <div class="col-md-4 portfolio-item">
         <a>
-           <%= link_to image_tag("#{issue.picture}.jpg", class:"img-responsive img-portfolio img-hover", id:"#{issue.picture}-image"),
-           issue_path(issue) %>
+          <%= link_to image_tag("#{issue.picture}.jpg",
+          class:"img-responsive img-portfolio img-hover",
+          id:"#{issue.picture}-image"),
+          issue_path(issue) %>
         </a>
         <h3 id="issue-title-index">
            <%= link_to issue.topic, issue_path(issue) %>
@@ -25,4 +23,3 @@
       </div>
     <% end %>
   </div>
-   <!-- /.row -->
