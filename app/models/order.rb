@@ -8,4 +8,8 @@ class Order < ActiveRecord::Base
   def when_created
     created_at.strftime("%A, %B %d, %Y at %I:%M%p")
   end
+
+  def when_created_short
+    created_at.strftime(" %B %d, %Y ")
+  end
 end

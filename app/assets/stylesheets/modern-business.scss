@@ -239,6 +239,20 @@ footer {
   margin-right: 550px;
 }
 
+@media(max-width:767px) {
+    #row-donate-form {
+        margin-left: 32px;
+        margin-right: 240px;
+    }
+  }
+
+  @media(max-width:991px) {
+    #row-donate-form {
+        margin-left: 32px;
+        margin-right: 240px;
+    }
+  }
+
 
 /* Login and Join Pages Styling */
 
