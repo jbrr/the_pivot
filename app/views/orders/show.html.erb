@@ -2,7 +2,7 @@
 <div class="container">
   <div class="col-md-12" align="center" id="user_names">
     <h4 id="order-header-title">Order on <%= @order.
-      created_at.localtime.strftime("%A, %B %d, %Y") %> for <%= @order.
+      created_at.strftime("%A, %B %d, %Y %I:%M%p") %> for <%= @order.
         user.first_name %></h4>
 
     <br>
