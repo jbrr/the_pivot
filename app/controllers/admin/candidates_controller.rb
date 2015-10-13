@@ -4,4 +4,7 @@ class Admin::CandidatesController < ApplicationController
 
   def update
   end
+
+  def show
+  end
 end

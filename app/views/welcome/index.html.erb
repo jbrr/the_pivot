@@ -60,9 +60,9 @@
 				<% @featured_candidates.each do |candidate| %>
 				<div class="col-md-4 col-sm-6">
 						<a href="portfolio-item.html">
-								<%= link_to image_tag("#{candidate.last_name}.jpg", class:"img-responsive img-portfolio img-hover", id:"candidate-#{candidate.id}"), candidate_path(candidate.id)%>
+								<%= link_to image_tag("#{candidate.last_name}.jpg", class:"img-responsive img-portfolio img-hover", id:"candidate-#{candidate.id}"), candidate_path(candidate: candidate.slug)%>
 						</a>
-						<h4 id="candidate-front-title"><%= link_to candidate.name, candidate_path(candidate.id) %></h4>
+						<h4 id="candidate-front-title"><%= link_to candidate.name, candidate_path(candidate: candidate.slug) %></h4>
 				</div>
 				<% end %>
 		</div>
@@ -138,4 +138,3 @@ $('.carousel').carousel({
   		interval: 5000 //changes the speed
   })
 </script>
-

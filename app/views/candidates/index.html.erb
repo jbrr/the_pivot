@@ -15,10 +15,10 @@
           <%= link_to image_tag("#{candidate.last_name}.jpg",
           class:"img-responsive img-portfolio img-hover",
           id:"#{candidate.last_name}-image"),
-          candidate_path(candidate) %>
+          candidate_path(candidate: candidate.slug) %>
         </a>
         <h3>
-           <%= link_to candidate.name, candidate_path(candidate) %>
+           <%= link_to candidate.name, candidate_path(candidate: candidate.slug) %>
         </h3>
         <p><%= candidate.bio %></p>
       </div>

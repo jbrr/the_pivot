@@ -5,6 +5,8 @@ class CandidatesController < ApplicationController
   end
 
   def show
-    @candidate = Candidate.find(params[:id])
+    @candidate = Candidate.find_by(slug: params[:candidate])
+    require 'pry'; binding.pry
+
   end
 end
