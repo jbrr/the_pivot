@@ -13,6 +13,16 @@ def user
              password_confirmation: "password")
 end
 
+def admin
+  @user ||= User.create(first_name: "admin",
+                        last_name: "admin",
+                        email: "admin@admin.com",
+                        username: "admin",
+                        password: "password",
+                        password_confirmation: "password",
+                        role: 1)
+end
+
 def candidate
   @candidate ||= Candidate.find_or_create_by(name: "Ted Cruz",
                                             party: "Republican",
