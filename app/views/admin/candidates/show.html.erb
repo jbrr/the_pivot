@@ -1,7 +1,12 @@
+<h4>
+    <% @stances.each do |stance| %>
+      <%= stance %>
+    <% end %>
+</h4>
 <h3> <%= @candidate.name %> </h3>
 <h3>
   <% @candidate.issues.each do |issue| %>
-  <h4><%= issue.topic %></h4>
-    <h5><%= issue.description %></h5><br>
+  <h4><%= issue.topic %><br><br><a class="btn btn-primary" <%= link_to "Edit Topic" %></a></h4>
+    <h5><%= issue.description %><br><br><a class="btn btn-success" <%= link_to "Edit Stance" %></a></h5><br>
   <% end %>
 </h3>
