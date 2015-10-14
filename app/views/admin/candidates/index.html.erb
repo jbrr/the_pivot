@@ -4,7 +4,7 @@
   </div>
   <div class="well">
     <% @current_candidate.candidate_issues.each do |candidate_issue| %>
-      <h4><%= candidate_issue.topic %></h4><a class="btn btn-primary" <%= link_to "Edit Issue" %></a><br>
+      <h4><%= candidate_issue.topic %></h4>
       <p><%= candidate_issue.stance %></p><a class="btn btn-warning" <%= link_to "Edit Stance" %></a>
     <% end %>
   </div>
