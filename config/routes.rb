@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   namespace :admin do
-    resources :candidates, path: ":candidate", as: :candidate,
+    resource :candidates, path: ":candidate", as: :candidate,
               only: [:index, :show, :edit, :update]
   end
 

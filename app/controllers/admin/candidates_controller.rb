@@ -10,6 +10,7 @@ class Admin::CandidatesController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
