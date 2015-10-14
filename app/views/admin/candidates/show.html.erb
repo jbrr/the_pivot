@@ -1,4 +1,6 @@
+<div class="text-center">
   <% @candidate.candidate_issues.each do |candidate_issue| %>
     <h4><%= candidate_issue.topic %></h4>
     <p><%= candidate_issue.stance %></p>
   <% end %>
+</div>
