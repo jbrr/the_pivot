@@ -6,6 +6,8 @@ Rails.application.routes.draw do
               only: [:show, :edit, :update]
   end
 
+  resources :candidate_issues, only: [:update]
+
   resources :candidates, only: [:index, :show, :update]
   resources :issues, only: [:index, :show]
   resources :donations, only: [:create, :edit]

@@ -11,10 +11,11 @@ class CandidatesController < ApplicationController
   def update
     candidate = Candidate.find(params[:id])
     if candidate.update(candidate_params)
+      flash[:success] = "Bio Successfully Updated"
       redirect_to edit_admin_candidate_path(candidate: candidate.slug)
     else
-      flash[:errors] = "Whateverrr"
-      redirect_to root_path
+      flash[:danger] = "Do you even American Bro?"
+      redirect_to edit_admin_candidate_path(candidate: candidate.slug)
     end
   end
 

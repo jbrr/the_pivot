@@ -1,3 +1,11 @@
+<br>
+<div class="row" align="center" id="flash_messages">
+ <br>
+   <div class="col-md-12" id="flash_notice">
+     <%= render partial: "layouts/flashes" %>
+   </div>
+</div>
+<br>
 <div class="text-center">
   <div class="well">
     <h3><%= @current_candidate.name %></h3>
@@ -9,7 +17,10 @@
   <div class="well">
     <% @current_candidate.candidate_issues.each do |candidate_issue| %>
       <h4><%= candidate_issue.topic %></h4>
-      <p><%= candidate_issue.stance %></p><a class="btn btn-warning" <%= link_to "Edit Stance" %></a>
+      <%= bootstrap_form_for candidate_issue, method: :patch do |f| %>
+        <%= f.text_field :stance %>
+        <%= f.submit "Update Stance" %>
+      <% end %>
     <% end %>
   </div>
 </div>
