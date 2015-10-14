@@ -1,7 +1,10 @@
 <div class="text-center">
   <div class="well">
     <h3><%= @current_candidate.name %></h3>
-    <h4><%= @current_candidate.bio %></h4>
+    <%= bootstrap_form_for @current_candidate, url: "/candidates/#{@current_candidate.id}", method: :patch do |f| %>
+      <%= f.text_field :bio %>
+      <%= f.submit "Update Bio" %>
+    <% end %>
   </div>
   <div class="well">
     <% @current_candidate.candidate_issues.each do |candidate_issue| %>
