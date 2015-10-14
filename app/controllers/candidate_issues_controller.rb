@@ -15,6 +15,6 @@ class CandidateIssuesController < ApplicationController
   private
 
   def candidate_issue_params
-    params.require(:candidate_issue).permit(:stance)
+    params.require(:candidate_issue).permit(:stance, :goal)
   end
 end

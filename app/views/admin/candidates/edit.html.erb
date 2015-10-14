@@ -21,6 +21,10 @@
         <%= f.text_field :stance %>
         <%= f.submit "Update Stance" %>
       <% end %>
+      <%= bootstrap_form_for candidate_issue, method: :patch do |f| %>
+        <%= f.text_field :goal %>
+        <%= f.submit "Update Goal" %>
+      <% end %>
     <% end %>
   </div>
 </div>
