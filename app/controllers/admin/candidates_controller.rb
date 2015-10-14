@@ -8,10 +8,4 @@ class Admin::CandidatesController < ApplicationController
 
   def update
   end
-
-  private
-
-  def candidate_id
-
-  end
 end
