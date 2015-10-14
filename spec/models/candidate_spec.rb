@@ -36,9 +36,9 @@ RSpec.describe Candidate, type: :model do
   context "with invalid attributes" do
     let(:invalid_attributes) do
        {
-        name: nil,
+        name: "john",
         bio: nil,
-        party: nil
+        party: nil,
       }
     end
 
