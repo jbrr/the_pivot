@@ -5,3 +5,14 @@
 <div class="text-center">
   <h2>Total Funding Goal: <%= number_to_currency(total_goal) %></h2>
 </div>
+
+
+<% @current_candidate.candidate_issues.each do |candidate_issue| %>
+  <div class="list-group-item" id="candidate_issue-<%= candidate_issue.id %>">
+    <div class="text-center">
+      <h4><%= candidate_issue.topic %></h4>
+    </div>
+    <%= render partial: "layouts/progress_bar",
+                locals: {candidate_issue: candidate_issue} %>
+  </div>
+<% end %>
