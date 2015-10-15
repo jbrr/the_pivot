@@ -66,7 +66,7 @@ feature "A logged in Admin" do
     visit "/admin/ted-cruz"
     click_on "Stances"
     first(".edit_candidate_issue").fill_in "candidate_issue[stance]",
-      with: "No opinion"
+                                           with: "No opinion"
     click_on "Update Stance"
 
     expect(page).to have_content("Stance Successfully Updated")
