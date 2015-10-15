@@ -31,6 +31,10 @@ RSpec.describe Candidate, type: :model do
     it "must have a bio" do
       expect(candidate.bio).to eq("is a boi")
     end
+
+    it "has a slug" do
+      expect(candidate.slug).to eq("travis")
+    end
   end
 
   context "with invalid attributes" do
