@@ -29,4 +29,16 @@ module ApplicationHelper
     stance_donations = completed_donations.where(candidate_issue_id: candidate_issue)
     stance_donations.inject(0) {|sum, x| sum + x.amount}
   end
+
+  def percent_calculation(candidate_issue)
+    candidate_issue_raised_total(candidate_issue.id).to_f / candidate_issue.goal.to_f * 100
+  end
+
+  def progress_bar_percentage(candidate_issue)
+    if percent_calculation(candidate_issue).nan?
+      0
+    else
+      percent_calculation(candidate_issue)
+    end
+  end
 end
