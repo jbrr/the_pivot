@@ -14,7 +14,7 @@
       <%= f.submit "Update Bio" %>
     <% end %>
   </div>
-  <div class="well candidate-issue-edit">
+  <div class="well">
     <% @current_candidate.candidate_issues.each do |candidate_issue| %>
       <h4><%= candidate_issue.topic %></h4>
       <%= bootstrap_form_for candidate_issue, method: :patch do |f| %>

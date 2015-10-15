@@ -27,6 +27,28 @@ feature "A logged in Admin" do
     expect(page).to have_content("Dim Kavis")
   end
 
+  scenario "cannot edit candidate bio with invalid attributes" do
+    test_setup
+
+    visit root_path
+
+    within("#login-button") do
+      click_link "Login"
+    end
+    expect(current_path).to eq(login_path)
+
+    fill_in "Username", with: admin.username
+    fill_in "Password", with: "password"
+    click_button "Login"
+
+    visit "/admin/ted-cruz"
+    click_on "Stances"
+    fill_in "candidate[bio]", with: ""
+    click_on "Update Bio"
+
+    expect(page).to have_content("Do you even American Bro?")
+  end
+
   scenario "can edit candidate stance" do
     test_setup
 
