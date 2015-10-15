@@ -22,4 +22,11 @@ module ApplicationHelper
       end
     nil
   end
+
+  def candidate_issue_raised_total(candidate_issue)
+    completed_orders = Order.where(status: "completed")
+    completed_donations = Donation.where(order_id: completed_orders)
+    stance_donations = completed_donations.where(candidate_issue_id: candidate_issue)
+    stance_donations_total = stance_donations.inject(0) {|sum, x| sum + x.amount}
+  end
 end

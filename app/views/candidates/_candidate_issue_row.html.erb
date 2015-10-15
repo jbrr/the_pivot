@@ -13,5 +13,7 @@
       <%= f.submit "Donate" %>
     <% end %>
   </div>
-  <h3><%= "Current goal for this issue: #{candidate_issue.goal}" %></h3>
+  <br>
+  <%= render partial: "layouts/progress_bar",
+              locals: {candidate_issue: candidate_issue} %>
 </div>
