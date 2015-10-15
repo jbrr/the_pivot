@@ -37,6 +37,8 @@ module ApplicationHelper
   def progress_bar_percentage(candidate_issue)
     if percent_calculation(candidate_issue).nan?
       0
+    elsif percent_calculation(candidate_issue) > 100
+      100
     else
       percent_calculation(candidate_issue)
     end

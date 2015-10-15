@@ -2,7 +2,7 @@
   <div class="progress-bar progress-bar-danger" roll="progressbar"
        aria-valuenow="<%= candidate_issue_raised_total(candidate_issue.id) %>"
        aria-valuemin="0" aria-valuemax="<%= candidate_issue.goal %>"
-       style="min-width: 3em; width: <%= candidate_issue_raised_total(candidate_issue.id).to_f /
+       style="min-width: 3em; max-width: 100%; width: <%= candidate_issue_raised_total(candidate_issue.id).to_f /
               candidate_issue.goal.to_f * 100 %>%;">
        <%= progress_bar_percentage(candidate_issue) %>%
   </div>
