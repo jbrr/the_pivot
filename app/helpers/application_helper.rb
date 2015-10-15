@@ -22,4 +22,25 @@ module ApplicationHelper
       end
     nil
   end
+
+  def candidate_issue_raised_total(candidate_issue)
+    completed_orders = Order.where(status: "completed")
+    completed_donations = Donation.where(order_id: completed_orders)
+    stance_donations = completed_donations.where(candidate_issue_id: candidate_issue)
+    stance_donations.inject(0) {|sum, x| sum + x.amount}
+  end
+
+  def percent_calculation(candidate_issue)
+    candidate_issue_raised_total(candidate_issue.id).to_f / candidate_issue.goal.to_f * 100
+  end
+
+  def progress_bar_percentage(candidate_issue)
+    if percent_calculation(candidate_issue).nan?
+      0
+    elsif percent_calculation(candidate_issue) > 100
+      100
+    else
+      percent_calculation(candidate_issue)
+    end
+  end
 end
