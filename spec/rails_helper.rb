@@ -15,12 +15,12 @@ end
 
 def admin
   @user ||= User.create(first_name: "admin",
-                         last_name: "admin",
-                             email: "admin@admin.com",
-                          username: "admin",
-                          password: "password",
-             password_confirmation: "password",
-                              role: 1)
+                        last_name: "admin",
+                        email: "admin@admin.com",
+                        username: "admin",
+                        password: "password",
+                        password_confirmation: "password",
+                        role: 1)
 end
 
 def candidate
