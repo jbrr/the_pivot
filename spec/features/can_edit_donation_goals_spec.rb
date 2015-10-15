@@ -23,6 +23,6 @@ feature "A logged in Admin" do
     expect(page).to have_content("Stance Successfully Updated")
 
     visit "/admin/ted-cruz"
-    expect(page).to have_content("4000")
+    expect(page).to have_content("4,000")
   end
 end
