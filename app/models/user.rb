@@ -30,4 +30,16 @@ class User < ActiveRecord::Base
   def self.cancelled(id)
     @orders_cancelled = Order.where("user_id = ? AND status = ? ", id, "cancelled")
   end
+
+  def registered_user?
+    roles.exists?(name: "registered_user")
+  end
+
+  def campaign_manager?
+    roles.exists?(name: "campaign_manager")
+  end
+
+  def candidate_admin?
+    roles.exists?(name: "candidate_admin")
+  end
 end
