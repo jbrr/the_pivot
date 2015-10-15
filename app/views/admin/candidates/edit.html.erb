@@ -8,7 +8,7 @@
 <br>
 <div class="text-center">
   <div class="well">
-    <h3><%= @current_candidate.name %></h3>
+    <h3><%= link_to @current_candidate.name, candidate_path(@current_candidate) %></h3>
     <%= bootstrap_form_for @current_candidate, url: "/candidates/#{@current_candidate.id}", method: :patch do |f| %>
       <%= f.text_field :bio %>
       <%= f.submit "Update Bio" %>
