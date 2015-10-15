@@ -9,5 +9,5 @@ production:
   PUBLISHABLE_KEY: pk_test_h555RgcdhS9pcrWigzaAj2X8
 
 test:
-  PUBLISHABLE_KEY: pk_test_h555RgcdhS9pcrWigzaAj2X8
-  SECRET_KEY: sk_test_Rm26JZTaimisvqCz6VgcrTxH
+  PUBLISHABLE_KEY:
+  SECRET_KEY: 
