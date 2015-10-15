@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :orders
+  has_many :user_roles
+  has_many :roles, through: :user_roles
 
   validates :first_name, :last_name, presence: true
   validates :username, presence: true, uniqueness: true
