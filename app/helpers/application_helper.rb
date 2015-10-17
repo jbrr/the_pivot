@@ -43,4 +43,8 @@ module ApplicationHelper
       percent_calculation(candidate_issue)
     end
   end
+
+  def current_user_role
+    UserRole.find_by(user_id: current_user.id)
+  end
 end

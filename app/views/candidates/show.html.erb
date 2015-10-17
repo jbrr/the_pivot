@@ -45,7 +45,8 @@
               Apply Now
         </button>
       </div>
-      <%= render partial: "apply_campaign_manager_modal"%>
+      <%= render partial: "apply_campaign_manager_modal",
+                 locals: {candidate: @candidate}%>
 
     </div>
   </div>

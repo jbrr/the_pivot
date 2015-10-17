@@ -6,7 +6,7 @@
       <h4 class="modal-title" id="myModalLabel">Apply To Be A Campaign Manager Below</h4>
     </div>
     <div class="modal-body">
-      <%= bootstrap_form_for @user_role, url: user_role_path do |f| %>
+      <%= bootstrap_form_for current_user_role, url: user_role_path do |f| %>
         <%= f.text_field :reason, help: "Please describe why you'd be a good campaign manager for #{candidate.name}" %>
       <% end %>
     </div>

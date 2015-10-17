@@ -200,3 +200,8 @@ Donation.create(amount: 2000, candidate_issue_id: candidate_issue1.id, user_id: 
 
 Donation.create(amount: 1000, candidate_issue_id: candidate_issue2.id, user_id: user3.id, order_id: order15.id)
 puts "Orders and Donations created"
+
+Role.create(name: "registered_user")
+Role.create(name: "campaign_manager")
+Role.create(name: "platform_admin")
+puts "Roles created"
