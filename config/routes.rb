@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   get "/join", to: "users#new"
   post "/join", to: "users#create"
+  resources :user_roles, only: [:edit, :update]
 
   get "/profile", to: "users#show"
 end
