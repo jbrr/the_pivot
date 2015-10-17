@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
     roles.exists?(name: "campaign_manager")
   end
 
-  def candidate_admin?
-    roles.exists?(name: "candidate_admin")
+  def platform_admin?
+    roles.exists?(name: "platform_admin")
   end
 end

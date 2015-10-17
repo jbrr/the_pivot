@@ -10,8 +10,8 @@ class Permission
     @action = action
 
     case
-    when candidate_admin?
-      candidate_admin_permissions
+    when platform_admin?
+      platform_admin_permissions
     when campaign_manager?
       campaign_manager_permissions
     when registered_user?
