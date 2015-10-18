@@ -1,4 +1,4 @@
-<%= bootstrap_form_for @user, url: join_path do |f| %>
+<%= bootstrap_form_for @user, url: admin_dashboards_path do |f| %>
   <%= f.text_field :first_name %>
   <%= f.text_field :last_name %>
   <%= f.text_field :email %>
@@ -8,8 +8,8 @@
   <%= f.text_field :username, icon: "user" %>
   <%= f.password_field :password, help: "Must be 8 Characters", icon: "lock" %>
   <%= f.password_field :password_confirmation, label: "Confirm Password" %>
-  <%= f.hiddden_field :candidate_id %>
-  <%= f.hiddden_field :role_id %>
+  <%= f.hidden_field :candidate_id, :value => current_candidate.id %>
+  <%= f.hidden_field :role_id, :value => current_user.user_roles.first.role_id %>
   <div class="row">
     <div class="col-xs-3">
       <%= f.submit "Create Campaign Manager", class: "btn btn-success" %>
