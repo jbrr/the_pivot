@@ -201,7 +201,11 @@ Donation.create(amount: 2000, candidate_issue_id: candidate_issue1.id, user_id: 
 Donation.create(amount: 1000, candidate_issue_id: candidate_issue2.id, user_id: user3.id, order_id: order15.id)
 puts "Orders and Donations created"
 
-Role.create(name: "registered_user")
-Role.create(name: "campaign_manager")
-Role.create(name: "platform_admin")
+role1 = Role.create(name: "registered_user")
+role2 = Role.create(name: "campaign_manager")
+role3 = Role.create(name: "platform_admin")
 puts "Roles created"
+
+user1.user_roles << UserRole.create(user_id: user1.id, role_id: role3.id)
+user2.user_roles << UserRole.create(user_id: user2.id, role_id: role2.id, candidate_id: 1)
+user3.user_roles << UserRole.create(user_id: user3.id, role_id: role1.id)
