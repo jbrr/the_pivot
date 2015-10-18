@@ -39,19 +39,23 @@ class Permission
   def registered_user_permissions
     return true if controller == "sessions"
     return true if controller == "candidates"  && action.in?(%w(index show))
-    return true if controller == "cart" && action.in?(%w(index show))
+    return true if controller == "cart"
     return true if controller == "charges"  && action.in?(%w(index show))
-    return true if controller == "donations" && action.in?(%w(index show))
+    return true if controller == "donations"
     return true if controller == "issues"  && action.in?(%w(index show))
-    return true if controller == "orders" && action.in?(%w(index show))
-    return true if controller == "users"  && action.in?(%w(index show))
-    return true if controller == "welcome" && action.in?(%w(index show))
+    return true if controller == "orders"
+    return true if controller == "users"  && action.in?(%w(new create show))
+    return true if controller == "welcome" && action.in?(%w(index))
   end
 
   def guest_user_permissions
     return true if controller == "sessions"
-    return true if controller == "welcome"  && action.in?(%w(index show))
-    return true if controller == "candidates" && action.in?(%w(index))
+    return true if controller == "candidates"  && action.in?(%w(index show))
+    return true if controller == "cart"
+    return true if controller == "donations"
+    return true if controller == "issues"  && action.in?(%w(index show))
+    return true if controller == "users"  && action.in?(%w(new create))
+    return true if controller == "welcome" && action.in?(%w(index))
   end
 
 end
