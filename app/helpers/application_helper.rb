@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+  
   def validate_params
     params[:donation][:amount].to_i > 0
   end
@@ -46,5 +46,18 @@ module ApplicationHelper
 
   def current_user_role
     UserRole.find_by(user_id: current_user.id)
+  end
+
+  def platform_admin?
+    # require 'pry' ; binding.pry
+    current_user && current_user.platform_admin?
+  end
+
+  def campaign_manager?
+    current_user && current_user.campaign_manager?
+  end
+
+  def registered_user?
+    current_user && current_user.registered_user?
   end
 end
