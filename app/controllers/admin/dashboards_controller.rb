@@ -20,8 +20,8 @@ class Admin::DashboardsController < ApplicationController
       @user = User.new(new_campaign_manager_params)
       if @user.save
         role = Role.find_by(name: "campaign_manager")
-        candidate_id = current_candidate.id
-        @user.user_roles << UserRole.create(user_id: @user.id, role_id: role.id, candidate_id: candidate_id)
+        @user.user_roles << UserRole.create(user_id: @user.id, role_id: role.id,
+                                            candidate_id: current_candidate.id)
         redirect_to admin_candidate_path(current_candidate.slug)
       else
         render :new
