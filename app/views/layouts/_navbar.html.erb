@@ -32,23 +32,15 @@
               </span> Cart<%= ": $" + cart.total.to_s if cart.total %>
             <% end %>
           </li>
-            <% if current_user %>
-              <li>
-                <a href="/profile">
-                  <%= "Welcome, #{current_user.username}." %>
-                </a>
-              </li>
-              <li>
-                <%= link_to "Logout", logout_path, method: :delete %>
-              </li>
-                <% else %>
-              <li>
-                <%= link_to "Join", join_path %>
-              </li>
-              <li>
-                <%= link_to "Login", login_path %>
-              </li>
-            <% end %>
+          <% if platform_admin? %>
+            <%= render "layouts/platform_admin_navbar" %>
+          <% elsif campaign_manager? %>
+            <%= render "layouts/campaign_manager_navbar" %>
+          <% elsif registered_user? %>
+            <%= render "layouts/registered_user_navbar" %>
+          <% else %>
+            <%= render "layouts/guest_navbar" %>
+          <% end %>
         </ul>
       </div>
     </div>
