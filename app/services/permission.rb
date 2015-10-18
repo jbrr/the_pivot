@@ -1,11 +1,15 @@
 class Permission
+  extend Forwardable
+  include ApplicationHelper
   attr_reader :user, :controller, :action
 
+  def_delegators :@user, :platform_admin?, :campaign_manager?, :registered_user?
+
   def initialize(user)
-    @user = user
+    @user = user || User.new
   end
 
-  def allow?
+  def allow?(controller, action)
     @controller = controller
     @action = action
 
@@ -18,7 +22,39 @@ class Permission
       registered_user_permissions
     else
       guest_user_permissions
+    end
   end
 
+  def platform_admin_permissions
+    true
   end
+
+  def campaign_manager_permissions
+    candidate = current_user.user_roles.first.candidate_id
+    # if current_path == "admin/#{candidate} then return true"
+    # unless candidate_id does not match the candidate that the manager is managing
+  end
+
+  def registered_user_permissions
+    return true if controller == "sessions"
+    return true if controller == "candidates"  && action.in?(%w(index show))
+    return true if controller == "cart"
+    return true if controller == "charges"  && action.in?(%w(index show))
+    return true if controller == "donations"
+    return true if controller == "issues"  && action.in?(%w(index show))
+    return true if controller == "orders"
+    return true if controller == "users"  && action.in?(%w(new create show))
+    return true if controller == "welcome" && action.in?(%w(index))
+  end
+
+  def guest_user_permissions
+    return true if controller == "sessions"
+    return true if controller == "candidates"  && action.in?(%w(index show))
+    return true if controller == "cart"
+    return true if controller == "donations"
+    return true if controller == "issues"  && action.in?(%w(index show))
+    return true if controller == "users"  && action.in?(%w(new create))
+    return true if controller == "welcome" && action.in?(%w(index))
+  end
+
 end
