@@ -37,7 +37,7 @@ class Permission
     return true if controller == "sessions"
     return true if controller == "candidates"  && action.in?(%w(index show))
     return true if controller == "cart"
-    return true if controller == "charges"  && action.in?(%w(index show))
+    return true if controller == "charges"
     return true if controller == "donations"
     return true if controller == "issues"  && action.in?(%w(index show))
     return true if controller == "orders"

@@ -4,8 +4,13 @@ feature "can create order as user" do
   scenario "register user can create an order", js: true do
     test_setup
 
-    allow_any_instance_of(ApplicationController).
-      to receive(:current_user).and_return(user)
+    # allow_any_instance_of(ApplicationController).
+    #   to receive(:current_user).and_return(user)
+
+    visit login_path
+    fill_in "Username", with: user.username
+    fill_in "Password", with: "password"
+    click_button "Login"
 
     visit candidate_path(candidate)
     find(:css, ".donation-candidate", text: candidate_issue.topic).click

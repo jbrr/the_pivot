@@ -4,6 +4,18 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 
+def registered_user
+  @registered_user = Role.create(name: "registered_user")
+end
+
+def campaign_manager
+  @campaign_manager = Role.create(name: "campaign_manager")
+end
+
+def platform_admin
+  @platform_admin = Role.create(name: "platform_admin")
+end
+
 def user
   @user ||= User.create(first_name: "Donald",
                          last_name: "Trump",
@@ -14,13 +26,21 @@ def user
 end
 
 def admin
-  @user ||= User.create(first_name: "admin",
+  @admin ||= User.create(first_name: "admin",
                         last_name: "admin",
                         email: "admin@admin.com",
                         username: "admin",
                         password: "password",
-                        password_confirmation: "password",
-                        role: 1)
+                        password_confirmation: "password")
+
+end
+
+def user_permissions
+  @user.user_roles << UserRole.create(user_id: @user.id, role_id: @registered_user.id)
+end
+
+def plat_admin_permissions
+  @admin.user_roles << UserRole.create(user_id: @admin.id, role_id: @platform_admin.id)
 end
 
 def candidate
@@ -67,8 +87,13 @@ def order
 end
 
 def test_setup
+  registered_user
+  campaign_manager
+  platform_admin
   user
   admin
+  user_permissions
+  plat_admin_permissions
   candidate
   issue
   issue2

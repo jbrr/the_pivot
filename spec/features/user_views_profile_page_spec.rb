@@ -3,12 +3,8 @@ require "rails_helper"
 feature "Logged in user views profile page" do
 
   before do
-    user = User.create(first_name:           "donald",
-                      last_name:             "trump",
-                      email:                 "trump@luxury.com",
-                      username:              "therealtrump",
-                      password:              "password",
-                      password_confirmation: "password")
+    test_setup
+
     visit root_path
     within("#navbar") do
       click_link "Login"
