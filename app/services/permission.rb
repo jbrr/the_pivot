@@ -30,7 +30,7 @@ class Permission
   end
 
   def campaign_manager_permissions
-    candidate = current_user.user_roles.first.candidate_id
+    true
     # if current_path == "admin/#{candidate} then return true"
     # unless candidate_id does not match the candidate that the manager is managing
   end

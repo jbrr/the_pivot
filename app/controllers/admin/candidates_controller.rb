@@ -1,16 +1,10 @@
 class Admin::CandidatesController < ApplicationController
-  before_action :current_candidate
-
-  def index
-    current_candidate
-  end
+  before_action :set_candidate
 
   def show
-    current_candidate
   end
 
   def edit
-
   end
 
   def update
@@ -18,7 +12,8 @@ class Admin::CandidatesController < ApplicationController
 
   private
 
-  def current_candidate
-    @current_candidate ||= Candidate.find_by(slug: params[:candidate])
+  def set_candidate
+    cid                = current_user.user_roles.first.candidate_id
+    @current_candidate = Candidate.find_by(id: cid)
   end
 end
