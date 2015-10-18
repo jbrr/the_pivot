@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   def validate_params
     params[:donation][:amount].to_i > 0
   end
@@ -49,7 +49,6 @@ module ApplicationHelper
   end
 
   def platform_admin?
-    # require 'pry' ; binding.pry
     current_user && current_user.platform_admin?
   end
 
