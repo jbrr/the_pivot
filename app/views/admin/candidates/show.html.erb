@@ -1,5 +1,6 @@
 <div class="text-center">
-  <h2><%= link_to "Candidate Stances and Goals", edit_admin_candidate_path(id: current_candidate.id) %></h2>
+  <%= link_to "Candidate Stances and Goals", edit_admin_candidate_path(id: current_candidate.id), class: "btn btn-danger btn-lg" %>
+  <%= link_to "Add a Campaign Manager", new_admin_dashboard_path, class: "btn btn-danger btn-lg" %>
 </div>
 
 <div class="text-center">
