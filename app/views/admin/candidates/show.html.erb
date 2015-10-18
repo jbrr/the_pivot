@@ -1,5 +1,5 @@
 <div class="text-center">
-  <h2><%= link_to "Candidate Stances and Goals", edit_admin_candidate_path(id: @current_candidate.id) %></h2>
+  <h2><%= link_to "Candidate Stances and Goals", edit_admin_candidate_path(id: current_candidate.id) %></h2>
 </div>
 
 <div class="text-center">
@@ -9,7 +9,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
-      <% @current_candidate.candidate_issues.each do |candidate_issue| %>
+      <% current_candidate.candidate_issues.each do |candidate_issue| %>
         <div class="list-group-item" id="candidate_issue-<%= candidate_issue.id %>">
           <div class="text-center">
             <h4><%= candidate_issue.topic %></h4>

@@ -1,0 +1,11 @@
+<li>
+  <a href="/profile">
+    <%= "Welcome, #{current_user.username}." %>
+  </a>
+</li>
+<li>
+  <%= link_to "#{current_candidate.name} Dashboard", admin_candidate_path(current_candidate.slug) %>
+</li>
+<li>
+  <%= link_to "Logout", logout_path, method: :delete %>
+</li>

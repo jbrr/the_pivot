@@ -3,12 +3,17 @@ class ApplicationController < ActionController::Base
   before_action :authorize!
   include ApplicationHelper
   helper_method :current_user
+  helper_method :current_candidate
   helper_method :cart
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def current_candidate
+    cid                = current_user.user_roles.first.candidate_id
+    @current_candidate ||= Candidate.find_by(id: cid)
+  end
 
   def cart
     Cart.new(session[:donations])
