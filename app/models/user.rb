@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :orders
+  has_many :user_roles
+  has_many :roles, through: :user_roles
 
   validates :first_name, :last_name, presence: true
   validates :username, presence: true, uniqueness: true
@@ -27,5 +29,17 @@ class User < ActiveRecord::Base
 
   def self.cancelled(id)
     @orders_cancelled = Order.where("user_id = ? AND status = ? ", id, "cancelled")
+  end
+
+  def registered_user?
+    roles.exists?(name: "registered_user")
+  end
+
+  def campaign_manager?
+    roles.exists?(name: "campaign_manager")
+  end
+
+  def platform_admin?
+    roles.exists?(name: "platform_admin")
   end
 end

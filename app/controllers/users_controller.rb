@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      role = Role.find_by(name: "registered_user")
+      @user.user_roles << UserRole.create(user_id: @user.id, role_id: role.id)
       redirect_to profile_path
     else
       flash.now[:errors] = @user.errors.full_messages.join(", ")

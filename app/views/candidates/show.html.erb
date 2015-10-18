@@ -39,14 +39,18 @@
       <h3>Believe in what you've read?<br>
           Passionate about this particular candidate?<br>
           Apply to become their campaign manager today!</h3>
-      <div class="text-center">
-        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
-              data-target="#applyModal">
-              Apply Now
-        </button>
-      </div>
-      <%= render partial: "apply_campaign_manager_modal"%>
-
+      <% if current_user %>
+        <div class="text-center">
+          <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
+                data-target="#applyModal">
+                Apply Now
+          </button>
+        </div>
+        <%= render partial: "apply_campaign_manager_modal",
+                   locals: {candidate: @candidate}%>
+      <% else %>
+        <%= link_to "Login to Apply Now", login_path, class: "btn btn-danger btn-lg" %>
+      <% end %>
     </div>
   </div>
 </div>
