@@ -30,10 +30,9 @@ class Permission
   end
 
   def campaign_manager_permissions
-    # return true if controller == "sessions"
-    # return true if controller == "items"  && action.in?(%w(index show))
-    # return true if controller == "stores" && action.in?(%w(index show))
-    # return true if controller == "orders" && action.in?(%w(index show))
+    candidate = current_user.user_roles.first.candidate_id
+    # if current_path == "admin/#{candidate} then return true"
+    # unless candidate_id does not match the candidate that the manager is managing
   end
 
   def registered_user_permissions
