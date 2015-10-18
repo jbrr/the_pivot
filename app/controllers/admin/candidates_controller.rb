@@ -1,5 +1,5 @@
 class Admin::CandidatesController < ApplicationController
-  before_action :current_candidate, :set_slug
+  before_action :set_candidate, :set_slug
 
   def show
   end
@@ -12,10 +12,9 @@ class Admin::CandidatesController < ApplicationController
 
   private
 
-  def current_candidate
+  def set_candidate
     if current_user.user_roles.first.role_id == 2
-      cid                = current_user.user_roles.first.candidate_id
-      @current_candidate = Candidate.find_by(id: cid)
+      current_candidate
     else
       @current_candidate ||= Candidate.find_by(slug: params[:candidate])
     end
@@ -23,8 +22,8 @@ class Admin::CandidatesController < ApplicationController
 
   def set_slug
     if current_user.user_roles.first.role_id == 2 &&
-       Candidate.find_by(slug: params[:candidate]) != @current_candidate
-      redirect_to admin_candidate_path(@current_candidate.slug)
+       Candidate.find_by(slug: params[:candidate]) != current_candidate
+      redirect_to admin_candidate_path(current_candidate.slug)
     else
       @current_candidate = Candidate.find_by(slug: params[:candidate])
     end

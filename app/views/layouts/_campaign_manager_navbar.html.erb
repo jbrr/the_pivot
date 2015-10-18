@@ -4,7 +4,7 @@
   </a>
 </li>
 <li>
-  <%= link_to "#{@current_candidate.name} Dashboard", dashboard_path %>
+  <%= link_to "#{current_candidate.name} Dashboard", admin_candidate_path(current_candidate.slug) %>
 </li>
 <li>
   <%= link_to "Logout", logout_path, method: :delete %>
