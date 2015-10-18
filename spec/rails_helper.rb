@@ -23,8 +23,6 @@ def user
                           username: "therealtrump",
                           password: "password",
              password_confirmation: "password")
-
-  @user.user_roles << UserRole.create(user_id: @user.id, role_id: @registered_user.id)
 end
 
 def admin
@@ -35,6 +33,13 @@ def admin
                         password: "password",
                         password_confirmation: "password")
 
+end
+
+def user_permissions
+  @user.user_roles << UserRole.create(user_id: @user.id, role_id: @registered_user.id)
+end
+
+def plat_admin_permissions
   @admin.user_roles << UserRole.create(user_id: @admin.id, role_id: @platform_admin.id)
 end
 
@@ -87,6 +92,8 @@ def test_setup
   platform_admin
   user
   admin
+  user_permissions
+  plat_admin_permissions
   candidate
   issue
   issue2
