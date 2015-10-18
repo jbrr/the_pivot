@@ -6,6 +6,7 @@ class CandidatesController < ApplicationController
 
   def show
     @candidate = Candidate.find(params[:id])
+    @registered = current_user.registered_user? if current_user
   end
 
   def update
