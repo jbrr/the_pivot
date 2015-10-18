@@ -5,7 +5,6 @@ class UserRolesController < ApplicationController
   def update
     user_role = UserRole.find(params[:id])
     user_role.update(user_role_params)
-    # require 'pry'; binding.pry
     redirect_to candidate_path(params[:user_role][:candidate_id])
   end
 
