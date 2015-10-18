@@ -4,7 +4,7 @@ class Admin::DashboardsController < ApplicationController
     end
 
     def show
-
+      @applicants = UserRole.where("reason is not null")
     end
 
     def new
