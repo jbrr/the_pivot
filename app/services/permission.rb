@@ -41,6 +41,7 @@ class Permission
     return true if controller == "donations"
     return true if controller == "issues"  && action.in?(%w(index show))
     return true if controller == "orders"
+    return true if controller == "user_roles"
     return true if controller == "users"  && action.in?(%w(new create show))
     return true if controller == "welcome" && action.in?(%w(index))
   end
