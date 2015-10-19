@@ -27,12 +27,12 @@ class Permission
 
   def platform_admin_permissions
     return true unless controller == "admin/dashboards" && action.in?(
-    %w(new create))
+      %w(new create))
   end
 
   def campaign_manager_permissions
     return true unless controller == "admin/dashboards" && action.in?(
-    %w(show update))
+      %w(show update))
   end
 
   def registered_user_permissions
