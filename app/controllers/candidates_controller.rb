@@ -14,7 +14,7 @@ class CandidatesController < ApplicationController
       flash[:success] = "Bio Successfully Updated"
       redirect_to edit_admin_candidate_path(candidate: candidate.slug)
     else
-      flash[:danger] = "Do you even American Bro?"
+      flash[:errors] = "Do you even American Bro?"
       redirect_to edit_admin_candidate_path(candidate: candidate.slug)
     end
   end
