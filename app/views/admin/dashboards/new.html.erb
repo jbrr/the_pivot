@@ -1,16 +1,9 @@
-<%= bootstrap_form_for @user, url: admin_dashboards_path do |f| %>
-  <%= f.text_field :first_name %>
-  <%= f.text_field :last_name %>
-  <%= f.text_field :email %>
-  <%= f.text_field :phone_number,
-                   help: "Must be 10 Consecutive Numbers (ex: 5554443333)",
-                   icon: "earphone" %>
-  <%= f.text_field :username, icon: "user" %>
-  <%= f.password_field :password, help: "Must be 8 Characters", icon: "lock" %>
-  <%= f.password_field :password_confirmation, label: "Confirm Password" %>
-  <div class="row">
-    <div class="col-xs-3">
-      <%= f.submit "Create Campaign Manager", class: "btn btn-success" %>
+<br><br>
+<div class="container" id="join-form">
+    <div class="col-md-offset-3 col-md-6">
+      <div class="row well">
+        <h2 align='center' id="login-join-page">Add a New Campaign Manager</h2>
+        <%= render partial: 'form' %>
     </div>
   </div>
-<% end  %>
+</div>

@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resource  :candidates, path: ":candidate", as: :candidate,
               only: [:show, :edit, :update]
-    resources :dashboards
+    resources :dashboards, except: [:index, :destroy]
   end
 
-  resources :candidate_issues, only: [:update]
+  resources :candidate_issues, only: :update
 
   resources :candidates, only: [:index, :show, :update]
   resources :issues, only: [:index, :show]

@@ -1,4 +1,5 @@
 class Admin::CandidatesController < ApplicationController
+  include Admin::CandidatesHelper
   before_action :set_candidate, :set_slug
 
   def show
