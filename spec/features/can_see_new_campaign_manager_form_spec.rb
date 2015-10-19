@@ -19,7 +19,7 @@ feature "New campaign manager form is visible" do
     expect(current_path).to eq("/admin/dashboards/new")
   end
 
-  scenario "not to a platform admin" do
+  scenario "to a platform admin" do
     test_setup
 
     visit root_path
@@ -34,7 +34,7 @@ feature "New campaign manager form is visible" do
     click_button "Login"
 
     visit "/admin/dashboards/new"
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq("/admin/dashboards/new")
   end
 
   scenario "not to a registered user" do

@@ -7,9 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
-      role = Role.find_by(name: "registered_user")
-      @user.user_roles << UserRole.create(user_id: @user.id, role_id: role.id)
+      create_user
       redirect_to profile_path
     else
       flash.now[:errors] = @user.errors.full_messages.join(", ")
@@ -27,5 +25,11 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :username, :password, :password_confirmation)
+    end
+
+    def create_user
+      session[:user_id] = @user.id
+      role = Role.find_by(name: "registered_user")
+      @user.user_roles << UserRole.create(user_id: @user.id, role_id: role.id)
     end
 end
