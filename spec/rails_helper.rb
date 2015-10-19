@@ -25,6 +25,15 @@ def user
              password_confirmation: "password")
 end
 
+def user2
+  @user2 ||= User.create(first_name: "regis",
+                      last_name: "regis",
+                      email: "regis@regis.com",
+                      username: "Regis",
+                      password: "password",
+                      password_confirmation: "password")
+end
+
 def manager
   @manager ||= User.create(first_name: "manager",
                            last_name: "manager",
@@ -47,6 +56,11 @@ end
 def user_permissions
   @user.user_roles << UserRole.create(user_id: user.id,
                                       role_id: registered_user.id)
+end
+
+def user2_permissions
+  @user2.user_roles << UserRole.create(user_id: user2.id,
+                                       role_id: registered_user.id)
 end
 
 def plat_admin_permissions
@@ -108,9 +122,11 @@ def test_setup
   campaign_manager
   platform_admin
   user
+  user2
   manager
   admin
   user_permissions
+  user2_permissions
   manager_permissions
   plat_admin_permissions
   candidate
