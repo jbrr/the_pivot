@@ -15,8 +15,8 @@ feature "Admin dashboard is visible" do
     fill_in "Password", with: "password"
     click_button "Login"
 
-    visit "/admin/dashboards/show"
-    expect(current_path).to eq("/admin/dashboards/show")
+    click_on "Dashboard"
+    expect(current_path).to eq("/admin/dashboard")
   end
 
   scenario "not to a campaign manager" do
@@ -33,7 +33,7 @@ feature "Admin dashboard is visible" do
     fill_in "Password", with: "password"
     click_button "Login"
 
-    visit "/admin/dashboards/show"
+    visit "/admin/dashboard"
     expect(current_path).to eq(root_path)
   end
 
@@ -51,7 +51,7 @@ feature "Admin dashboard is visible" do
     fill_in "Password", with: "password"
     click_button "Login"
 
-    visit "/admin/dashboards/show"
+    visit "/admin/dashboard"
     expect(current_path).to eq(root_path)
   end
 end
