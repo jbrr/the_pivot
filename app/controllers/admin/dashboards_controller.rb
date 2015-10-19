@@ -1,8 +1,5 @@
 class Admin::DashboardsController < ApplicationController
-    def index
-
-    end
-
+  
     def show
       @applicants = UserRole.where("reason is not null")
     end
@@ -37,7 +34,6 @@ class Admin::DashboardsController < ApplicationController
     end
 
     def destroy
-      require 'pry' ; binding.pry
       redirect_to admin_dashboard_path
     end
 
