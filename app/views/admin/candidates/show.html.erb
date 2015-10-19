@@ -7,12 +7,25 @@
     <%= link_to "Add a Campaign Manager", new_admin_dashboard_path, class: "btn btn-danger btn-lg" %>
   </div>
 
-  <div class="text-center">
-    <h2>Total Funding Goal: <%= number_to_currency(total_goal) %></h2>
-  </div>
+  <br>
 
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
+  <div class="col-lg-8 col-lg-offset-2">
+    <div class="progress">
+      <div class="progress-bar progress-bar-danger" roll="progressbar"
+           aria-valuenow="<%= campaign_raised_total %>"
+           aria-valuemin="0" aria-valuemax="<%= total_goal %>"
+           style="min-width: 3em; max-width: 100%; width: <%= campaign_raised_total.to_f /
+                  total_goal.to_f * 100 %>%;">
+           <%= campaign_progress_bar_percentage.to_i %>%
+      </div>
+    </div>
+
+    <div class="text-center">
+      <h2>Total Funded: <%= "#{number_to_currency(campaign_raised_total)} of
+          #{number_to_currency(total_goal)}" %></h2>
+    </div>
+
+    <div class="row">
       <% current_candidate.candidate_issues.each do |candidate_issue| %>
         <div class="list-group-item" id="candidate_issue-<%= candidate_issue.id %>">
           <div class="text-center">
