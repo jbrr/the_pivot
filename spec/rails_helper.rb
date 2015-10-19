@@ -25,22 +25,33 @@ def user
              password_confirmation: "password")
 end
 
+def manager
+  @manager ||= User.create(first_name: "manager",
+                           last_name: "manager",
+                           email: "manager@manager.com",
+                           username: "manager",
+                           password: "password",
+                           password_confirmation: "password")
+end
+
 def admin
   @admin ||= User.create(first_name: "admin",
-                        last_name: "admin",
-                        email: "admin@admin.com",
-                        username: "admin",
-                        password: "password",
-                        password_confirmation: "password")
+                         last_name: "admin",
+                         email: "admin@admin.com",
+                         username: "admin",
+                         password: "password",
+                         password_confirmation: "password")
 
 end
 
 def user_permissions
-  @user.user_roles << UserRole.create(user_id: @user.id, role_id: @registered_user.id)
+  @user.user_roles << UserRole.create(user_id: user.id,
+                                      role_id: registered_user.id)
 end
 
 def plat_admin_permissions
-  @admin.user_roles << UserRole.create(user_id: @admin.id, role_id: @platform_admin.id)
+  @admin.user_roles << UserRole.create(user_id: admin.id,
+                                       role_id: platform_admin.id)
 end
 
 def candidate
@@ -48,6 +59,12 @@ def candidate
                                             party: "Republican",
                                               bio: "Kim Davis",
                                         last_name: "cruz")
+end
+
+def manager_permissions
+  @manager.user_roles << UserRole.create(user_id: manager.id,
+                                         role_id: campaign_manager.id,
+                                         candidate_id: candidate.id)
 end
 
 def candidate2
@@ -91,8 +108,10 @@ def test_setup
   campaign_manager
   platform_admin
   user
+  manager
   admin
   user_permissions
+  manager_permissions
   plat_admin_permissions
   candidate
   issue
