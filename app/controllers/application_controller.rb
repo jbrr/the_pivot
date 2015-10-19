@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
   protect_from_forgery with: :exception
   before_action :authorize!
-  include ApplicationHelper
   helper_method :current_user
   helper_method :current_candidate
   helper_method :cart

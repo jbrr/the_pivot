@@ -9,14 +9,11 @@ class Admin::DashboardsController < ApplicationController
     end
 
     def update
-      applicant_id = UserRole.find(params[:user_role_id])
       if params[:value] == "Decline"
-        applicant_id.update(reason: nil)
+        decline_applicant
         redirect_to admin_dashboard_path
       elsif params[:value] == "Approve"
-        applicant_role = Role.find_by(name: "campaign_manager")
-        applicant_id.update(role_id: applicant_role.id)
-        applicant_id.update(reason: nil)
+        approve_applicant
         redirect_to admin_dashboard_path
       end
     end
@@ -24,9 +21,7 @@ class Admin::DashboardsController < ApplicationController
     def create
       @user = User.new(new_campaign_manager_params)
       if @user.save
-        role = Role.find_by(name: "campaign_manager")
-        @user.user_roles << UserRole.create(user_id: @user.id, role_id: role.id,
-                                            candidate_id: current_candidate.id)
+        @user.user_roles << create_user_role
         redirect_to admin_candidate_path(current_candidate.slug)
       else
         render :new
@@ -39,5 +34,27 @@ class Admin::DashboardsController < ApplicationController
       params.require(:user).permit(:first_name, :last_name, :email,
                                    :phone_number, :username, :password,
                                    :password_confirmation)
+    end
+
+    private
+
+    def decline_applicant
+      applicant_id.update(reason: nil)
+    end
+
+    def approve_applicant
+      applicant_role = Role.find_by(name: "campaign_manager")
+      applicant_id.update(role_id: applicant_role.id)
+      applicant_id.update(reason: nil)
+    end
+
+    def applicant_id
+      UserRole.find(params[:user_role_id])
+    end
+
+    def create_user_role
+      role = Role.find_by(name: "campaign_manager")
+      UserRole.create(user_id: @user.id, role_id: role.id,
+                                          candidate_id: current_candidate.id)
     end
 end
