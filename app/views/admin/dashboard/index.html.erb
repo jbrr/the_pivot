@@ -1,0 +1,9 @@
+<br><br><br>
+<div class="text-center">
+  <% @applicants.each do |applicant| %>
+    <h3>Username: <%= applicant.user.username %></h3>
+    <h4>Reason: <%= "'#{applicant.reason}'" %></h4>
+    <%= link_to "Approve", admin_user_role_path(:value => "Approve", :id => applicant.id), method: :patch, class: "btn btn-success" %>
+    <%= link_to "Decline", admin_user_role_path(:value => "Decline", :id => applicant.id), method: :patch, class: "btn btn-danger" %>
+  <% end %>
+<div>

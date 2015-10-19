@@ -1,6 +1,6 @@
-class Admin::DashboardsController < ApplicationController
+class Admin::DashboardController < ApplicationController
 
-    def show
+    def index
       @applicants = UserRole.where("reason is not null")
     end
 
