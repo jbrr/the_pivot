@@ -4,7 +4,7 @@ class Admin::DashboardsController < ApplicationController
     end
 
     def show
-
+      @applicants = UserRole.where("reason is not null")
     end
 
     def new
@@ -12,11 +12,19 @@ class Admin::DashboardsController < ApplicationController
     end
 
     def update
-
+      applicant_id = UserRole.find(params[:user_role_id])
+      if params[:value] == "Decline"
+        applicant_id.update(reason: nil)
+        redirect_to admin_dashboard_path
+      elsif params[:value] == "Approve"
+        applicant_role = Role.find_by(name: "campaign_manager")
+        applicant_id.update(role_id: applicant_role.id)
+        applicant_id.update(reason: nil)
+        redirect_to admin_dashboard_path
+      end
     end
 
     def create
-      # @current_user = current_user
       @user = User.new(new_campaign_manager_params)
       if @user.save
         role = Role.find_by(name: "campaign_manager")
@@ -29,7 +37,8 @@ class Admin::DashboardsController < ApplicationController
     end
 
     def destroy
-
+      require 'pry' ; binding.pry
+      redirect_to admin_dashboard_path
     end
 
     private
