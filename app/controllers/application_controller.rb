@@ -25,8 +25,8 @@ class ApplicationController < ActionController::Base
 
   def authorize!
     unless authorized?
+      flash[:errors] = "STRANGER DANGER"
       redirect_to root_url
-      flash[:error] = "STRANGER DANGER"
     end
   end
 
