@@ -26,7 +26,7 @@ class CandidatesController < ApplicationController
   end
 
   def candidate_id
-    candidate = Candidate.find(params[:id])
+    Candidate.find(params[:id])
   end
 
   def candidate
