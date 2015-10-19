@@ -3,7 +3,7 @@ class UserRolesController < ApplicationController
   end
 
   def update
-    user_role = UserRole.find(params[:id])
+    user_role = UserRole.find_by(user_id: current_user.id)
     user_role.update(user_role_params)
     redirect_to candidate_path(params[:user_role][:candidate_id])
   end
