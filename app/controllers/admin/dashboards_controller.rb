@@ -55,6 +55,6 @@ class Admin::DashboardsController < ApplicationController
     def create_user_role
       role = Role.find_by(name: "campaign_manager")
       UserRole.create(user_id: @user.id, role_id: role.id,
-                                          candidate_id: current_candidate.id)
+                                         candidate_id: current_candidate.id)
     end
 end
