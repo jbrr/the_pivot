@@ -5,17 +5,16 @@ class CandidatesController < ApplicationController
   end
 
   def show
-    @candidate = Candidate.find(params[:id])
+    @candidate = candidate_id
     @registered = current_user.registered_user? if current_user
   end
 
   def update
-    candidate = Candidate.find(params[:id])
     if candidate.update(candidate_params)
       flash[:success] = "Bio Successfully Updated"
       redirect_to edit_admin_candidate_path(candidate: candidate.slug)
     else
-      flash[:danger] = "Do you even American Bro?"
+      flash[:errors] = "Do you even American Bro?"
       redirect_to edit_admin_candidate_path(candidate: candidate.slug)
     end
   end
@@ -24,5 +23,13 @@ class CandidatesController < ApplicationController
 
   def candidate_params
     params.require(:candidate).permit(:bio)
+  end
+
+  def candidate_id
+    Candidate.find(params[:id])
+  end
+
+  def candidate
+    candidate_id
   end
 end
