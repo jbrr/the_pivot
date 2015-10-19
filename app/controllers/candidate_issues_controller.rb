@@ -4,10 +4,10 @@ class CandidateIssuesController < ApplicationController
     candidate_issue = CandidateIssue.find(params[:id])
     candidate = candidate_issue.candidate
     if candidate_issue.update(candidate_issue_params)
-      flash.now[:success] = "Stance Successfully Updated"
+      flash[:success] = "Stance Successfully Updated"
       redirect_to edit_admin_candidate_path(candidate: candidate.slug)
     else
-      flash.now[:errors] = "Do you need a tissue for you issue??"
+      flash[:errors] = "Do you need a tissue for you issue??"
       redirect_to edit_admin_candidate_path(candidate: candidate.slug)
     end
   end
