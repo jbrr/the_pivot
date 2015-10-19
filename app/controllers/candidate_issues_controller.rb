@@ -6,7 +6,7 @@ class CandidateIssuesController < ApplicationController
       flash[:success] = "Stance Successfully Updated"
       redirect_to edit_admin_candidate_path(candidate: candidate.slug)
     else
-      flash[:danger] = "Do you need a tissue for you issue??"
+      flash[:errors] = "Do you need a tissue for you issue??"
       redirect_to edit_admin_candidate_path(candidate: candidate.slug)
     end
   end
