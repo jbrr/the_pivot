@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   namespace :admin do
+    get "/dashboard", to: "dashboard#index"
+    resources :user_roles, only: [:update]
+    resources :campaign_managers, only: [:new, :create]
     resource  :candidates, path: ":candidate", as: :candidate,
               only: [:show, :edit, :update]
-    resources :dashboards, except: [:index, :destroy]
   end
 
   resources :candidate_issues, only: :update

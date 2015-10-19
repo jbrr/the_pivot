@@ -15,8 +15,9 @@ feature "New campaign manager form is visible" do
     fill_in "Password", with: "password"
     click_button "Login"
 
-    visit "/admin/dashboards/new"
-    expect(current_path).to eq("/admin/dashboards/new")
+    click_on "Ted Cruz Dashboard"
+    click_on "Add a Campaign Manager"
+    expect(current_path).to eq("/admin/campaign_managers/new")
   end
 
   scenario "to a platform admin" do
@@ -33,8 +34,9 @@ feature "New campaign manager form is visible" do
     fill_in "Password", with: "password"
     click_button "Login"
 
-    visit "/admin/dashboards/new"
-    expect(current_path).to eq("/admin/dashboards/new")
+    visit "/admin/ted-cruz"
+    click_on "Add a Campaign Manager"
+    expect(current_path).to eq("/admin/campaign_managers/new")
   end
 
   scenario "not to a registered user" do
@@ -51,7 +53,7 @@ feature "New campaign manager form is visible" do
     fill_in "Password", with: "password"
     click_button "Login"
 
-    visit "/admin/dashboards/new"
+    visit "/admin/ted-cruz"
     expect(current_path).to eq(root_path)
   end
 end
