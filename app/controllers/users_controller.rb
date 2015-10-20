@@ -7,8 +7,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      two_factor
+
       create_user
+      two_factor
       redirect_to profile_path
     else
       flash.now[:errors] = @user.errors.full_messages.join(", ")

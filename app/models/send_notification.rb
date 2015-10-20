@@ -12,7 +12,7 @@ class SendNotification
                             total}.00 through Earmarked, #{current_user.first_name}!"
   end
 
-  def phone_word
+  def phone_word(number)
     @client.messages.create from: "7205063550",
                             to: number,
                             body: "#{PHONEWORD.join.to_i}"
