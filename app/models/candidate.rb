@@ -1,5 +1,6 @@
 class Candidate < ActiveRecord::Base
   has_many :issues, through: :candidate_issues
+  has_many :donations, through: :candidate_issues
   has_many :candidate_issues
   has_many :user_roles
   has_many :users, through: :user_roles

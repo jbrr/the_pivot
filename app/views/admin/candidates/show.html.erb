@@ -8,7 +8,18 @@
   </div>
 
   <br>
+  <!-- create a placeholder for the flot graph -->
+  <div class="col-md-12" id="flot-placeholder" style="text-center width:800px; height: 300px"></div>
 
+  <script type="text/javascript">
+  $(function() {
+      var d1 = [];
+      for (var i = 0; i < 14; i += 0.5) {
+          d1.push([i, Math.sin(i)]);
+      }
+      $.plot("#flot-placeholder", [ d1 ]);
+  });
+  </script>
   <div class="col-lg-8 col-lg-offset-2">
     <div class="progress">
       <div class="progress-bar progress-bar-danger" roll="progressbar"
