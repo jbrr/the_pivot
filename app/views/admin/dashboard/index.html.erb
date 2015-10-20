@@ -20,10 +20,10 @@
         </tr>
         <tr>
         <% @applicants.each do |applicant| %>
-          <td><%= applicant.user.username %></td>
-          <td><%= applicant.candidate.name %></td>
-          <td><%= applicant.reason %></td>
-          <td id="cart-remove-button"><%= link_to "Approve", admin_user_role_path(:value => "Approve",
+          <td id="applicant-row"><%= applicant.user.username %></td>
+          <td id="applicant-row"><%= applicant.candidate.name %></td>
+          <td id="applicant-reason"><%= applicant.reason %></td>
+          <td id="applicant-buttons"><%= link_to "Approve", admin_user_role_path(:value => "Approve",
               :id => applicant.id), method: :patch, class: "btn btn-success" %>
               <%= link_to "Decline", admin_user_role_path(:value => "Decline",
               :id => applicant.id), method: :patch, class: "btn btn-danger" %></td>
