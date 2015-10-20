@@ -14,7 +14,7 @@ The original project guideline can be found here:
 
 [Turing School Original Assignment](https://github.com/turingschool/curriculum/blob/master/source/projects/little_shop.markdown)
 
-Our purpose was to inherit their codebase and expand on the project, including adding platform admin, campaign manager functionality, and  goals and progress bars for donations.
+Our purpose was to inherit their codebase and expand on the project, including adding multi-tenancy and levels of authorization with a platform admin, multiple campaign managers, and  users, as well as adding goals and progress bars for donations.
 
 The website can be found here:
 
