@@ -18,8 +18,8 @@
           <th>Reason</th>
           <th>Decision</th>
         </tr>
-        <tr>
         <% @applicants.each do |applicant| %>
+        <tr>
           <td id="applicant-row"><%= "#{applicant.user.first_name} #{applicant.user.last_name}" %></td>
           <td id="applicant-row"><%= applicant.candidate.name %></td>
           <td id="applicant-reason"><%= applicant.reason %></td>
