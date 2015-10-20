@@ -35,6 +35,6 @@ class UsersController < ApplicationController
     end
 
     def two_factor
-      Crusher.send_phone_password
+      Crusher.send_phone_password(current_user)
     end
 end

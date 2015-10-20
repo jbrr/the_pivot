@@ -11,7 +11,7 @@ class Crusher
     order
   end
 
-  def self.send_phone_password
+  def self.send_phone_password(current_user)
     if current_user.phone_number != ""
       SendNotification.new.phone_word
     end
