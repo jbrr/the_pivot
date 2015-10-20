@@ -2,9 +2,11 @@ class Admin::UserRolesController < ApplicationController
   def update
     if params[:value] == "Decline"
       decline_applicant
+      flash[:success] = "Applicant has been DECLINED."
       redirect_to admin_dashboard_path
     elsif params[:value] == "Approve"
       approve_applicant
+      flash[:success] = "Applicant has been APPROVED."
       redirect_to admin_dashboard_path
     end
   end
