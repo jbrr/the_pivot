@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      two_factor
       create_user
       redirect_to profile_path
     else
@@ -34,6 +35,6 @@ class UsersController < ApplicationController
     end
 
     def two_factor
-      
+      Crusher.send_phone_password
     end
 end
