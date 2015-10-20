@@ -20,7 +20,7 @@
         </tr>
         <tr>
         <% @applicants.each do |applicant| %>
-          <td id="applicant-row"><%= applicant.user.username %></td>
+          <td id="applicant-row"><%= "#{applicant.user.first_name} #{applicant.user.last_name}" %></td>
           <td id="applicant-row"><%= applicant.candidate.name %></td>
           <td id="applicant-reason"><%= applicant.reason %></td>
           <td id="applicant-buttons"><%= link_to "Approve", admin_user_role_path(:value => "Approve",
