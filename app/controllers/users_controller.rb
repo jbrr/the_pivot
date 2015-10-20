@@ -32,4 +32,8 @@ class UsersController < ApplicationController
       role = Role.find_by(name: "registered_user")
       @user.user_roles << UserRole.create(user_id: @user.id, role_id: role.id)
     end
+
+    def two_factor
+      
+    end
 end
