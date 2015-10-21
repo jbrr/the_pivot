@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :candidate_issues, only: :update
 
+  resources :two_factor_authentication, only: [:show, :update]
+
   resources :candidates, only: [:index, :show, :update]
   resources :issues, only: [:index, :show]
   resources :donations, only: [:create, :edit]
