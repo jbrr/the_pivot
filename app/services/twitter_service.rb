@@ -9,4 +9,8 @@ class TwitterService
       config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
     end
   end
+
+  def first_tweet_link(candidate_name)
+    client.user_timeline(candidate_name).first.uri
+  end
 end
