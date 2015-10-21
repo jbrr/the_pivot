@@ -3,6 +3,12 @@ class Admin::CandidatesController < ApplicationController
   before_action :set_candidate, :set_slug
 
   def show
+    @candidate = set_candidate
+    @donations_by_date = []
+    @candidate.donations.map do |donation|
+      @donations_by_date << [donation.created_at.strftime("%d"), donation.amount]
+    end
+    @donations_by_date = @donations_by_date.unshift(["Date", "amount"]).to_json
   end
 
   def edit

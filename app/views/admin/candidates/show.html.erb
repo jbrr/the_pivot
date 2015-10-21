@@ -10,14 +10,9 @@
 
   <script type="text/javascript">
     google.setOnLoadCallback(drawChart);
-
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        ['Year', 'Sales', 'Expenses'],
-        ['2004',  1000,      400],
-        ['2005',  1170,      460],
-        ['2006',  660,       1120],
-        ['2007',  1030,      540]
+        <% @donations_by_date %>
       ]);
 
       var options = {
@@ -43,7 +38,7 @@
 
   <br>
   <div class="col-md-12" id="curve_chart" style="text-center width:800px; height: 300px"></div>
-
+  <% require 'pry'; binding.pry %>
   <div class="col-lg-8 col-lg-offset-2">
     <div class="progress">
       <div class="progress-bar progress-bar-danger" roll="progressbar"
