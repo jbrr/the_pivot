@@ -14,6 +14,6 @@ class DonationChart
       donation_topic = donation.issue.topic
       donation_candidate_issue << ["#{donation_topic}", donation.amount]
     end
-    donation_candidate_issue = donation_candidate_issue.to_s.gsub('"', '')
+    donation_candidate_issue
   end
 end

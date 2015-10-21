@@ -11,14 +11,14 @@
   <script type="text/javascript">
     google.setOnLoadCallback(drawChart);
     function drawChart() {
-      var donationsByDate = <%= raw @donations_by_date %>
+      var donationsByDate = <%= raw @donations_by_date %>;
       var data = new google.visualization.DataTable();
       data.addColumn('date', 'Date');
       data.addColumn('number', 'Amount');
       data.addRows(donationsByDate);
 
       var options = {
-        title: 'Donations',
+        title: 'Donations Over Time',
         curveType: 'function',
         legend: 'none',
         hAxis: {
@@ -36,18 +36,14 @@
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
-        var donationByIssue = <%= @donations_by_issue %>
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
+        var donationsByIssue = <%= raw @donations_by_issue %>;
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Issue');
+        data.addColumn('number', 'Amount');
+        data.addRows(donationsByIssue);
 
         var options = {
-          title: 'My Daily Activities'
+          title: 'Donations by Issue'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -67,7 +63,8 @@
   </div>
 
   <br>
-  <div class="col-md-12" id="curve_chart" style="text-center width:800px; height: 300px"></div>
+  <div class="col-md-6" id="curve_chart" style="text-center width:800px; height: 500px"></div>
+  <div class="col-md-6" id="piechart" style="width: 500px; height: 500px;"></div>
   <div class="col-lg-8 col-lg-offset-2">
     <div class="progress">
       <div class="progress-bar progress-bar-danger" roll="progressbar"
