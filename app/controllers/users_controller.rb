@@ -8,10 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(pending_user_params)
     if @user.save!
       @user.user_roles << create_user
-
       create_user
-      byebug
-      puts "WOWOWOWOWOWOWOWOW ===============================================================================================================================================================WOWOWOWOWOWOWOW"
       two_factor
       redirect_to  two_factor_authentication_path(@user.id)
     else
