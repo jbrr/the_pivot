@@ -1,5 +1,11 @@
 class Crusher
 
+  PHONEWORD = [rand(1..11), rand(1..11), rand(1..11), rand(1..11)]
+
+  def self.code
+    "#{PHONEWORD.join.to_i}"
+  end
+
   def self.create_order(session, current_user, cart)
     order = Order.create(user_id: current_user.id, total: cart.total, status: "completed")
     cart.donations.each do |donation|
@@ -13,7 +19,9 @@ class Crusher
 
   def self.send_phone_password(current_user)
     if current_user.phone_number != ""
-      SendNotification.new.phone_word(current_user.phone_number)
+      SendNotification.new.phone_word(code, current_user.phone_number)
+      current_user.update_attribute("sent_code", code)
+      current_user.save
     end
   end
 
@@ -22,4 +30,5 @@ class Crusher
       SendNotification.new.text_message(current_user.phone_number, order, current_user)
     end
   end
+
 end

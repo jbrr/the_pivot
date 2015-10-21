@@ -42,4 +42,8 @@ class User < ActiveRecord::Base
   def platform_admin?
     roles.exists?(name: "platform_admin")
   end
+
+  def pending_user?
+    roles.exists?(name: "pending_user")
+  end
 end
