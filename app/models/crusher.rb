@@ -11,7 +11,7 @@ class Crusher
   end
 
   def self.send_text(order, current_user)
-    if current_user.phone_number
+    if current_user.phone_number != ""
       SendNotification.new.text_message(current_user.phone_number, order, current_user)
     end
   end

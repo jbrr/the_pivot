@@ -5,8 +5,10 @@ class CandidatesController < ApplicationController
   end
 
   def show
-    @candidate = candidate_id
+    @candidate = candidate
     @registered = current_user.registered_user? if current_user
+    @tweet_uri = TwitterService.new.first_tweet_link(@candidate.twitter_handle)
+    @embedded_tweet = TwitterEmbed.new.embedded_tweet(@tweet_uri)
   end
 
   def update
@@ -25,11 +27,7 @@ class CandidatesController < ApplicationController
     params.require(:candidate).permit(:bio)
   end
 
-  def candidate_id
-    Candidate.find(params[:id])
-  end
-
   def candidate
-    candidate_id
+    Candidate.find(params[:id])
   end
 end
