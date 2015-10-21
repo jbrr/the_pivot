@@ -16,6 +16,10 @@ def platform_admin
   @platform_admin = Role.create(name: "platform_admin")
 end
 
+def pending_user
+  @pending_user = Role.create(name: "pending_user")
+end
+
 def user
   @user ||= User.create(first_name: "Donald",
                          last_name: "Trump",
@@ -132,6 +136,7 @@ def test_setup
   candidate
   issue
   issue2
+  pending_user
   candidate_issue
   candidate_issue2
 end
