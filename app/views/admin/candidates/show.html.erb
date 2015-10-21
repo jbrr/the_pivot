@@ -1,3 +1,37 @@
+<head>
+<script type="text/javascript"
+        src="https://www.google.com/jsapi?autoload={
+          'modules':[{
+            'name':'visualization',
+            'version':'1',
+            'packages':['corechart']
+          }]
+        }"></script>
+
+  <script type="text/javascript">
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var donationsByDate = <%= raw @donations_by_date %>
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Date');
+      data.addColumn('number', 'Amount');
+      data.addRows(donationsByDate);
+
+      var options = {
+        title: 'Donations',
+        curveType: 'function',
+        legend: 'none',
+        hAxis: {
+          viewWindowMode: 'pretty',
+        }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
 <br>
 <div class="container">
   <h3 id='title-2'><%= current_candidate.name %>'s Campaign Manager Dashboard</h3>
@@ -8,7 +42,7 @@
   </div>
 
   <br>
-
+  <div class="col-md-12" id="curve_chart" style="text-center width:800px; height: 300px"></div>
   <div class="col-lg-8 col-lg-offset-2">
     <div class="progress">
       <div class="progress-bar progress-bar-danger" roll="progressbar"

@@ -3,6 +3,7 @@ class Admin::CandidatesController < ApplicationController
   before_action :set_candidate, :set_slug
 
   def show
+    @donations_by_date = DonationChart.donation_by_date(set_candidate)
   end
 
   def edit
