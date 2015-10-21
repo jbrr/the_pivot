@@ -36,6 +36,10 @@ gem 'stripe'
 
 gem 'pry-rails'
 
+gem 'twitter'
+
+gem 'httparty'
+
 gem 'rails_12factor', group: :production
 
 group :development, :test do
