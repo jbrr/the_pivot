@@ -1,11 +1,12 @@
 <li>
-  <a href="/profile">
+  <a href="/profile" id="hovered">
     <%= current_user.username %>
   </a>
 </li>
 <li>
-  <%= link_to "#{current_candidate.name} Dashboard", admin_candidate_path(current_candidate.slug) %>
+  <%= link_to "#{current_candidate.name} Dashboard",
+      admin_candidate_path(current_candidate.slug), id: "hovered" %>
 </li>
 <li>
-  <%= link_to "Logout", logout_path, method: :delete %>
+  <%= link_to "Logout", logout_path, method: :delete, id: "hovered" %>
 </li>

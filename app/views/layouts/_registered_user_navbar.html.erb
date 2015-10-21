@@ -1,8 +1,8 @@
 <li>
-  <a href="/profile">
+  <a href="/profile" id="hovered">
     <%= current_user.username %>
   </a>
 </li>
 <li>
-  <%= link_to "Logout", logout_path, method: :delete %>
+  <%= link_to "Logout", logout_path, method: :delete, id: "hovered" %>
 </li>
