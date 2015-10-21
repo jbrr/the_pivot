@@ -13,7 +13,7 @@ class Crusher
       donation.user_id  = current_user.id
       donation.save
     end
-    if current_user.phone_number == nil
+    if current_user.phone_number == nil 
       order
     else
       send_text(order, current_user)
