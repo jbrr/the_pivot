@@ -12,12 +12,15 @@
     google.setOnLoadCallback(drawChart);
     function drawChart() {
       var donationsByDate = <%= raw @donations_by_date %>
-      var data = google.visualization.arrayToDataTable(donationsByDate);
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Date');
+      data.addColumn('number', 'Amount');
+      data.addRows(donationsByDate);
 
       var options = {
         title: 'Donations',
         curveType: 'function',
-        legend: { position: 'bottom' }
+        legend: 'none'
       };
 
       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));

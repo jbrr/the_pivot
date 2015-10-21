@@ -6,9 +6,10 @@ class Admin::CandidatesController < ApplicationController
     @candidate = set_candidate
     @donations_by_date = []
     @candidate.donations.map do |donation|
-      @donations_by_date << [donation.created_at.strftime("%d"), donation.amount]
+      parsed_date = donation.created_at.strftime("%s").to_i * 1000
+      @donations_by_date << ["new Date(#{parsed_date})", donation.amount]
     end
-    @donations_by_date = @donations_by_date.unshift(['Date', 'Amount'])
+    @donations_by_date = @donations_by_date.to_s.gsub('"','')
   end
 
   def edit
