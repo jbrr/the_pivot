@@ -21,11 +21,6 @@
           <li><%= link_to "Issues", issues_path, id: "hovered" %><span class="sr-only">(current)</span></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" id="navbar">
-          <li>
-            <%= link_to root_path, id: "hovered" do %>
-              <span class="glyphicon glyphicon-home"></span>
-            <% end %>
-          </li>
           <li id="cart">
             <%= link_to cart_path, class: "cart", id: "hovered" do %>
               <span class="glyphicon glyphicon-shopping-cart"></span>
