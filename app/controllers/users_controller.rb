@@ -7,9 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(pending_user_params)
     if @user.save!
-      @user.user_roles << create_user
       create_user
-      two_factor
       redirect_to  two_factor_authentication_path(@user.id)
     else
       flash.now[:errors] = @user.errors.full_messages.join(", ")
@@ -33,6 +31,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       role = Role.find_by(name: "pending_user")
       @user.user_roles << UserRole.create(user_id: @user.id, role_id: role.id)
+      two_factor
     end
 
     def two_factor
