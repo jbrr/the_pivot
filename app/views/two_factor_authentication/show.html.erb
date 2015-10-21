@@ -1,8 +1,12 @@
-<h1>Authenticate yourself with the code that was sent to your phone</h1>
-
+<div class="text-center">
+<%= flash_messages %>
+<h1>Authenticate yourself with the code that was sent to your phone!</h1>
+<br>
+<h3>If you did not input a phone number, please prove that you are a human by inputing what you see in the following image:<br> <img src="https://s3-us-west-2.amazonaws.com/dadjokesfordays/images/captcha.png"></h2>
 <h3>
-  <%= form_for @user, url: two_factor_authentication_path do |f|%>
-    <%= f.text_field :auth_code %>
+  <%= bootstrap_form_for @user, url: two_factor_authentication_path do |f|%>
+    <%= f.text_field :auth_code %><br>
     <%= f.submit "Submit Auth Code" %>
   <% end %>
 </h3>
+</div>

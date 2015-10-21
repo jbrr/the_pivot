@@ -37,18 +37,4 @@ feature "guest creates an account" do
     end
   end
 
-  # scenario "guest cannot register account without matching passwords" do
-  #   test_setup
-  #
-  #   visit join_path
-  #   fill_in "user[first_name]", with: "Donald"
-  #   fill_in "user[last_name]", with: "Trump"
-  #   fill_in "user[email]", with: "trump@luxury.com"
-  #   fill_in "user[username]", with: "trumpcard"
-  #   fill_in "user[password]", with: "luxurious1"
-  #   fill_in "user[password_confirmation]", with: "luxurious"
-  #   click_on "Join Earmarked"
-  #
-  #   expect(current_path).to eq(join_path)
-  # end
 end

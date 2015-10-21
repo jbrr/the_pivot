@@ -5,6 +5,7 @@ class TwoFactorAuthenticationController < ApplicationController
   end
 
   def update
+    @user = current_user
     if params[:user][:auth_code] == current_user.sent_code
       current_user_update
       redirect_to profile_path

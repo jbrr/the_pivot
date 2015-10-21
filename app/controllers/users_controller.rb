@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     end
 
     def two_factor_auth
-      if Rails.env.development?
+      if Rails.env.development? || Rails.env.production?
         two_factor
       elsif
         Rails.env.test?
