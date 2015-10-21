@@ -8,6 +8,10 @@
 html,
 body {
     height: 100%;
+    // background-image: url(image-path("stars_pattern.jpg"));
+    // background-position: center;
+    // background-size: cover;
+    background: #f4f4f4;
 }
 
 body {
@@ -20,6 +24,24 @@ body {
 
 .img-hover:hover {
     opacity: 0.8;
+}
+
+//nav-bar
+
+#navbar-flash {
+  background-color: #001B4D;
+}
+
+#logo {
+  font-family: 'Quattrocento', serif;
+  font-size: 25px;
+}
+#logo:hover {
+  color: #A30505;
+}
+
+#hovered:hover {
+  color: #A30505;
 }
 
 // Home Page Carousel
@@ -37,7 +59,7 @@ header.carousel .carousel-inner {
 header.carousel .fill#slider-1 {
   width: 100%;
   height: 100%;
-  background: url(image-path("capitol.jpg"));
+  background: url(image-path("wash_night.jpg"));
   background-position: center;
   background-size: cover;
 }
@@ -53,17 +75,13 @@ header.carousel .fill#slider-2 {
 header.carousel .fill#slider-3 {
   width: 100%;
   height: 100%;
-  background: url(image-path("liberty.jpg"));
+  background: url(image-path("Taylor-Swift-American-Flag.jpg"));
   background-position: center;
   background-size: cover;
 }
 
 // Universal Styling
 
-#logo {
-  font-family: 'Quattrocento', serif;
-  font-size: 25px;
-}
 
 #candidates {
   text-align: center;
@@ -77,6 +95,7 @@ header.carousel .fill#slider-3 {
   font-family: 'Quattrocento', serif;
   font-size: 70px;
   text-align: center;
+  color: #A30505;
 }
 
 #title-1 a:hover {
@@ -87,30 +106,38 @@ header.carousel .fill#slider-3 {
   font-family: 'Quattrocento', serif;
   font-size: 50px;
   text-align: center;
+  color: #001B4D;
 }
 
 #subtitle-1 {
   font-family: 'Quattrocento', serif;
   font-size: 30px;
   text-align: center;
+  color: #001B4D;
 }
 
 #subtitle-2 {
   font-family: 'Quattrocento', serif;
   font-size: 25px;
   text-align: center;
+  color: #001B4D;
 }
 
 #copyright {
   text-align: center;
+  font-size: 15px;
 }
 
-#candidate-front-title {
+#candidate-front-title a {
+  font-family: 'Quattrocento', serif;
   text-align: center;
+  color: #001B4D;
 }
 
-#issue-front-title {
+#issue-front-title a {
+  font-family: 'Quattrocento', serif;
   text-align: center;
+  color: #001B4D;
 }
 
 #button-front-page {
@@ -123,6 +150,16 @@ header.carousel .fill#slider-3 {
   font-size: 20px;
 }
 
+.page-header {
+  margin: 10px;
+  color: #A30505;
+  font-family: 'Quattrocento', serif;
+}
+
+.page-header div {
+  margin-bottom: 0px;
+}
+
 .donation-candidate h3:hover {
   color: #ff0000
 }
@@ -131,9 +168,8 @@ header.carousel .fill#slider-3 {
   color: #000000
 }
 
-
-#logo {
-  font-family: 'Quattrocento', serif;
+.front-button {
+  background-color: #001B4D;
 }
 
 // Flash Notice Styling

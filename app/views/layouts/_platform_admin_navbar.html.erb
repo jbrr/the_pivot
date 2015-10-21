@@ -1,11 +1,11 @@
 <li>
-  <a href="/profile">
-    <%= "Welcome, #{current_user.username}." %>
+  <a href="/profile" id="hovered">
+    <%= current_user.username %>
   </a>
 </li>
 <li>
-  <%= link_to "Dashboard", admin_dashboard_path %>
+  <%= link_to "Dashboard", admin_dashboard_path, id: "hovered" %>
 </li>
 <li>
-  <%= link_to "Logout", logout_path, method: :delete %>
+  <%= link_to "Logout", logout_path, method: :delete, id: "hovered" %>
 </li>
