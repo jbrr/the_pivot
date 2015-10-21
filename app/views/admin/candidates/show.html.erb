@@ -1,3 +1,37 @@
+<head>
+<script type="text/javascript"
+        src="https://www.google.com/jsapi?autoload={
+          'modules':[{
+            'name':'visualization',
+            'version':'1',
+            'packages':['corechart']
+          }]
+        }"></script>
+
+  <script type="text/javascript">
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Year', 'Sales', 'Expenses'],
+        ['2004',  1000,      400],
+        ['2005',  1170,      460],
+        ['2006',  660,       1120],
+        ['2007',  1030,      540]
+      ]);
+
+      var options = {
+        title: 'Donations',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
 <br>
 <div class="container">
   <h3 id='title-2'><%= current_candidate.name %>'s Campaign Manager Dashboard</h3>
@@ -8,18 +42,8 @@
   </div>
 
   <br>
-  <!-- create a placeholder for the flot graph -->
-  <div class="col-md-12" id="flot-placeholder" style="text-center width:800px; height: 300px"></div>
+  <div class="col-md-12" id="curve_chart" style="text-center width:800px; height: 300px"></div>
 
-  <script type="text/javascript">
-  $(function() {
-      var d1 = [];
-      for (var i = 0; i < 14; i += 0.5) {
-          d1.push([i, Math.sin(i)]);
-      }
-      $.plot("#flot-placeholder", [ d1 ]);
-  });
-  </script>
   <div class="col-lg-8 col-lg-offset-2">
     <div class="progress">
       <div class="progress-bar progress-bar-danger" roll="progressbar"
