@@ -20,7 +20,10 @@
       var options = {
         title: 'Donations',
         curveType: 'function',
-        legend: 'none'
+        legend: 'none',
+        hAxis: {
+          viewWindowMode: 'pretty',
+        }
       };
 
       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
