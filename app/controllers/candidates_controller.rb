@@ -7,6 +7,8 @@ class CandidatesController < ApplicationController
   def show
     @candidate = candidate_id
     @registered = current_user.registered_user? if current_user
+    @tweet_uri = TwitterService.new.first_tweet_link("realdonaldtrump")
+    @embedded_tweet = TwitterEmbed.new.embedded_tweet(@tweet_uri)
   end
 
   def update
