@@ -8,7 +8,7 @@ class DonationChart
     donation_date = donation_date.to_s.gsub('"', '')
   end
 
-  def self.donation_by_candidate_issue(candidate)
+  def self.donations_by_issue(candidate)
     donation_candidate_issue = []
     candidate.donations.map do |donation|
       donation_topic = donation.issue.topic
