@@ -11,9 +11,8 @@
   <script type="text/javascript">
     google.setOnLoadCallback(drawChart);
     function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        <% @donations_by_date %>
-      ]);
+      var donationsByDate = <%= raw @donations_by_date %>
+      var data = google.visualization.arrayToDataTable(donationsByDate);
 
       var options = {
         title: 'Donations',
@@ -38,7 +37,6 @@
 
   <br>
   <div class="col-md-12" id="curve_chart" style="text-center width:800px; height: 300px"></div>
-  <% require 'pry'; binding.pry %>
   <div class="col-lg-8 col-lg-offset-2">
     <div class="progress">
       <div class="progress-bar progress-bar-danger" roll="progressbar"

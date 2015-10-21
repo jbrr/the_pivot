@@ -8,7 +8,7 @@ class Admin::CandidatesController < ApplicationController
     @candidate.donations.map do |donation|
       @donations_by_date << [donation.created_at.strftime("%d"), donation.amount]
     end
-    @donations_by_date = @donations_by_date.unshift(["Date", "amount"]).to_json
+    @donations_by_date = @donations_by_date.unshift(['Date', 'Amount'])
   end
 
   def edit
