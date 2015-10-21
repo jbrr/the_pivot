@@ -2,7 +2,7 @@
 
 <h3>
   <%= form_for @user, url: two_factor_authentication_path do |f|%>
-    <%= f.text_field :auth_code, placeholder: "" %>
+    <%= f.text_field :auth_code %>
     <%= f.submit "Submit Auth Code" %>
   <% end %>
 </h3>

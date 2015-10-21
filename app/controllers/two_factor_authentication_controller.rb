@@ -7,7 +7,7 @@ class TwoFactorAuthenticationController < ApplicationController
   def update
     if params[:user][:auth_code] == current_user.sent_code
       current_user_update
-      redirect_to profile_path(current_user)
+      redirect_to profile_path
     else
       flash[:errors] = "Please input the correct authentication code!"
       render :show

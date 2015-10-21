@@ -31,11 +31,24 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       role = Role.find_by(name: "pending_user")
       @user.user_roles << UserRole.create(user_id: @user.id, role_id: role.id)
-      two_factor
+      two_factor_auth
     end
 
     def two_factor
       Crusher.send_phone_password(current_user)
+    end
+
+    def test_factor
+      Crusher.send_test_code(current_user)
+    end
+
+    def two_factor_auth
+      if Rails.env.development?
+        two_factor
+      elsif
+        Rails.env.test?
+        test_factor
+      end
     end
 
 end

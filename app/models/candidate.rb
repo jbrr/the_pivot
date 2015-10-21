@@ -3,7 +3,7 @@ class Candidate < ActiveRecord::Base
   has_many :candidate_issues
   has_many :user_roles
   has_many :users, through: :user_roles
-  validates :name, :bio, :party, :twitter_handle, presence: true
+  validates :name, :bio, :party, presence: true
   validates :slug, uniqueness: true
 
   before_validation :generate_slug

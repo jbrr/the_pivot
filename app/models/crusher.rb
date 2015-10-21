@@ -13,8 +13,18 @@ class Crusher
       donation.user_id  = current_user.id
       donation.save
     end
-    send_text(order, current_user)
-    order
+    if current_user.phone_number == nil
+      order
+    else
+      send_text(order, current_user)
+      order
+    end
+  end
+
+  def self.send_test_code(current_user)
+    code = "9999"
+    current_user.update_attribute("sent_code", code)
+    current_user.save
   end
 
   def self.send_phone_password(current_user)
@@ -26,7 +36,7 @@ class Crusher
   end
 
   def self.send_text(order, current_user)
-    if current_user.phone_number != ""
+    if current_user.phone_number != "" || nil
       SendNotification.new.text_message(current_user.phone_number, order, current_user)
     end
   end
