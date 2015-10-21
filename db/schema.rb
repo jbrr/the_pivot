@@ -91,9 +91,11 @@ ActiveRecord::Schema.define(version: 20151021125549) do
     t.string   "email"
     t.string   "username"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "phone_number"
+    t.string   "sent_code"
+    t.string   "auth_code",       default: ""
   end
 
   add_foreign_key "donations", "candidate_issues"

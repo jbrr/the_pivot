@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_candidate
-    cid                = current_user.user_roles.first.candidate_id
+    cid                = current_user.user_roles.last.candidate_id
     @current_candidate ||= Candidate.find_by(id: cid)
   end
 

@@ -204,6 +204,7 @@ puts "Orders and Donations created"
 role1 = Role.create(name: "registered_user")
 role2 = Role.create(name: "campaign_manager")
 role3 = Role.create(name: "platform_admin")
+role4 = Role.create(name: "pending_user")
 puts "Roles created"
 
 user1.user_roles << UserRole.create(user_id: user1.id, role_id: role3.id)
