@@ -3,13 +3,7 @@ class Admin::CandidatesController < ApplicationController
   before_action :set_candidate, :set_slug
 
   def show
-    @candidate = set_candidate
-    @donations_by_date = []
-    @candidate.donations.map do |donation|
-      parsed_date = donation.created_at.strftime("%s").to_i * 1000
-      @donations_by_date << ["new Date(#{parsed_date})", donation.amount]
-    end
-    @donations_by_date = @donations_by_date.to_s.gsub('"','')
+    @donations_by_date = DonationChart.donation_by_date(set_candidate)
   end
 
   def edit
