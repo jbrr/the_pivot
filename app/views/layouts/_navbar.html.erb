@@ -12,7 +12,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "Earmarked2", root_path, class: "navbar-brand" %>
+        <%= link_to "Earmarked2", root_path, class: "navbar-brand", id: "logo" %>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -28,8 +28,8 @@
           </li>
           <li id="cart">
             <%= link_to cart_path, class: "cart" do %>
-              <span class="glyphicon glyphicon-shopping-cart">
-              </span> Cart<%= ": $" + cart.total.to_s if cart.total %>
+              <span class="glyphicon glyphicon-shopping-cart"></span>
+              <%= "Cart: $" + cart.total.to_s if cart.total %>
             <% end %>
           </li>
           <% if platform_admin? %>
