@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017222651) do
+ActiveRecord::Schema.define(version: 20151021125549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,11 +29,12 @@ ActiveRecord::Schema.define(version: 20151017222651) do
     t.string   "name"
     t.string   "party"
     t.string   "bio"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "featured",   default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "featured",       default: false
     t.string   "last_name"
     t.string   "slug"
+    t.string   "twitter_handle"
   end
 
   create_table "donations", force: :cascade do |t|
