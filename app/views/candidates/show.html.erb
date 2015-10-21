@@ -54,10 +54,12 @@
           Apply to become their campaign manager today!</h3>
         <%= link_to "Login to Apply Now", login_path, class: "btn btn-danger btn-lg" %>
       <% end %>
-      <div class="col-md-8 col-md-offset-2 portfolio-item">
-        <%= @embedded_tweet["html"].html_safe %>
-      </div>
     </div>
+  </div>
+</div>
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 portfolio-item">
+    <%= @embedded_tweet["html"].html_safe %>
   </div>
 </div>
 <br><br>
