@@ -47,11 +47,11 @@ feature "A registered user can apply to be a campaign manager" do
 
     click_on "Dashboard"
     expect(page).to have_content("Regis")
-    expect(page).to have_content("Therealtrump")
+    expect(page).to have_content("Donald")
     expect(page).to have_content("He's a good candidate")
     expect(page).to have_content("I want to do this")
 
-    within('.text-center') do
+    within('#application-table') do
       first(:link, "Approve").click
     end
 
