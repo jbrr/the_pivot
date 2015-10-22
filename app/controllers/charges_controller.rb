@@ -19,7 +19,7 @@ class ChargesController < ApplicationController
       :currency    => "usd"
     )
 
-    order = Crusher.create_order(session, current_user, cart)
+    order = Sender.create_order(session, current_user, cart)
     session[:donations].clear
 
     redirect_to order_path(order)

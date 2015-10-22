@@ -1,4 +1,4 @@
-class Crusher
+class Sender
 
   PHONEWORD = [rand(1..11), rand(1..11), rand(1..11), rand(1..11)]
 
