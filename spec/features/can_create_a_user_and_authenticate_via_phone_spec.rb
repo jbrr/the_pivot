@@ -20,8 +20,14 @@ feature "guest creates an account" do
     fill_in "user[phone_number]", with: "7037952610"
     fill_in "user[username]", with: "reeg"
     fill_in "user[password]", with: "password"
+    fill_in "user[password_confirmation]", with: "passwor"
+    click_on "Join Earforked"
+
+    expect(page).to have_content("doesn't match Password")
+
+    fill_in "user[password]", with: "password"
     fill_in "user[password_confirmation]", with: "password"
-    click_on "Join Earmarked"
+    click_on "Join Earforked"
 
     user = User.find_by(email: "regis@reeg.com")
 
@@ -49,7 +55,7 @@ feature "guest creates an account" do
     fill_in "user[username]", with: "rEEEg"
     fill_in "user[password]", with: "password"
     fill_in "user[password_confirmation]", with: "password"
-    click_on "Join Earmarked"
+    click_on "Join Earforked"
 
     user = User.find_by(email: "regis@rEEEg.com")
 
