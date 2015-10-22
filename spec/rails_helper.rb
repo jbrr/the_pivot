@@ -116,6 +116,12 @@ def candidate_issue2
                                                  stance: "Luxurious guns!")
 end
 
+def donation
+  @donation ||= Donation.create(amount: 200,
+                                candidate_issue_id: candidate_issue.id,
+                                user_id: user.id)
+end
+
 def order
   @order ||= Order.create(total: 100,
                         user_id: user.id)
@@ -139,6 +145,7 @@ def test_setup
   pending_user
   candidate_issue
   candidate_issue2
+  donation
 end
 
 ActiveRecord::Migration.maintain_test_schema!
