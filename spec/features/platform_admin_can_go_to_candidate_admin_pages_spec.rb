@@ -27,7 +27,6 @@ feature "platform admin" do
 
     click_link "Dashboard"
     expect(current_path).to eq(admin_dashboard_path)
-        save_and_open_page
     expect(page).to have_content("Ted Cruz")
     expect(page).to have_content("Donald Trump")
   end
