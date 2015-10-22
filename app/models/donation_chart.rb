@@ -13,20 +13,25 @@ class DonationChart < ActiveRecord::Base
   end
 
   def self.wtf
-    Issue.all.map do |issue|
-      issue.candidate_issues.map { |candidate_issue| candidate_issue.donations.
-        map { |donation| donation.amount }}.reduce(:+).reduce(:+)
-    end.map do |num|
-      if num.nil?
-        0
-      else
-        num
+    omg = Issue.all.map do |issue|
+        issue.candidate_issues.map { |candidate_issue| candidate_issue.donations.
+          map { |donation| donation.amount }}
+          if omg == nil
+            0
+          else
+            omg.reduce(:+).reduce(:+).map do |num|
+              if num.nil?
+                0
+              else
+                num
+              end
+            end
+          end
       end
-    end
   end
 
   def self.donations_by_issue(candidate)
     donation_candidate_issue = []
-    donation_issues.zip(issue_donation_total)
+    donation_issues.zip(wtf)
   end
 end
