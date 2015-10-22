@@ -31,6 +31,14 @@ feature "can create order as user" do
 
     expect(page).to have_content("20")
 
+    fill_in "donation[amount]", with: ""
+    click_on "Update"
+
+    expect(page).to have_content("Invalid Donation")
+
+    fill_in "donation[amount]", with: "20"
+    click_on "Update"
+
     within("#cart-donate-button") do
       click_button "Pay with Card"
     end
