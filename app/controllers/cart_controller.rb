@@ -19,7 +19,7 @@ class CartController < ApplicationController
     cart.delete(params)
     flash[:success] = "Your donation to #{find_candidate}'s #{find_issue}
                       campaign has been removed from your cart.
-                      Click <a href='/donations/undo'><strong>HERE</strong></a>
+                      Click <a href='/donations/undo', id='undo-link'><strong>HERE</strong></a>
                       to resubmit your donation."
     redirect_to cart_path
   end

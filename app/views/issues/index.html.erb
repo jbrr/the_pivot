@@ -1,25 +1,30 @@
+<br>
 <div class="container" id="issues">
-  <div class="row">
-    <div class="col-lg-12">
-       <h1 class="page-header">Issues
-           <small>Topics of Debate for the 2016 Presidential Election</small>
-       </h1>
+  <div class="panel">
+    <div class="panel-body">
+      <div class="col-lg-12">
+        <h1 id="title-2">Issues</h1>
+        <h3 id="subtitle-1">Topics of Debate for the 2016 Presidential Election</h3>
+      </div>
     </div>
   </div>
 
-  <div class="row">
-    <% @issues.each do |issue| %>
-      <div class="col-md-4 portfolio-item">
-        <a>
-          <%= link_to image_tag("#{issue.picture}.jpg",
-          class:"img-responsive img-portfolio img-hover",
-          id:"#{issue.picture}-image"),
-          issue_path(issue) %>
-        </a>
-        <h3 id="issue-title-index">
-           <%= link_to issue.topic, issue_path(issue) %>
-        </h3>
-        <p><%= issue.description %></p>
-      </div>
-    <% end %>
+  <div class="panel">
+    <div class="panel-body"><br>
+      <% @issues.each do |issue| %>
+        <div class="col-md-4 portfolio-item">
+          <a>
+            <%= link_to image_tag("#{issue.picture}.jpg",
+            class:"img-responsive img-portfolio img-hover",
+            id:"#{issue.picture}-image"),
+            issue_path(issue) %>
+          </a>
+          <h3 id="issue-title-index">
+             <%= link_to issue.topic, issue_path(issue), id: "index-names" %>
+          </h3>
+          <p><%= issue.description %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
