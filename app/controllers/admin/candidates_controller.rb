@@ -4,7 +4,7 @@ class Admin::CandidatesController < ApplicationController
 
   def show
     @donations_by_date = DonationChart.donation_by_date(set_candidate)
-    @donations_by_issue = DonationChart.donations_by_issue(set_candidate)
+    @donations_by_issue = DonationChart.wtf(set_candidate)
   end
 
   def edit
