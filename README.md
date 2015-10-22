@@ -1,6 +1,6 @@
-## Earmarked2
+## Earforked
 
-Earmarked2 is an extension of a project built by other Turing School students: @roseak, @bad6e, @travishaby, and @mcschatz.
+Earforked is an extension of a project built by other Turing School students: @roseak, @bad6e, @travishaby, and @mcschatz.
 
 Their repository can be found here:
 
@@ -18,7 +18,7 @@ Our purpose was to inherit their codebase and expand on the project, including a
 
 The website can be found here:
 
-[Earmarked2.herokuapp.com](http://earmarked2.herokuapp.com)
+[Earforked.herokuapp.com](http://earforked.herokuapp.com)
 
 The pivot assignment can be found here:
 
