@@ -36,7 +36,7 @@ feature "A logged in campaign manager" do
     fill_in "Password", with: "password"
     click_button "Login"
 
-    expect(page).to have_content("Welcome, Jef")
+    expect(page).to have_content("Jef Jef")
     expect(page).to have_content("Ted Cruz Dashboard")
 
     click_on "Ted Cruz Dashboard"
