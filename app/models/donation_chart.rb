@@ -7,6 +7,7 @@ class DonationChart < ActiveRecord::Base
    end
    donation_date = donation_date.to_s.gsub('"', '')
  end
+ 
  def self.donations_by_issue(candidate)
    donations_by_issue = candidate.candidate_issues.joins(:donations).group(:issue_id).sum(:amount)
    donations_by_issue.map { |issue_id, amt| [ Issue.find(issue_id).topic, amt ] }

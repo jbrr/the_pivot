@@ -9,6 +9,11 @@
 
 <div class="container">
   <h3 id='cart-header-title'>Dashboard</h3>
+  <div class="text-center">
+    <% @candidates.each do |candidate| %>
+      <%= link_to candidate.name, "/admin/#{candidate.slug}", class: "btn btn-success btn-sm" %>
+    <% end %>
+  </div><br>
   <div class="panel">
     <div class="panel-body">
       <div class="col-lg-10 col-lg-offset-1">
