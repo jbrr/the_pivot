@@ -27,6 +27,6 @@ class DonationChart < ActiveRecord::Base
 
   def self.donations_by_issue(candidate)
     donation_candidate_issue = []
-    donation_issues.zip(issue_donation_total)
+    donation_issues.zip(wtf)
   end
 end
