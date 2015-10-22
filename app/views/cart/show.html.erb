@@ -1,4 +1,4 @@
-<br>
+
 <div class="row" align="center" id="flash_messages">
   <br>
     <div class="col-md-12" id="flash_notice">
@@ -6,23 +6,29 @@
     </div>
 </div>
 <br>
+
+<div class="container">
 <div class="cart">
   <h3 id="cart-header-title">Your Donations Cart</h3><br>
    <div class="container">
-    <div class="row well">
+     <div class="panel">
+       <div class="panel-body">
+
      <div class="col-md-offset-2 col-md-8">
       <%= render partial: "cart_items" %>
     </div>
   </div>
 </div>
+</div>
+</div>
 
 <div class="container" id="button-front-page">
   <div class="row">
       <div class="col-md-offset-2 col-md-4" id="browse-candidates-button">
-          <%= link_to "View More Candidates", candidates_path, class: "btn btn-lg btn-default btn-block btn btn-primary" %>
+          <%= link_to "View More Candidates", candidates_path, class: "btn btn-lg btn-default btn-block btn btn-primary front-button" %>
       </div>
       <div class="col-md-4" id="browse-issues-button">
-          <%= link_to "View More Issues", issues_path, class: "btn btn-lg btn-default btn-block btn btn-primary" %>
+          <%= link_to "View More Issues", issues_path, class: "btn btn-lg btn-default btn-block btn btn-primary front-button" %>
       </div>
   </div>
 </div>
