@@ -11,7 +11,7 @@ feature "Can view and click to see top candidates and issues" do
     visit root_path
     expect(current_path).to eq("/")
 
-    expect(page).to have_content("Welcome to Earmarked")
+    expect(page).to have_content("Welcome to Earforked")
     expect(page).to have_content("Top Candidates")
     within("#candidates") do
       expect(page).to have_content("Donald Trump")
