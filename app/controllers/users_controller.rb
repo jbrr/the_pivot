@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(pending_user_params)
-    if @user.save!
+    if @user.save
       create_user
       redirect_to  two_factor_authentication_path(@user.id)
     else
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
     def pending_user_params
       params.require(:user).permit(:first_name, :last_name, :email,
                      :phone_number, :username, :password,
