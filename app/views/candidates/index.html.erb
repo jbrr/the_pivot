@@ -1,44 +1,51 @@
+<br>
 <div class="container" id="candidates">
-  <div class="row">
-    <div class="col-lg-12">
-       <h1 class="page-header">Candidates
-           <small>Presidential hopefuls for the 2016 Election</small>
-       </h1>
+  <div class="panel">
+    <div class="panel-body">
+      <div class="col-lg-12">
+         <h1 id="title-2">Candidates</h1>
+         <h3 id="subtitle-1">Presidential hopefuls for the 2016 Election</h3>
+      </div>
     </div>
   </div>
 
-  <div class="row">
-    <h2 class="well" align="center">Republicans</h2>
-    <% @republicans.each do |candidate| %>
-      <div class="col-md-4 portfolio-item">
-        <a>
-          <%= link_to image_tag("#{candidate.last_name}.jpg",
-          class:"img-responsive img-portfolio img-hover",
-          id:"#{candidate.last_name}-image"),
-          candidate_path(candidate) %>
-        </a>
-        <h3>
-           <%= link_to candidate.name, candidate_path(candidate) %>
-        </h3>
-        <p><%= candidate.bio %></p>
-      </div>
-    <% end %>
+  <div class="panel">
+    <div class="panel-body">
+      <h2 align="center" id="index-titles">Republicans</h2><br>
+      <% @republicans.each do |candidate| %>
+        <div class="col-md-4 portfolio-item">
+          <a>
+            <%= link_to image_tag("#{candidate.last_name}.jpg",
+            class:"img-responsive img-portfolio img-hover",
+            id:"#{candidate.last_name}-image"),
+            candidate_path(candidate) %>
+          </a>
+          <h3>
+             <%= link_to candidate.name, candidate_path(candidate), id: "index-names" %>
+          </h3>
+          <p><%= candidate.bio %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <div class="row">
-    <h2 class="well" align="center">Democrats</h2>
-    <% @democrats.each do |candidate| %>
-     <div class="col-md-4 portfolio-item">
-         <a>
-             <%= link_to image_tag("#{candidate.last_name}.jpg",
-             class: "img-responsive img-portfolio img-hover",
-             id: "#{candidate.last_name}-image"),
-             candidate_path(candidate) %>
-         </a>
-         <h3>
-          <%= link_to candidate.name, candidate_path(candidate) %>
-         </h3>
-         <p><%= candidate.bio %></p>
-     </div>
-    <% end %>
+  <div class="panel">
+    <div class="panel-body">
+      <h2 align="center" id="index-titles">Democrats</h2><br>
+      <% @democrats.each do |candidate| %>
+       <div class="col-md-4 portfolio-item">
+           <a>
+               <%= link_to image_tag("#{candidate.last_name}.jpg",
+               class: "img-responsive img-portfolio img-hover",
+               id: "#{candidate.last_name}-image"),
+               candidate_path(candidate) %>
+           </a>
+           <h3>
+            <%= link_to candidate.name, candidate_path(candidate), id: "index-names" %>
+           </h3>
+           <p><%= candidate.bio %></p>
+       </div>
+      <% end %>
+    </div>
   </div>
+</div>
