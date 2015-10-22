@@ -7,7 +7,8 @@ class SendNotification
     @client.messages.create from: "7205063550",
                             to: number,
                             body: "Thanks for donating $#{order.
-                            total}.00 through Earmarked, #{current_user.first_name}!"
+                            total}.00 through Earmarked,
+                            #{current_user.first_name}!"
   end
 
   def phone_word(code, number)

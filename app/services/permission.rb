@@ -3,7 +3,8 @@ class Permission
   include ApplicationHelper
   attr_reader :user, :controller, :action
 
-  def_delegators :@user, :platform_admin?, :campaign_manager?, :registered_user?, :pending_user?
+  def_delegators :@user, :platform_admin?, :campaign_manager?,
+                 :registered_user?, :pending_user?
 
   def initialize(user)
     @user = user || User.new

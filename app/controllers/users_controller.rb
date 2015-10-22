@@ -23,8 +23,11 @@ class UsersController < ApplicationController
   end
 
   private
+  
     def pending_user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :username, :password, :password_confirmation, :sent_code, :auth_code)
+      params.require(:user).permit(:first_name, :last_name, :email,
+                     :phone_number, :username, :password,
+                     :password_confirmation, :sent_code, :auth_code)
     end
 
     def create_user
