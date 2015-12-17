@@ -1,5 +1,5 @@
 ## Earforked
-
+![](http://g.recordit.co/TyZmG2Mgvp.gif)
 Earforked is an extension of a project built by other Turing School students: @roseak, @bad6e, @travishaby, and @mcschatz.
 
 Their repository can be found here:
